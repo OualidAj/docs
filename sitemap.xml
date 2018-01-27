@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>https://colyseus.io//</loc>
+     <lastmod>2018-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://colyseus.io//getting-started/</loc>
+     <lastmod>2018-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>https://colyseus.io//concept-state-synchronization/</loc>
+     <lastmod>2018-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://colyseus.io//concept-matchmaking/</loc>
+     <lastmod>2018-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://colyseus.io//concept-worker-processes/</loc>
+     <lastmod>2018-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://colyseus.io//api-room/</loc>
+     <lastmod>2018-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://colyseus.io//api-room-handlers/</loc>
+     <lastmod>2018-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://colyseus.io//api-room-state/</loc>
+     <lastmod>2018-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://colyseus.io//api-authentication/</loc>
+     <lastmod>2018-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://colyseus.io//api-graceful-shutdown/</loc>
+     <lastmod>2018-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://colyseus.io//api-debugging/</loc>
+     <lastmod>2018-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://colyseus.io//client-overview/</loc>
+     <lastmod>2018-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://colyseus.io//client-state-synchronization/</loc>
+     <lastmod>2018-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>https://colyseus.io//deployment/</loc>
+     <lastmod>2018-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://colyseus.io//faq/</loc>
+     <lastmod>2018-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>https://colyseus.io//architecture/</loc>
+     <lastmod>2018-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://colyseus.io//roadmap/</loc>
+     <lastmod>2018-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+</urlset>
