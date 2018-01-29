@@ -38,7 +38,7 @@
     
     
       
-        <title>Room API - Colyseus - Multiplayer Game Server for Node.js</title>
+        <title>Room - Colyseus - Multiplayer Game Server for Node.js</title>
       
     
     
@@ -106,7 +106,7 @@
                 Colyseus - Multiplayer Game Server for Node.js
               </span>
               <span class="md-header-nav__topic">
-                Room API
+                Room
               </span>
             
           
@@ -313,14 +313,26 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
-      Server API
+      Server-side
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
-        Server API
+        Server-side
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-server/" title="Web-Socket Server" class="md-nav__link">
+      Web-Socket Server
+    </a>
+  </li>
+
         
           
           
@@ -333,48 +345,197 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Room API
+        Room
       </label>
     
-    <a href="./" title="Room API" class="md-nav__link md-nav__link--active">
-      Room API
+    <a href="./" title="Room" class="md-nav__link md-nav__link--active">
+      Room
     </a>
     
       
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#room-api" title="Room API" class="md-nav__link">
-    Room API
+  <a href="#abstract-methods" title="Abstract methods" class="md-nav__link">
+    Abstract methods
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#abstract-methods" title="Abstract methods" class="md-nav__link">
-    Abstract methods
+  <a href="#oninit-options" title="onInit (options)" class="md-nav__link">
+    onInit (options)
   </a>
   
 </li>
         
           <li class="md-nav__item">
+  <a href="#verifyclient-client-options" title="verifyClient (client, options)" class="md-nav__link">
+    verifyClient (client, options)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requestjoin-options" title="requestJoin (options)" class="md-nav__link">
+    requestJoin (options)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onjoin-client" title="onJoin (client)" class="md-nav__link">
+    onJoin (client)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onmessage-client-data" title="onMessage (client, data)" class="md-nav__link">
+    onMessage (client, data)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onleave-client" title="onLeave (client)" class="md-nav__link">
+    onLeave (client)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ondispose" title="onDispose ()" class="md-nav__link">
+    onDispose ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#public-properties" title="Public properties" class="md-nav__link">
     Public properties
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clients-websocket" title="clients: WebSocket[]" class="md-nav__link">
+    clients: WebSocket[]
+  </a>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#public-methods" title="Public methods:" class="md-nav__link">
-    Public methods:
+  <a href="#maxclients-number" title="maxClients: number" class="md-nav__link">
+    maxClients: number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patchrate-number" title="patchRate: number" class="md-nav__link">
+    patchRate: number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autodispose-boolean" title="autoDispose: boolean" class="md-nav__link">
+    autoDispose: boolean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clock-clocktimer" title="clock: ClockTimer" class="md-nav__link">
+    clock: ClockTimer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-methods" title="Public methods" class="md-nav__link">
+    Public methods
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setstate-object" title="setState (object)" class="md-nav__link">
+    setState (object)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setsimulationinterval-callback-milliseconds166" title="setSimulationInterval (callback[, milliseconds=16.6])" class="md-nav__link">
+    setSimulationInterval (callback[, milliseconds=16.6])
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setpatchrate-milliseconds" title="setPatchRate (milliseconds)" class="md-nav__link">
+    setPatchRate (milliseconds)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send-client-data" title="send (client, data)" class="md-nav__link">
+    send (client, data)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lock" title="lock ()" class="md-nav__link">
+    lock ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unlock" title="unlock ()" class="md-nav__link">
+    unlock ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broadcast-data" title="broadcast ( data )" class="md-nav__link">
+    broadcast ( data )
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disconnect" title="disconnect ()" class="md-nav__link">
+    disconnect ()
   </a>
   
 </li>
@@ -399,20 +560,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../api-room-handlers/" title="Room handlers" class="md-nav__link">
-      Room handlers
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-room-state/" title="State handling" class="md-nav__link">
-      State handling
+    <a href="../api-room-state/" title="State management" class="md-nav__link">
+      State management
     </a>
   </li>
 
@@ -468,11 +617,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
-      Client API
+      Client-side
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
-        Client API
+        Client-side
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -592,35 +741,182 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#room-api" title="Room API" class="md-nav__link">
-    Room API
+  <a href="#abstract-methods" title="Abstract methods" class="md-nav__link">
+    Abstract methods
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#abstract-methods" title="Abstract methods" class="md-nav__link">
-    Abstract methods
+  <a href="#oninit-options" title="onInit (options)" class="md-nav__link">
+    onInit (options)
   </a>
   
 </li>
         
           <li class="md-nav__item">
+  <a href="#verifyclient-client-options" title="verifyClient (client, options)" class="md-nav__link">
+    verifyClient (client, options)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requestjoin-options" title="requestJoin (options)" class="md-nav__link">
+    requestJoin (options)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onjoin-client" title="onJoin (client)" class="md-nav__link">
+    onJoin (client)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onmessage-client-data" title="onMessage (client, data)" class="md-nav__link">
+    onMessage (client, data)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onleave-client" title="onLeave (client)" class="md-nav__link">
+    onLeave (client)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ondispose" title="onDispose ()" class="md-nav__link">
+    onDispose ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#public-properties" title="Public properties" class="md-nav__link">
     Public properties
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clients-websocket" title="clients: WebSocket[]" class="md-nav__link">
+    clients: WebSocket[]
+  </a>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#public-methods" title="Public methods:" class="md-nav__link">
-    Public methods:
+  <a href="#maxclients-number" title="maxClients: number" class="md-nav__link">
+    maxClients: number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patchrate-number" title="patchRate: number" class="md-nav__link">
+    patchRate: number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autodispose-boolean" title="autoDispose: boolean" class="md-nav__link">
+    autoDispose: boolean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clock-clocktimer" title="clock: ClockTimer" class="md-nav__link">
+    clock: ClockTimer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-methods" title="Public methods" class="md-nav__link">
+    Public methods
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setstate-object" title="setState (object)" class="md-nav__link">
+    setState (object)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setsimulationinterval-callback-milliseconds166" title="setSimulationInterval (callback[, milliseconds=16.6])" class="md-nav__link">
+    setSimulationInterval (callback[, milliseconds=16.6])
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setpatchrate-milliseconds" title="setPatchRate (milliseconds)" class="md-nav__link">
+    setPatchRate (milliseconds)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send-client-data" title="send (client, data)" class="md-nav__link">
+    send (client, data)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lock" title="lock ()" class="md-nav__link">
+    lock ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unlock" title="unlock ()" class="md-nav__link">
+    unlock ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broadcast-data" title="broadcast ( data )" class="md-nav__link">
+    broadcast ( data )
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disconnect" title="disconnect ()" class="md-nav__link">
+    disconnect ()
   </a>
   
 </li>
@@ -644,44 +940,110 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/gamestdio/colyseus/edit/master/docs/api-room.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/colyseus/docs/edit/master/docs/api-room.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Room API</h1>
-                
-                <h2 id="room-api">Room API<a class="headerlink" href="#room-api" title="Permanent link">&para;</a></h2>
-<h3 id="abstract-methods">Abstract methods<a class="headerlink" href="#abstract-methods" title="Permanent link">&para;</a></h3>
-<p>Room handlers should implement these methods.</p>
-<ul>
-<li><code>onInit (options)</code> - When room is initialized</li>
-<li><code>requestJoin (options)</code> - Checks if a new client is allowed to join. (default: <code>return true</code>)</li>
-<li><code>onJoin (client)</code> - When client successfully join the room</li>
-<li><code>onLeave (client)</code> - When a client leaves the room</li>
-<li><code>onMessage (client, data)</code> - When a client sends a message</li>
-<li><code>onDispose ()</code> - Cleanup callback, called after there are no more clients in the room. (see <code>autoDispose</code>)</li>
-</ul>
-<h3 id="public-properties">Public properties<a class="headerlink" href="#public-properties" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>patchRate</code> - Frequency to send the room state to connected clients (in milliseconds)</li>
-<li><code>maxClients</code> - Maximum number of clients allowed to connect into the room</li>
-<li><code>autoDispose</code> - Automatically dispose the room when last client disconnect. (default: <code>true</code>)</li>
-<li><code>clock</code> - A <a href="https://github.com/gamestdio/clock-timer.js"><code>ClockTimer</code></a> instance</li>
-<li><code>clients</code> - Array of connected clients</li>
-<li><code>timeline</code> - A <a href="https://github.com/gamestdio/timeframe"><code>Timeline</code></a> instance (see <code>useTimeline</code>)</li>
-</ul>
-<h3 id="public-methods">Public methods:<a class="headerlink" href="#public-methods" title="Permanent link">&para;</a></h3>
+                <h1 id="room-api">Room API<a class="headerlink" href="#room-api" title="Permanent link">&para;</a></h1>
+<p>Considering that you already <a href="../concept-worker-processes">set up your server</a>, now it's time to register session handlers, and start accepting connections from your users.</p>
+<p>You'll define session handlers creating classes that extends from <code>Room</code>.</p>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Room</span><span class="p">,</span> <span class="nx">Client</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyRoom</span> <span class="kr">extends</span> <span class="nx">Room</span> <span class="p">{</span>
+    <span class="c1">// When room is initialized</span>
+    <span class="nx">onInit</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span> 
+
+    <span class="c1">// Checks if a new client is allowed to join. (default: `return true`)</span>
+    <span class="nx">requestJoin</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span> 
+
+    <span class="c1">// When client successfully join the room</span>
+    <span class="nx">onJoin</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span> 
+
+    <span class="c1">// When a client leaves the room</span>
+    <span class="nx">onLeave</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span> 
+
+    <span class="c1">// When a client sends a message</span>
+    <span class="nx">onMessage</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">data</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span> 
+
+    <span class="c1">// Cleanup callback, called after there are no more clients in the room. (see `autoDispose`)</span>
+    <span class="nx">onDispose</span> <span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="abstract-methods">Abstract methods<a class="headerlink" href="#abstract-methods" title="Permanent link">&para;</a></h2>
+<p>Room handlers can implement all these methods.</p>
+<h3 id="oninit-options"><code>onInit (options)</code><a class="headerlink" href="#oninit-options" title="Permanent link">&para;</a></h3>
+<p>Is called once when room is initialized. You may specify custom initialization options when registering the room handler.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code>options</code> will contain the merged values you specified on <a href="../api-server/#register-name-string-handler-room-options-any">Server#register()</a> + the options provided by the first client on <code>client.join()</code></p>
+</div>
+<h3 id="verifyclient-client-options"><code>verifyClient (client, options)</code><a class="headerlink" href="#verifyclient-client-options" title="Permanent link">&para;</a></h3>
+<p>Can be used to verify authenticity of the client that's joining the room. </p>
+<p>If left non-implemented it returns <code>true</code>, allowing any client to connect.</p>
+<p>See <a href="../api-authentication">authentication</a> section.</p>
+<h3 id="requestjoin-options"><code>requestJoin (options)</code><a class="headerlink" href="#requestjoin-options" title="Permanent link">&para;</a></h3>
+<p>Synchronous function used to checks if a new client is allowed to join. </p>
+<p>If left non-implemented it returns <code>true</code>, allowing any client to connect.</p>
+<h3 id="onjoin-client"><code>onJoin (client)</code><a class="headerlink" href="#onjoin-client" title="Permanent link">&para;</a></h3>
+<p>Is called when client successfully join the room, after <code>requestJoin</code> and <code>verifyClient</code> succeeded.</p>
+<h3 id="onmessage-client-data"><code>onMessage (client, data)</code><a class="headerlink" href="#onmessage-client-data" title="Permanent link">&para;</a></h3>
+<p>Is called when a client sends a message to the server. Here's where you'll process client actions to update the room's state.</p>
+<p><strong>Example:</strong></p>
+<div class="codehilite"><pre><span></span><span class="nx">onMessage</span> <span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">player</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">playersByClientId</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">client</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">command</span> <span class="o">===</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">player</span><span class="p">.</span><span class="nx">x</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">command</span> <span class="o">===</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">player</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3 id="onleave-client"><code>onLeave (client)</code><a class="headerlink" href="#onleave-client" title="Permanent link">&para;</a></h3>
+<p>Is called when a client leave the room. </p>
+<p>You can define this function as <code>async</code>. See <a href="../api-graceful-shutdown">graceful shutdown</a></p>
+<h3 id="ondispose"><code>onDispose ()</code><a class="headerlink" href="#ondispose" title="Permanent link">&para;</a></h3>
+<p>Cleanup callback, called after there are no more clients in the room.</p>
+<p>You can define this function as <code>async</code>. See <a href="../api-graceful-shutdown">graceful shutdown</a></p>
+<h2 id="public-properties">Public properties<a class="headerlink" href="#public-properties" title="Permanent link">&para;</a></h2>
+<h3 id="clients-websocket"><code>clients: WebSocket[]</code><a class="headerlink" href="#clients-websocket" title="Permanent link">&para;</a></h3>
+<p>The array of connected clients.</p>
+<h3 id="maxclients-number"><code>maxClients: number</code><a class="headerlink" href="#maxclients-number" title="Permanent link">&para;</a></h3>
+<p>Maximum number of clients allowed to connect into the room</p>
+<h3 id="patchrate-number"><code>patchRate: number</code><a class="headerlink" href="#patchrate-number" title="Permanent link">&para;</a></h3>
+<p>Frequency to send the room state to connected clients (in milliseconds)</p>
+<p>See <a href="../concept-state-synchronization/">state synchronization</a>.</p>
+<h3 id="autodispose-boolean"><code>autoDispose: boolean</code><a class="headerlink" href="#autodispose-boolean" title="Permanent link">&para;</a></h3>
+<p>Automatically dispose the room when last client disconnect. (default: <code>true</code>)</p>
+<h3 id="clock-clocktimer"><code>clock: ClockTimer</code><a class="headerlink" href="#clock-clocktimer" title="Permanent link">&para;</a></h3>
+<p>A <a href="https://github.com/gamestdio/timer#api"><code>ClockTimer</code></a> instance.</p>
+<h2 id="public-methods">Public methods<a class="headerlink" href="#public-methods" title="Permanent link">&para;</a></h2>
 <p>Room handlers have these methods available.</p>
-<ul>
-<li><code>setState( object )</code> - Set the current state to be broadcasted / patched.</li>
-<li><code>setSimulationInterval( callback[, milliseconds=16.6] )</code> - (Optional) Create the simulation interval that will change the state of the game. Default simulation interval: 16.6ms (60fps)</li>
-<li><code>setPatchRate( milliseconds )</code> - Set frequency the patched state should be sent to all clients. (default: <code>50</code> = 20fps)</li>
-<li><code>send( client, data )</code> - Send data to a particular client</li>
-<li><code>lock()</code> - Prevent new clients from joining the room</li>
-<li><code>unlock()</code> - Unlock the room for new clients</li>
-<li><code>broadcast( data )</code> - Send data to all connected clients</li>
-<li><code>disconnect()</code> - Disconnect all clients, then dispose</li>
-<li><code>useTimeline([ maxSnapshots=10 ])</code> - (Optional, experimental) Keep state snapshots for lag compensation</li>
-</ul>
+<h3 id="setstate-object"><code>setState (object)</code><a class="headerlink" href="#setstate-object" title="Permanent link">&para;</a></h3>
+<p>Set the new room state. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You'll usually call this method only once in your handler.</p>
+</div>
+<p>Set the current state to be broadcasted / patched.</p>
+<h3 id="setsimulationinterval-callback-milliseconds166"><code>setSimulationInterval (callback[, milliseconds=16.6])</code><a class="headerlink" href="#setsimulationinterval-callback-milliseconds166" title="Permanent link">&para;</a></h3>
+<p>(Optional) Create the simulation interval that will change the state of the game. Default simulation interval: 16.6ms (60fps)</p>
+<h3 id="setpatchrate-milliseconds"><code>setPatchRate (milliseconds)</code><a class="headerlink" href="#setpatchrate-milliseconds" title="Permanent link">&para;</a></h3>
+<p>Set frequency the patched state should be sent to all clients. (default: <code>50</code> = 20fps)</p>
+<h3 id="send-client-data"><code>send (client, data)</code><a class="headerlink" href="#send-client-data" title="Permanent link">&para;</a></h3>
+<p>Send data to a particular client</p>
+<h3 id="lock"><code>lock ()</code><a class="headerlink" href="#lock" title="Permanent link">&para;</a></h3>
+<p>Locking the room will remove it from the pool of available rooms for new clients to connect to.</p>
+<h3 id="unlock"><code>unlock ()</code><a class="headerlink" href="#unlock" title="Permanent link">&para;</a></h3>
+<p>Unlocking the room returns it to the pool of available rooms for new clients to connect to.</p>
+<h3 id="broadcast-data"><code>broadcast ( data )</code><a class="headerlink" href="#broadcast-data" title="Permanent link">&para;</a></h3>
+<p>Send raw data to all connected clients.</p>
+<h3 id="disconnect"><code>disconnect ()</code><a class="headerlink" href="#disconnect" title="Permanent link">&para;</a></h3>
+<p>Disconnect all clients, then dispose</p>
                 
                   
                 
@@ -700,7 +1062,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../concept-worker-processes/" title="Worker processes" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../api-server/" title="Web-Socket Server" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -709,19 +1071,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Worker processes
+                Web-Socket Server
               </span>
             </div>
           </a>
         
         
-          <a href="../api-room-handlers/" title="Room handlers" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../api-room-state/" title="State management" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Room handlers
+                State management
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

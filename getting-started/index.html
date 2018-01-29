@@ -262,6 +262,26 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-mindset" title="The Mindset" class="md-nav__link">
+    The Mindset
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram" title="Diagram" class="md-nav__link">
+    Diagram
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#recommended-nodejs-packages-for-games" title="Recommended NodeJS packages for games" class="md-nav__link">
     Recommended NodeJS packages for games
   </a>
@@ -347,11 +367,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
-      Server API
+      Server-side
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
-        Server API
+        Server-side
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -362,8 +382,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../api-room/" title="Room API" class="md-nav__link">
-      Room API
+    <a href="../api-server/" title="Web-Socket Server" class="md-nav__link">
+      Web-Socket Server
     </a>
   </li>
 
@@ -374,8 +394,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../api-room-handlers/" title="Room handlers" class="md-nav__link">
-      Room handlers
+    <a href="../api-room/" title="Room" class="md-nav__link">
+      Room
     </a>
   </li>
 
@@ -386,8 +406,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../api-room-state/" title="State handling" class="md-nav__link">
-      State handling
+    <a href="../api-room-state/" title="State management" class="md-nav__link">
+      State management
     </a>
   </li>
 
@@ -443,11 +463,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
-      Client API
+      Client-side
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
-        Client API
+        Client-side
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -574,6 +594,26 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-mindset" title="The Mindset" class="md-nav__link">
+    The Mindset
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram" title="Diagram" class="md-nav__link">
+    Diagram
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#recommended-nodejs-packages-for-games" title="Recommended NodeJS packages for games" class="md-nav__link">
     Recommended NodeJS packages for games
   </a>
@@ -594,11 +634,42 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/gamestdio/colyseus/edit/master/docs/getting-started.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/colyseus/docs/edit/master/docs/getting-started.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
-<h3 id="recommended-nodejs-packages-for-games">Recommended NodeJS packages for games<a class="headerlink" href="#recommended-nodejs-packages-for-games" title="Permanent link">&para;</a></h3>
+<h2 id="the-mindset">The Mindset<a class="headerlink" href="#the-mindset" title="Permanent link">&para;</a></h2>
+<p>The authoritative game server mindset is quite simple. The Server validates the user actions, and clients are dumb visual representations of the current game state.</p>
+<p>The server should take care of all data involved in your game, such as positioning, speeds, collisions, etc.</p>
+<p>Making multiplayer games is usually tricky because your gameplay must take the multiple delays into account - the other clients sending data to the server, and the server sending data back to all clients. It's the art of faking something that has already happened is actually happening as the current player sees and plays the game.</p>
+<p>Here's how the "multiplayer game loop" looks like on Colyseus:</p>
+<ul>
+<li>Client sends a message to the server, requesting to change its state.</li>
+<li>The input must be validated by your room handler.</li>
+<li>The game state is updated.</li>
+<li>All clients receive the latest version of the game state.</li>
+<li>The visual representation of the game state is updated.</li>
+</ul>
+<h3 id="diagram">Diagram<a class="headerlink" href="#diagram" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>              room.send({ action: &quot;left&quot; })                             
+
+                           |                                            
+      +------------+       |       +-----------------------------------+
++-----+ Client #1  +-------|       |  Room handler #1                  |
+|     +------------+       |       |                                   |
+|     +------------+       |       |  onMessage (client, data) {       |
+|-----+ Client #2  |       --------+    if (data.action === &quot;left&quot;) {  |
+|     +------------+               |      // update the room state     |
+|     +------------+               |    }                              |
+|-----+ Client #3  |               |  }                                |
+|     +------------+               +-----------------------------------+
+|                                                    |                  
+|        patch state broadcast (binary diff)         |                  
+|----------------------------------------------------+
+</pre></div>
+
+
+<h2 id="recommended-nodejs-packages-for-games">Recommended NodeJS packages for games<a class="headerlink" href="#recommended-nodejs-packages-for-games" title="Permanent link">&para;</a></h2>
 <p>These modules can be useful while developing games on both NodeJS and the Browser.</p>
 <ul>
 <li><a href="https://github.com/gamestdio/mathf">@gamestdio/mathf</a> - Mathematical functions, borrowed from Unity3D's API</li>
