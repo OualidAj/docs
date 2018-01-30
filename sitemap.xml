@@ -54,6 +54,12 @@
     </url>
         
     <url>
+     <loc>https://colyseus.io//api-client/</loc>
+     <lastmod>2018-01-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>https://colyseus.io//api-room-state/</loc>
      <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>

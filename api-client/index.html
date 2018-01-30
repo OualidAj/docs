@@ -13,7 +13,7 @@
         <meta name="description" content="Documentation for Colyseus Multiplayer Game Server for Node.js">
       
       
-        <link rel="canonical" href="https://colyseus.io/api-authentication/">
+        <link rel="canonical" href="https://colyseus.io/api-client/">
       
       
         <meta name="author" content="gamestd.io">
@@ -38,7 +38,7 @@
     
     
       
-        <title>Authentication - Colyseus - Multiplayer Game Server for Node.js</title>
+        <title>Web-Socket Client - Colyseus - Multiplayer Game Server for Node.js</title>
       
     
     
@@ -80,7 +80,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#synchronous-usage" tabindex="1" class="md-skip">
+      <a href="#web-socket-client" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -106,7 +106,7 @@
                 Colyseus - Multiplayer Game Server for Node.js
               </span>
               <span class="md-header-nav__topic">
-                Authentication
+                Web-Socket Client
               </span>
             
           
@@ -350,11 +350,87 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../api-client/" title="Web-Socket Client" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Web-Socket Client
+      </label>
+    
+    <a href="./" title="Web-Socket Client" class="md-nav__link md-nav__link--active">
       Web-Socket Client
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#methods" title="Methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#closecode-number" title="close(code?: number)" class="md-nav__link">
+    close(code?: number)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" title="Properties" class="md-nav__link">
+    Properties
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id-string" title="id: string" class="md-nav__link">
+    id: string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sessionid-string" title="sessionId: string" class="md-nav__link">
+    sessionId: string
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -374,50 +450,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Authentication
-      </label>
-    
-    <a href="./" title="Authentication" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../api-authentication/" title="Authentication" class="md-nav__link">
       Authentication
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#synchronous-usage" title="Synchronous usage" class="md-nav__link">
-    Synchronous usage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#asynchronous-usage" title="Asynchronous usage" class="md-nav__link">
-    Asynchronous usage
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -548,21 +585,56 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#synchronous-usage" title="Synchronous usage" class="md-nav__link">
-    Synchronous usage
+  <a href="#methods" title="Methods" class="md-nav__link">
+    Methods
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#closecode-number" title="close(code?: number)" class="md-nav__link">
+    close(code?: number)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#asynchronous-usage" title="Asynchronous usage" class="md-nav__link">
-    Asynchronous usage
+  <a href="#properties" title="Properties" class="md-nav__link">
+    Properties
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id-string" title="id: string" class="md-nav__link">
+    id: string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sessionid-string" title="sessionId: string" class="md-nav__link">
+    sessionId: string
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -580,99 +652,26 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/colyseus/docs/edit/master/docs/api-authentication.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/colyseus/docs/edit/master/docs/api-client.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Authentication</h1>
-                
-                <p>You may implement the <code>verifyClient(client, options)</code> method validate the authenticity of your clients. </p>
-<p>When requesting to join a room, that's the order of methods which will be called in your room handler:</p>
-<ol>
-<li><code>requestJoin</code> - should check if a room is available for new clients</li>
-<li><code>verifyClient (client, options)</code> - should validate the client based on the options provided (i.e. auth token)</li>
-<li><code>onJoin (client, options)</code> - should initialize the newly connected client into your room's state.</li>
-</ol>
-<p>From the client-side, you'd call the <code>join</code> method with a token from some authentication service (i. e. Facebook):</p>
-<p>
-                <div class="code-nav-container">
-                    
-        <ul class="nav nav-tabs">
-            
-        <li class="nav-item active">
-            <a href="#tab-0-javascript" aria-controls="tab-0-javascript" role="tab" data-toggle="tab" data-lang="javascript">JavaScript</a>
-        </li>
-    
-        <li class="nav-item ">
-            <a href="#tab-0-javascript" aria-controls="tab-0-javascript" role="tab" data-toggle="tab" data-lang="javascript">C#</a>
-        </li>
-    
-        </ul>
-    
-        <div class="tab-content">
-            
-        <div role="tabpanel" class="tab-pane active" id="tab-0-javascript">
-            <div class="codehilite"><pre><span></span><span class="nx">client</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">accessToken</span><span class="o">:</span> <span class="nx">yourFacebookAccessToken</span>
-<span class="p">});</span>
-</pre></div>
-
-        </div>
-    
-        <div role="tabpanel" class="tab-pane " id="tab-0-javascript">
-            <div class="codehilite"><pre><span></span><span class="nx">client</span><span class="p">.</span><span class="nx">Join</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="p">{</span>
-  <span class="nx">accessToken</span> <span class="o">=</span> <span class="nx">yourFacebookAccessToken</span>
-<span class="p">});</span>
-</pre></div>
-
-        </div>
-    
-        </div>
-    
-                </div>
-                    </p>
-<p>The <code>verifyClient</code> method in your room handler should return <code>true</code> only if the access token is valid.</p>
-<h3 id="synchronous-usage">Synchronous usage<a class="headerlink" href="#synchronous-usage" title="Permanent link">&para;</a></h3>
-<p>You can immediatelly return a <code>boolean</code> value.</p>
-<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Room</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
-
-<span class="kr">class</span> <span class="nx">MyRoom</span> <span class="kr">extends</span> <span class="nx">Room</span> <span class="p">{</span>
-  <span class="nx">verifyClient</span> <span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span><span class="o">:</span> <span class="kr">boolean</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">password</span> <span class="o">===</span> <span class="s2">&quot;secret&quot;</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<h3 id="asynchronous-usage">Asynchronous usage<a class="headerlink" href="#asynchronous-usage" title="Permanent link">&para;</a></h3>
-<p>You can return a <code>Promise</code>, and perform some asynchronous task to validate the client.</p>
-<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Room</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
-
-<span class="kr">class</span> <span class="nx">MyRoom</span> <span class="kr">extends</span> <span class="nx">Room</span> <span class="p">{</span>
-  <span class="nx">verifyClient</span> <span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">validateToken</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">success</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span> 
-          <span class="nx">resolve</span><span class="p">();</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-          <span class="nx">reject</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">});</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<p>Alternatively, you can use <code>async</code> / <code>await</code>, which will return a <code>Promise</code> under the hood.</p>
-<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Room</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
-
-<span class="kr">class</span> <span class="nx">MyRoom</span> <span class="kr">extends</span> <span class="nx">Room</span> <span class="p">{</span>
-  <span class="nx">async</span> <span class="nx">verifyClient</span> <span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">userData</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">validateToken</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">);</span>
-    <span class="k">return</span> <span class="p">(</span><span class="nx">userData</span><span class="p">)</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="kc">false</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+                <h1 id="web-socket-client">Web-Socket Client<a class="headerlink" href="#web-socket-client" title="Permanent link">&para;</a></h1>
+<p>The <code>client</code> instance present on:</p>
+<ul>
+<li><a href="../api-room/#clients-websocket"><code>Room#clients</code></a></li>
+<li><a href="../api-room/#verifyclient-client-options"><code>Room#verifyClient()</code></a></li>
+<li><a href="../api-room/#onjoin-client"><code>Room#onJoin()</code></a></li>
+<li><a href="../api-room/#onmessage-client-data"><code>Room#onMessage()</code></a></li>
+<li><a href="../api-room/#onleave-client"><code>Room#onLeave()</code></a></li>
+</ul>
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
+<h3 id="closecode-number"><code>close(code?: number)</code><a class="headerlink" href="#closecode-number" title="Permanent link">&para;</a></h3>
+<p>Force disconnection of the <code>client</code> with the server.</p>
+<h2 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h2>
+<h3 id="id-string"><code>id: string</code><a class="headerlink" href="#id-string" title="Permanent link">&para;</a></h3>
+<p>Unique id per client. When the same client connects with multiple browser tabs, the <code>id</code> will be the same for every connection.</p>
+<h3 id="sessionid-string"><code>sessionId: string</code><a class="headerlink" href="#sessionid-string" title="Permanent link">&para;</a></h3>
+<p>Unique id per session. Whilst you may have the same <code>id</code> for multiple sessions from the same client, the <code>sessionId</code> is always unique.</p>
                 
                   
                 
@@ -691,7 +690,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../api-room-state/" title="State management" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../api-room/" title="Room" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -700,19 +699,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                State management
+                Room
               </span>
             </div>
           </a>
         
         
-          <a href="../api-graceful-shutdown/" title="Graceful shutdown" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../api-room-state/" title="State management" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Graceful shutdown
+                State management
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
