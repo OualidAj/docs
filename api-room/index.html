@@ -1014,8 +1014,8 @@
 <h3 id="setstate-object"><code>setState (object)</code><a class="headerlink" href="#setstate-object" title="Permanent link">&para;</a></h3>
 <p>Set the new room state.</p>
 <div class="admonition warning">
-<p class="admonition-title">Important</p>
-<p>Do not use this method to update the room state. The binary patch algorithm is re-set every time you call <code>setState</code>.</p>
+<p class="admonition-title">Warning</p>
+<p>Do not call this method for updates in the room state. The binary patch algorithm is re-set every time you call it.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
