@@ -432,13 +432,23 @@
         }, 
         {
             "location": "/client-overview/", 
-            "text": "Overview", 
+            "text": "Overview\n\n\nConnecting to the Colyseus server:\n\n\nConnecting to the Server\n\n\n\n                \n\n                    \n        \n\n            \n        \n\n            \nTypeScript\n\n        \n\n    \n        \n\n            \nC#\n\n        \n\n    \n        \n\n    \n        \n\n            \n        \n\n            \nimport\n \n*\n \nas\n \nColyseus\n \nfrom\n \ncolyseus.js\n;\n\n\n// ...\n\n\n\nlet\n \nclient\n \n=\n \nnew\n \nColyseus\n.\nClient\n(\nws://localhost:2657\n);\n\n\n\n\n        \n\n    \n        \n\n            \nusing\n \nColyseus\n;\n\n\n// ...\n\n\n\nClient\n \nclient\n \n=\n \nnew\n \nClient\n(\nws://localhost:2657\n);\n\n\n\n\n        \n\n    \n        \n\n    \n                \n\n                    \n\n\nJoining a Room\n\n\n\n                \n\n                    \n        \n\n            \n        \n\n            \nTypeScript\n\n        \n\n    \n        \n\n            \nC#\n\n        \n\n    \n        \n\n    \n        \n\n            \n        \n\n            \nlet\n \nroom\n \n=\n \nclient\n.\njoin\n(\nbattle\n);\n\n\n\n\n        \n\n    \n        \n\n            \nRoom\n \nroom\n \n=\n \nclient\n.\nJoin\n(\nbattle\n);", 
             "title": "Overview"
         }, 
         {
             "location": "/client-overview/#overview", 
-            "text": "", 
+            "text": "Connecting to the Colyseus server:", 
             "title": "Overview"
+        }, 
+        {
+            "location": "/client-overview/#connecting-to-the-server", 
+            "text": "TypeScript \n         \n    \n         \n             C# \n         \n    \n         \n    \n         \n            \n         \n             import   *   as   Colyseus   from   colyseus.js ;  // ...  let   client   =   new   Colyseus . Client ( ws://localhost:2657 );  \n\n         \n    \n         \n             using   Colyseus ;  // ...  Client   client   =   new   Client ( ws://localhost:2657 );", 
+            "title": "Connecting to the Server"
+        }, 
+        {
+            "location": "/client-overview/#joining-a-room", 
+            "text": "TypeScript \n         \n    \n         \n             C# \n         \n    \n         \n    \n         \n            \n         \n             let   room   =   client . join ( battle );  \n\n         \n    \n         \n             Room   room   =   client . Join ( battle );", 
+            "title": "Joining a Room"
         }, 
         {
             "location": "/client-state-synchronization/", 

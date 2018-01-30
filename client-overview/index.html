@@ -444,9 +444,43 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Overview
+      </label>
+    
     <a href="./" title="Overview" class="md-nav__link md-nav__link--active">
       Overview
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-the-server" title="Connecting to the Server" class="md-nav__link">
+    Connecting to the Server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joining-a-room" title="Joining a Room" class="md-nav__link">
+    Joining a Room
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -521,6 +555,27 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-the-server" title="Connecting to the Server" class="md-nav__link">
+    Connecting to the Server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joining-a-room" title="Joining a Room" class="md-nav__link">
+    Joining a Room
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -535,6 +590,81 @@
                 
                 
                 <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
+<p>Connecting to the Colyseus server:</p>
+<h2 id="connecting-to-the-server">Connecting to the Server<a class="headerlink" href="#connecting-to-the-server" title="Permanent link">&para;</a></h2>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item active">
+            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-0-csharp" aria-controls="tab-0-csharp" role="tab" data-toggle="tab" data-lang="csharp">C#</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-0-typescript">
+            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">Colyseus</span> <span class="nx">from</span> <span class="s2">&quot;colyseus.js&quot;</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="kd">let</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Colyseus</span><span class="p">.</span><span class="nx">Client</span><span class="p">(</span><span class="s2">&quot;ws://localhost:2657&quot;</span><span class="p">);</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-0-csharp">
+            <div class="codehilite"><pre><span></span><span class="k">using</span> <span class="nn">Colyseus</span><span class="p">;</span>
+<span class="c1">// ...</span>
+
+<span class="n">Client</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Client</span><span class="p">(</span><span class="s">&quot;ws://localhost:2657&quot;</span><span class="p">);</span>
+</pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<h2 id="joining-a-room">Joining a Room<a class="headerlink" href="#joining-a-room" title="Permanent link">&para;</a></h2>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item active">
+            <a href="#tab-4-typescript" aria-controls="tab-4-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-4-csharp" aria-controls="tab-4-csharp" role="tab" data-toggle="tab" data-lang="csharp">C#</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-4-typescript">
+            <div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">room</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;battle&quot;</span><span class="p">);</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-4-csharp">
+            <div class="codehilite"><pre><span></span><span class="n">Room</span> <span class="n">room</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;battle&quot;</span><span class="p">);</span>
+</pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
                 
                   
                 
