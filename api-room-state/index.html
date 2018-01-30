@@ -382,19 +382,12 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" title="Best practices" class="md-nav__link">
-    Best practices
+  <a href="#your-own-data-structures" title="Your Own Data Structures" class="md-nav__link">
+    Your Own Data Structures
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#data-structures" title="Data structures" class="md-nav__link">
-    Data structures
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#map-of-entities-entitymap" title="Map of entities (EntityMap)" class="md-nav__link">
@@ -411,6 +404,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#avoid-using-map-set" title="Avoid using Map, Set" class="md-nav__link">
+    Avoid using Map, Set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#avoid-mutating-arrays" title="Avoid mutating arrays" class="md-nav__link">
     Avoid mutating arrays
   </a>
@@ -419,13 +419,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#state-handler-class" title="State Handler Class" class="md-nav__link">
-    State Handler Class
-  </a>
   
 </li>
       
@@ -545,57 +538,21 @@
 
 
   <li class="md-nav__item">
-    <a href="../faq/" title="FAQ" class="md-nav__link">
-      FAQ
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
-    
-    <label class="md-nav__link" for="nav-8">
-      More
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        More
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../architecture/" title="Architecture" class="md-nav__link">
-      Architecture
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../roadmap/" title="Roadmap" class="md-nav__link">
       Roadmap
     </a>
   </li>
 
-        
-      </ul>
-    </nav>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
   </li>
 
     
@@ -625,19 +582,12 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" title="Best practices" class="md-nav__link">
-    Best practices
+  <a href="#your-own-data-structures" title="Your Own Data Structures" class="md-nav__link">
+    Your Own Data Structures
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#data-structures" title="Data structures" class="md-nav__link">
-    Data structures
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#map-of-entities-entitymap" title="Map of entities (EntityMap)" class="md-nav__link">
@@ -654,6 +604,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#avoid-using-map-set" title="Avoid using Map, Set" class="md-nav__link">
+    Avoid using Map, Set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#avoid-mutating-arrays" title="Avoid mutating arrays" class="md-nav__link">
     Avoid mutating arrays
   </a>
@@ -662,13 +619,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#state-handler-class" title="State Handler Class" class="md-nav__link">
-    State Handler Class
-  </a>
   
 </li>
       
@@ -692,126 +642,201 @@
                   <h1>State management</h1>
                 
                 <p>The room handlers are <strong>stateful</strong> in Colyseus. Each room holds its own state. To allow <a href="../concept-state-synchronization">synchronization</a>, you <strong>must</strong> mutate the room's state. The server automatically broadcasts the changes to all connected clients at each patch interval.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul>
+<li>For synchronization with the client-side, see <a href="../client-state-synchronization">client-side state synchronization</a>.</li>
+<li>See Colyseus' technical approach on <a href="../concept-state-synchronization">state synchronization</a>.</li>
+</ul>
+</div>
 <h2 id="raw-object-state">Raw Object State<a class="headerlink" href="#raw-object-state" title="Permanent link">&para;</a></h2>
 <p>The simplest way to deal with the room state is using a raw JavaScript objects directly in the <code>Room</code> handler.</p>
+<p><strong>On the following example, you'll see:</strong></p>
+<ul>
+<li>Creating player upon client connection.</li>
+<li>Handling client-side actions and updating the state to move <code>x</code> position.</li>
+<li>Removing player upon client disconnection.</li>
+</ul>
 <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Room</span><span class="p">,</span> <span class="nx">Client</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
 
-<span class="kr">class</span> <span class="nx">BattleRoom</span> <span class="kr">extends</span> <span class="nx">Room</span> <span class="p">{</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">BattleRoom</span> <span class="kr">extends</span> <span class="nx">Room</span> <span class="p">{</span>
 
   <span class="nx">onInit</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
-      <span class="nx">messages</span><span class="o">:</span> <span class="p">[]</span>
+      <span class="nx">players</span><span class="o">:</span> <span class="p">{}</span>
     <span class="p">});</span>
   <span class="p">}</span>
 
-  <span class="nx">onMessage</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">data</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+  <span class="nx">onJoin</span> <span class="p">(</span><span class="nx">client</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">players</span><span class="p">[</span> <span class="nx">client</span><span class="p">.</span><span class="nx">sessionId</span> <span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">x</span>: <span class="kt">0</span><span class="p">,</span>
+      <span class="nx">y</span>: <span class="kt">0</span> 
+    <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="nx">onLeave</span> <span class="p">(</span><span class="nx">client</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">delete</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">players</span><span class="p">[</span> <span class="nx">client</span><span class="p">.</span><span class="nx">sessionId</span> <span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="nx">onMessage</span> <span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span> <span class="o">===</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">players</span><span class="p">[</span> <span class="nx">client</span><span class="p">.</span><span class="nx">sessionId</span> <span class="p">].</span><span class="nx">x</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span> <span class="o">===</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">players</span><span class="p">[</span> <span class="nx">client</span><span class="p">.</span><span class="nx">sessionId</span> <span class="p">].</span><span class="nx">x</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
 
-<h2 id="best-practices">Best practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<h3 id="data-structures">Data structures<a class="headerlink" href="#data-structures" title="Permanent link">&para;</a></h3>
-<p>Use small data structures to re</p>
-<h3 id="map-of-entities-entitymap">Map of entities (<code>EntityMap</code>)<a class="headerlink" href="#map-of-entities-entitymap" title="Permanent link">&para;</a></h3>
-<h3 id="private-variables-nosync">Private variables (<code>@nosync</code>)<a class="headerlink" href="#private-variables-nosync" title="Permanent link">&para;</a></h3>
-<h3 id="avoid-mutating-arrays">Avoid mutating arrays<a class="headerlink" href="#avoid-mutating-arrays" title="Permanent link">&para;</a></h3>
-<p>You can use arrays in your room's state. If possible, avoid mutating them because it's tricky to synchronize the state properly in the client-side when you do.</p>
-<h2 id="state-handler-class">State Handler Class<a class="headerlink" href="#state-handler-class" title="Permanent link">&para;</a></h2>
-<p>Even though you can use plain objects to define the state directly in the room handler, the recommended way is to define your own data structures for it, and methods to manipulate the state inside these data structures.</p>
-<p>You can use the <code>@nosync</code> decorator to define data that won't be synched with the clients (non-enumerable).</p>
-<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">nosync</span><span class="p">,</span> <span class="nx">EntityMap</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
+<h2 id="your-own-data-structures">Your Own Data Structures<a class="headerlink" href="#your-own-data-structures" title="Permanent link">&para;</a></h2>
+<p>Whilst it's possible to use raw data directly on <code>this.state</code>. The recommended way to handle your state is through your own data structures. By creating your own structures, you can have a more decoupled structure to represent your state. </p>
+<p><strong>On the following (rewritten) example, you'll see:</strong></p>
+<ul>
+<li>A clean <code>BattleRoom</code> implementation, directly coupled to the state structure.</li>
+<li>A large data structure holding the entire room state (<code>BattleState</code>)<ul>
+<li>Usage of built-in <a href="#map-of-entities-entitymap"><code>EntityMap</code></a> type.</li>
+<li>Methods manipulating smaller data structures</li>
+</ul>
+</li>
+<li>A small decoupled data structure representing a single entity (<code>Player</code>)</li>
+</ul>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item active">
+            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">BattleState.ts</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">BattleState.ts</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">Player.ts</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-0-typescript">
+            <div class="codehilite"><pre><span></span><span class="c1">// BattleRoom.ts</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Room</span><span class="p">,</span> <span class="nx">Client</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">BattleState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;./BattleState&quot;</span><span class="p">;</span>
 
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">StateHandler</span> <span class="p">{</span>
-  <span class="nx">players</span>: <span class="kt">any</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">BattleRoom</span> <span class="kr">extends</span> <span class="nx">Room</span><span class="o">&lt;</span><span class="nx">BattleState</span><span class="o">&gt;</span> <span class="p">{</span>
 
-  <span class="kd">@nosync</span> <span class="nx">mapBuilder</span> <span class="o">=</span>  <span class="k">new</span> <span class="nx">MapBuilder</span><span class="p">();</span>
-
-  <span class="kr">constructor</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">players</span> <span class="o">=</span> <span class="p">{};</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">map</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">mapBuilder</span><span class="p">.</span><span class="nx">build</span><span class="p">();</span>
-  <span class="p">}</span>
-
-  <span class="nx">restart</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">map</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">mapBuilder</span><span class="p">.</span><span class="nx">build</span><span class="p">();</span>
-  <span class="p">}</span>
-
-  <span class="nx">addPlayer</span> <span class="p">(</span><span class="nx">client</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">players</span><span class="p">[</span> <span class="nx">client</span><span class="p">.</span><span class="nx">id</span> <span class="p">]</span> <span class="o">=</span> <span class="p">{};</span>
-  <span class="p">}</span>
-
-  <span class="nx">removePlayer</span> <span class="p">(</span><span class="nx">client</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">delete</span> <span class="k">this</span><span class="p">.</span><span class="nx">players</span><span class="p">[</span> <span class="nx">client</span><span class="p">.</span><span class="nx">id</span> <span class="p">];</span>
-  <span class="p">}</span>
-
-<span class="p">}</span>
-</pre></div>
-
-
-<p>On this example, the <code>StateHandler</code> creates a <code>MapBuilder</code> instance (that won't be visible in the client-side), which would be responsible for creating the map data. It exposes some methods to be called from the parent <code>Room</code> instance, such as <code>addPlayer</code> and <code>restart</code>.</p>
-<p>To use this <code>StateHandler</code> class in a <code>Room</code> instance it would look like this:</p>
-<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Room</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">StateHandler</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;./StateHandler&quot;</span><span class="p">;</span>
-
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MapRoom</span> <span class="kr">extends</span> <span class="nx">Room</span><span class="o">&lt;</span><span class="nx">StateHandler</span><span class="o">&gt;</span> <span class="p">{</span>
-  <span class="nx">onInit</span> <span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
-
-    <span class="c1">// sync state every 50ms</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">setPatchRate</span><span class="p">(</span> <span class="mi">1000</span> <span class="o">/</span> <span class="mi">20</span> <span class="p">);</span>
-
-    <span class="c1">// initialize StateHandler</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span> <span class="k">new</span> <span class="nx">StateHandler</span><span class="p">()</span> <span class="p">);</span>
-
-    <span class="c1">// reset the state every 3 minutes</span>
-    <span class="nx">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">restart</span><span class="p">(),</span> <span class="mi">1000</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="nx">onInit</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="k">new</span> <span class="nx">BattleState</span><span class="p">());</span>
   <span class="p">}</span>
 
   <span class="nx">onJoin</span> <span class="p">(</span><span class="nx">client</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// add player instance to room state</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">addPlayer</span><span class="p">(</span><span class="nx">client</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="nx">onLeave</span> <span class="p">(</span><span class="nx">client</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// add player instance to room state</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">removePlayer</span><span class="p">(</span><span class="nx">client</span><span class="p">);</span>
   <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
 
-
-<p>You can go on and define more data structures for any kind of object you need. Let's define the <code>Player</code> now.</p>
-<div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">class</span> <span class="nx">Player</span> <span class="p">{</span>
-  <span class="nx">life</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
-  <span class="nx">maxLife</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
-  <span class="nx">damage</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
-
-  <span class="kr">constructor</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// recovers a life a little every 2 seconds</span>
-    <span class="nx">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">recoverLife</span><span class="p">(),</span> <span class="mi">2000</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="nx">recoverLife</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">life</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">maxLife</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">life</span><span class="o">++</span>
+  <span class="nx">onMessage</span> <span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">movePlayer</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 
-  <span class="nx">takeDamage</span> <span class="p">(</span><span class="nx">otherPlayer</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">life</span> <span class="o">-=</span> <span class="nx">otherPlayer</span><span class="p">.</span><span class="nx">damage</span>
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-0-typescript">
+            <div class="codehilite"><pre><span></span><span class="c1">// BattleState.ts</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">EntityMap</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Player</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;./Player&quot;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">BattleState</span> <span class="p">{</span>
+  <span class="nx">players</span>: <span class="kt">EntityMap</span><span class="o">&lt;</span><span class="nx">Player</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">{};</span>
+
+  <span class="nx">addPlayer</span> <span class="p">(</span><span class="nx">client</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">players</span><span class="p">[</span> <span class="nx">client</span><span class="p">.</span><span class="nx">sesssionId</span> <span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Player</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">removePlayer</span> <span class="p">(</span><span class="nx">client</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">delete</span> <span class="k">this</span><span class="p">.</span><span class="nx">players</span><span class="p">[</span> <span class="nx">client</span><span class="p">.</span><span class="nx">sessionId</span> <span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="nx">movePlayer</span> <span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">action</span> <span class="o">===</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">players</span><span class="p">[</span> <span class="nx">client</span><span class="p">.</span><span class="nx">sessionId</span> <span class="p">].</span><span class="nx">x</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">action</span> <span class="o">===</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">players</span><span class="p">[</span> <span class="nx">client</span><span class="p">.</span><span class="nx">sessionId</span> <span class="p">].</span><span class="nx">x</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
-
-<p>Having defined the <code>Player</code> class, you'd instantiate it rather than using plain objects in the <code>StateHandler#addPlayer</code> method:</p>
-<div class="codehilite"><pre><span></span><span class="c1">// StateHandler.ts</span>
-<span class="c1">// ...</span>
-  <span class="nx">addPlayer</span> <span class="p">(</span><span class="nx">client</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">players</span><span class="p">[</span> <span class="nx">client</span><span class="p">.</span><span class="nx">id</span> <span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Player</span><span class="p">();</span>
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-0-typescript">
+            <div class="codehilite"><pre><span></span><span class="c1">// Player.ts</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">Player</span> <span class="p">{</span>
+  <span class="kr">constructor</span> <span class="p">(</span>
+    <span class="kr">public</span> <span class="nx">x</span>: <span class="kt">number</span><span class="p">,</span>
+    <span class="kr">public</span> <span class="nx">y</span>: <span class="kt">number</span>
+  <span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="c1">// ...</span>
+<span class="p">}</span>
 </pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<h3 id="map-of-entities-entitymap">Map of entities (<code>EntityMap</code>)<a class="headerlink" href="#map-of-entities-entitymap" title="Permanent link">&para;</a></h3>
+<p>The <code>EntityMap</code> is useful to have strong data typing during development. Since you cannot use <code>Map</code> to describe public synchronizeable properties (see <a href="#avoid-using-map-set">avoid using <code>Map</code> and <code>Set</code></a>), the <code>EntityMap</code> is used to describe a simple map of keys (<code>string</code>) to a custom type (<code>T</code>).</p>
+<div class="codehilite"><pre><span></span><span class="nx">type</span> <span class="nx">EntityMap</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">{[</span> <span class="nx">entityId</span>:<span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="nx">T</span><span class="p">};</span>
+</pre></div>
+
+
+<p>Your state will usualy have at least one usage of <code>EntityMap</code> for the map of connected clients. As described on <a href="#your-own-data-structures">previous example</a>.</p>
+<h3 id="private-variables-nosync">Private variables (<code>@nosync</code>)<a class="headerlink" href="#private-variables-nosync" title="Permanent link">&para;</a></h3>
+<p>To prevent private properties from leaking into your clients' state, you need to set those properties as <strong>non-enumerable</strong>. The decorator <code>@nosync</code> is a syntax sugar for this purpose.</p>
+<div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">class</span> <span class="nx">Player</span> <span class="p">{</span>
+  <span class="nx">x</span>: <span class="kt">number</span><span class="p">;</span>
+  <span class="nx">y</span>: <span class="kt">number</span><span class="p">;</span>
+
+  <span class="kd">@nosync</span> 
+  <span class="nx">wontBeSynched</span>: <span class="kt">string</span> <span class="o">=</span> <span class="s2">&quot;This property won&#39;t be synched with clients&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3 id="avoid-using-map-set">Avoid using <code>Map</code>, <code>Set</code><a class="headerlink" href="#avoid-using-map-set" title="Permanent link">&para;</a></h3>
+<p>Avoid using <code>Map</code> and <code>Set</code> for public, synchronizeable, properties.</p>
+<p>Unfortunately, the JavaScript built-in types <code>Map</code> and <code>Set</code> aren't serializeable by default. This means MessagePack cannot encode them properly.</p>
+<p><strong>See why:</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">myMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">([[</span><span class="s2">&quot;k1&quot;</span><span class="p">,</span> <span class="s2">&quot;v1&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;k2&quot;</span><span class="p">,</span> <span class="s2">&quot;v2&quot;</span><span class="p">]]);</span>
+<span class="c1">// =&gt; Map(2) {&quot;key&quot; =&gt; &quot;value&quot;, &quot;key2&quot; =&gt; &quot;value2&quot;}</span>
+<span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">myMap</span><span class="p">);</span>
+<span class="c1">// =&gt; &quot;{}&quot;</span>
+</pre></div>
+
+
+<p>You're encourage to use them for private variables, though. See <a href="#private-variables-nosync"><code>@nosync</code></a> for not synchronizeable properties.</p>
+<h3 id="avoid-mutating-arrays">Avoid mutating arrays<a class="headerlink" href="#avoid-mutating-arrays" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>push</code>ing new entries is OK - the clients will receive a single <code>"add"</code> operation.</li>
+<li><code>pop</code>ing the last entry is OK - the clients will receive a single <code>"remove"</code> operation.</li>
+</ul>
+<p>Removing or inserting entries in-between will generate one <code>"replace"</code> operation for each entry that had the index changed. Be careful to handle these changes in the client-side properly.</p>
                 
                   
                 
