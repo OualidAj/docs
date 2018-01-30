@@ -83,6 +83,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>https://colyseus.io//api-uws-support/</loc>
+     <lastmod>2018-01-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     

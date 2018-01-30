@@ -431,13 +431,23 @@
             "title": "Inspector"
         }, 
         {
+            "location": "/api-uws-support/", 
+            "text": "\u00b5WS Support\n\n\nBy default, Colyseus uses the standard \nws\n package for the WebSocket server.\n\n\nYou can enable \nuws\n in your server by installing it as a dependency in your project.\n\n\nnpm install uws\n\n\n\n\n\nIt's that simple! Colyseus will automatically detect the dependency available in your \nnode_modules\n and use it instead of the default.", 
+            "title": "\u00b5WS Support"
+        }, 
+        {
+            "location": "/api-uws-support/#ws-support", 
+            "text": "By default, Colyseus uses the standard  ws  package for the WebSocket server.  You can enable  uws  in your server by installing it as a dependency in your project.  npm install uws  It's that simple! Colyseus will automatically detect the dependency available in your  node_modules  and use it instead of the default.", 
+            "title": "\u00b5WS Support"
+        }, 
+        {
             "location": "/client-overview/", 
-            "text": "Overview\n\n\nConnecting to the Colyseus server:\n\n\nConnecting to the Server\n\n\n\n                \n\n                    \n        \n\n            \n        \n\n            \nTypeScript\n\n        \n\n    \n        \n\n            \nC#\n\n        \n\n    \n        \n\n    \n        \n\n            \n        \n\n            \nimport\n \n*\n \nas\n \nColyseus\n \nfrom\n \ncolyseus.js\n;\n\n\n// ...\n\n\n\nlet\n \nclient\n \n=\n \nnew\n \nColyseus\n.\nClient\n(\nws://localhost:2657\n);\n\n\n\n\n        \n\n    \n        \n\n            \nusing\n \nColyseus\n;\n\n\n// ...\n\n\n\nClient\n \nclient\n \n=\n \nnew\n \nClient\n(\nws://localhost:2657\n);\n\n\n\n\n        \n\n    \n        \n\n    \n                \n\n                    \n\n\nJoining a Room\n\n\n\n                \n\n                    \n        \n\n            \n        \n\n            \nTypeScript\n\n        \n\n    \n        \n\n            \nC#\n\n        \n\n    \n        \n\n    \n        \n\n            \n        \n\n            \nlet\n \nroom\n \n=\n \nclient\n.\njoin\n(\nbattle\n);\n\n\n\n\n        \n\n    \n        \n\n            \nRoom\n \nroom\n \n=\n \nclient\n.\nJoin\n(\nbattle\n);", 
+            "text": "Overview\n\n\nColyseus currently have clients for the platforms:\n\n\n\n\nHTML5\n\n\nUnity3D\n\n\n\n\nNeed a client for another platform? Share your interest on the \ndiscussion board\n!\n\n\nConnecting to the Server\n\n\n\n                \n\n                    \n        \n\n            \n        \n\n            \nTypeScript\n\n        \n\n    \n        \n\n            \nC#\n\n        \n\n    \n        \n\n    \n        \n\n            \n        \n\n            \nimport\n \n*\n \nas\n \nColyseus\n \nfrom\n \ncolyseus.js\n;\n\n\n// ...\n\n\n\nlet\n \nclient\n \n=\n \nnew\n \nColyseus\n.\nClient\n(\nws://localhost:2657\n);\n\n\n\n\n        \n\n    \n        \n\n            \nusing\n \nColyseus\n;\n\n\n// ...\n\n\n\nClient\n \nclient\n \n=\n \nnew\n \nClient\n(\nws://localhost:2657\n);\n\n\n\n\n        \n\n    \n        \n\n    \n                \n\n                    \n\n\nJoining a Room\n\n\n\n                \n\n                    \n        \n\n            \n        \n\n            \nTypeScript\n\n        \n\n    \n        \n\n            \nC#\n\n        \n\n    \n        \n\n    \n        \n\n            \n        \n\n            \nlet\n \nroom\n \n=\n \nclient\n.\njoin\n(\nbattle\n);\n\n\n\n\n        \n\n    \n        \n\n            \nRoom\n \nroom\n \n=\n \nclient\n.\nJoin\n(\nbattle\n);", 
             "title": "Overview"
         }, 
         {
             "location": "/client-overview/#overview", 
-            "text": "Connecting to the Colyseus server:", 
+            "text": "Colyseus currently have clients for the platforms:   HTML5  Unity3D   Need a client for another platform? Share your interest on the  discussion board !", 
             "title": "Overview"
         }, 
         {
