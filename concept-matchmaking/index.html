@@ -80,6 +80,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
+      <a href="#the-matchmaking-cycle" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -282,9 +286,47 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Matchmaking
+      </label>
+    
     <a href="./" title="Matchmaking" class="md-nav__link md-nav__link--active">
       Matchmaking
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-matchmaking-cycle" title="The matchmaking cycle" class="md-nav__link">
+    The matchmaking cycle
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ranked-matches" title="Ranked matches" class="md-nav__link">
+    Ranked matches
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -505,6 +547,46 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-matchmaking-cycle" title="The matchmaking cycle" class="md-nav__link">
+    The matchmaking cycle
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ranked-matches" title="Ranked matches" class="md-nav__link">
+    Ranked matches
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -515,7 +597,146 @@
                 
                   <h1>Matchmaking</h1>
                 
-                
+                <p>To allow matchmaking on your Colyseus server, you'll need to implement a room handler, and register it in your server.</p>
+<p>See:</p>
+<ul>
+<li><a href="../api-room">Room</a></li>
+<li><a href="../api-server/#register-name-string-handler-room-options-any">Server#register()</a></li>
+</ul>
+<h2 id="the-matchmaking-cycle">The matchmaking cycle<a class="headerlink" href="#the-matchmaking-cycle" title="Permanent link">&para;</a></h2>
+<p><strong>1.</strong> Client asks to connect into a specific room:</p>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item active">
+            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-0-csharp" aria-controls="tab-0-csharp" role="tab" data-toggle="tab" data-lang="csharp">C#</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-0-typescript">
+            <div class="codehilite"><pre><span></span><span class="c1">// client-side</span>
+<span class="kd">let</span> <span class="nx">room</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;battle&quot;</span><span class="p">);</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-0-csharp">
+            <div class="codehilite"><pre><span></span><span class="c1">// client-side</span>
+<span class="n">Room</span> <span class="n">room</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;battle&quot;</span><span class="p">);</span>
+</pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<p><strong>2.</strong> Server will loop through all spawned room instances named <code>"battle"</code> and call <a href="../api-room/#requestjoin-options"><code>requestJoin</code></a> method against that instance.</p>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item active">
+            <a href="#tab-1-typescript" aria-controls="tab-1-typescript" role="tab" data-toggle="tab" data-lang="typescript">Example 1</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-1-typescript" aria-controls="tab-1-typescript" role="tab" data-toggle="tab" data-lang="typescript">Example 2</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-1-typescript">
+            <div class="codehilite"><pre><span></span><span class="c1">// server-side</span>
+<span class="nx">requestJoin</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Prevent the client from joining the same room from another browser tab</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">clients</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">c</span> <span class="o">=&gt;</span> <span class="nx">c</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">options</span><span class="p">.</span><span class="nx">clientId</span><span class="p">).</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-1-typescript">
+            <div class="codehilite"><pre><span></span><span class="nx">onInit</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">password</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">password</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// server-side</span>
+<span class="nx">requestJoin</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Private room. Only accept connections with the correct password.</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">password</span> <span class="o">===</span> <span class="nx">options</span><span class="p">.</span><span class="nx">password</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<p><strong>3.</strong> If <a href="../api-room/#requestjoin-options"><code>requestJoin</code></a> succeeds, <a href="../api-room/#onjoin-client"><code>Room#onJoin()</code></a> will be called with the <a href="../api-client"><code>client</code></a> reference and <code>options</code> given by the client.</p>
+<p><strong>4.</strong> If <a href="../api-room/#requestjoin-options"><code>requestJoin</code></a> fails on every available room instance, a new instance will be spawned for that client. In case <a href="../api-room/#requestjoin-options"><code>requestJoin</code></a> fails again, the client will receive an <code>"error"</code> event.</p>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item active">
+            <a href="#tab-2-typescript" aria-controls="tab-2-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-2-csharp" aria-controls="tab-2-csharp" role="tab" data-toggle="tab" data-lang="csharp">C#</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-2-typescript">
+            <div class="codehilite"><pre><span></span><span class="c1">// client-side</span>
+<span class="nx">room</span><span class="p">.</span><span class="nx">onError</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;error ocurred:&quot;</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-2-csharp">
+            <div class="codehilite"><pre><span></span><span class="c1">// client-side</span>
+<span class="n">room</span><span class="p">.</span><span class="n">OnError</span> <span class="p">+=</span> <span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">MessageEventArgs</span> <span class="n">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+</pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<h3 id="ranked-matches">Ranked matches<a class="headerlink" href="#ranked-matches" title="Permanent link">&para;</a></h3>
+<p>As an alternative to returning <code>true</code> or <code>false</code> on <code>requestJoin</code>, you can provide a number between <code>0</code> and <code>1</code> to manage priority. The match-making service will select the highest number for the new user to connect.</p>
+<p>On this example, we're prioritizing rooms with the fewer number of clients. You can write your own logic to calculate the average skill level of your user, for example.</p>
+<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">MyRoomHandler</span> <span class="kr">extends</span> <span class="nx">Room</span> <span class="p">{</span>
+  <span class="c1">// maximum of 10 clients allowed on this room.</span>
+  <span class="nx">maxClients</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+  <span class="nx">requestJoin</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">clients</span><span class="p">.</span><span class="nx">length</span> <span class="o">/</span> <span class="mi">10</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
                 
                   
                 
