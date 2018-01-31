@@ -681,11 +681,11 @@
         </div>
     
         <div role="tabpanel" class="tab-pane " id="tab-1-typescript">
-            <div class="codehilite"><pre><span></span><span class="nx">onInit</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span>
+            <div class="codehilite"><pre><span></span><span class="c1">// server-side</span>
+<span class="nx">onInit</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">password</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">password</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="c1">// server-side</span>
 <span class="nx">requestJoin</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Private room. Only accept connections with the correct password.</span>
     <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">password</span> <span class="o">===</span> <span class="nx">options</span><span class="p">.</span><span class="nx">password</span><span class="p">;</span>
