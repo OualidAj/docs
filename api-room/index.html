@@ -80,7 +80,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#room-api" tabindex="1" class="md-skip">
+      <a href="#server-side-room-api" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -668,6 +668,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../client-room/" title="Room" class="md-nav__link">
+      Room
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../client-state-synchronization/" title="State synchronization" class="md-nav__link">
       State synchronization
     </a>
@@ -931,26 +943,26 @@
                   <a href="https://github.com/colyseus/docs/edit/master/docs/api-room.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="room-api">Room API<a class="headerlink" href="#room-api" title="Permanent link">&para;</a></h1>
+                <h1 id="server-side-room-api">Server-side Room API<a class="headerlink" href="#server-side-room-api" title="Permanent link">&para;</a></h1>
 <p>Considering that you already <a href="../concept-worker-processes">set up your server</a>, now it's time to register session handlers, and start accepting connections from your users.</p>
 <p>You'll define session handlers creating classes that extends from <code>Room</code>.</p>
 <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Room</span><span class="p">,</span> <span class="nx">Client</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
 
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyRoom</span> <span class="kr">extends</span> <span class="nx">Room</span> <span class="p">{</span>
     <span class="c1">// When room is initialized</span>
-    <span class="nx">onInit</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span> 
+    <span class="nx">onInit</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
     <span class="c1">// Checks if a new client is allowed to join. (default: `return true`)</span>
-    <span class="nx">requestJoin</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span> 
+    <span class="nx">requestJoin</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
     <span class="c1">// When client successfully join the room</span>
-    <span class="nx">onJoin</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span> 
+    <span class="nx">onJoin</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
     <span class="c1">// When a client leaves the room</span>
-    <span class="nx">onLeave</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span> 
+    <span class="nx">onLeave</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
     <span class="c1">// When a client sends a message</span>
-    <span class="nx">onMessage</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">data</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span> 
+    <span class="nx">onMessage</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">data</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
     <span class="c1">// Cleanup callback, called after there are no more clients in the room. (see `autoDispose`)</span>
     <span class="nx">onDispose</span> <span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
@@ -967,11 +979,11 @@
 <p>The <code>options</code> will contain the merged values you specified on <a href="../api-server/#register-name-string-handler-room-options-any">Server#register()</a> + the options provided by the first client on <code>client.join()</code></p>
 </div>
 <h3 id="verifyclient-client-options"><code>verifyClient (client, options)</code><a class="headerlink" href="#verifyclient-client-options" title="Permanent link">&para;</a></h3>
-<p>Can be used to verify authenticity of the client that's joining the room. </p>
+<p>Can be used to verify authenticity of the client that's joining the room.</p>
 <p>If left non-implemented it returns <code>true</code>, allowing any client to connect.</p>
 <p>See <a href="../api-authentication">authentication</a> section.</p>
 <h3 id="requestjoin-options"><code>requestJoin (options)</code><a class="headerlink" href="#requestjoin-options" title="Permanent link">&para;</a></h3>
-<p>Synchronous function used to check if a new client is allowed to join. </p>
+<p>Synchronous function used to check if a new client is allowed to join.</p>
 <p>If left non-implemented it returns <code>true</code>, allowing any client to connect.</p>
 <h3 id="onjoin-client"><code>onJoin (client)</code><a class="headerlink" href="#onjoin-client" title="Permanent link">&para;</a></h3>
 <p>Is called when client successfully join the room, after <code>requestJoin</code> and <code>verifyClient</code> succeeded.</p>
@@ -992,7 +1004,7 @@
 
 
 <h3 id="onleave-client"><code>onLeave (client)</code><a class="headerlink" href="#onleave-client" title="Permanent link">&para;</a></h3>
-<p>Is called when a client leave the room. </p>
+<p>Is called when a client leave the room.</p>
 <p>You can define this function as <code>async</code>. See <a href="../api-graceful-shutdown">graceful shutdown</a></p>
 <h3 id="ondispose"><code>onDispose ()</code><a class="headerlink" href="#ondispose" title="Permanent link">&para;</a></h3>
 <p>Cleanup callback, called after there are no more clients in the room.</p>
