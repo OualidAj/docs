@@ -13,7 +13,7 @@
         <meta name="description" content="Documentation for Colyseus Multiplayer Game Server for Node.js">
       
       
-        <link rel="canonical" href="https://colyseus.io/getting-started/">
+        <link rel="canonical" href="https://colyseus.io/api-timing-events/">
       
       
         <meta name="author" content="gamestd.io">
@@ -38,7 +38,7 @@
     
     
       
-        <title>Getting started - Colyseus - Multiplayer Game Server for Node.js</title>
+        <title>Timing events - Colyseus - Multiplayer Game Server for Node.js</title>
       
     
     
@@ -80,7 +80,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#getting-started" tabindex="1" class="md-skip">
+      <a href="#clocktimer" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -106,7 +106,7 @@
                 Colyseus - Multiplayer Game Server for Node.js
               </span>
               <span class="md-header-nav__topic">
-                Getting started
+                Timing events
               </span>
             
           
@@ -233,74 +233,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Getting started
-      </label>
-    
-    <a href="./" title="Getting started" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../getting-started/" title="Getting started" class="md-nav__link">
       Getting started
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#environment" title="Environment" class="md-nav__link">
-    Environment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-mindset" title="The Mindset" class="md-nav__link">
-    The Mindset
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#diagram" title="Diagram" class="md-nav__link">
-    Diagram
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recommended-nodejs-packages-for-games" title="Recommended NodeJS packages for games" class="md-nav__link">
-    Recommended NodeJS packages for games
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -368,10 +305,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       Server-side
@@ -399,11 +338,198 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../api-timing-events/" title="Timing events" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Timing events
+      </label>
+    
+    <a href="./" title="Timing events" class="md-nav__link md-nav__link--active">
       Timing events
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#clocktimer" title="ClockTimer" class="md-nav__link">
+    ClockTimer
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-methods" title="Public methods" class="md-nav__link">
+    Public methods
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clocksetintervalcallback-time-args-delayed" title="clock.setInterval(callback, time, ...args): Delayed" class="md-nav__link">
+    clock.setInterval(callback, time, ...args): Delayed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clocksettimeoutcallback-time-args-delayed" title="clock.setTimeout(callback, time, ...args): Delayed" class="md-nav__link">
+    clock.setTimeout(callback, time, ...args): Delayed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clockclear" title="clock.clear()" class="md-nav__link">
+    clock.clear()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clockstart" title="clock.start()" class="md-nav__link">
+    clock.start()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clockstop" title="clock.stop()" class="md-nav__link">
+    clock.stop()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clocktick" title="clock.tick()" class="md-nav__link">
+    clock.tick()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-properties" title="Public properties" class="md-nav__link">
+    Public properties
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clockelapsedtime" title="clock.elapsedTime" class="md-nav__link">
+    clock.elapsedTime
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clockcurrenttime" title="clock.currentTime" class="md-nav__link">
+    clock.currentTime
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clockdeltatime" title="clock.deltaTime" class="md-nav__link">
+    clock.deltaTime
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delayed" title="Delayed" class="md-nav__link">
+    Delayed
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-methods_1" title="Public methods" class="md-nav__link">
+    Public methods
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delayedclear" title="delayed.clear()" class="md-nav__link">
+    delayed.clear()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delayedreset" title="delayed.reset()" class="md-nav__link">
+    delayed.reset()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-properties_1" title="Public properties" class="md-nav__link">
+    Public properties
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delayedactive-boolean" title="delayed.active: boolean" class="md-nav__link">
+    delayed.active: boolean
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -630,31 +756,104 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#environment" title="Environment" class="md-nav__link">
-    Environment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-mindset" title="The Mindset" class="md-nav__link">
-    The Mindset
+  <a href="#clocktimer" title="ClockTimer" class="md-nav__link">
+    ClockTimer
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#diagram" title="Diagram" class="md-nav__link">
-    Diagram
+  <a href="#public-methods" title="Public methods" class="md-nav__link">
+    Public methods
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clocksetintervalcallback-time-args-delayed" title="clock.setInterval(callback, time, ...args): Delayed" class="md-nav__link">
+    clock.setInterval(callback, time, ...args): Delayed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clocksettimeoutcallback-time-args-delayed" title="clock.setTimeout(callback, time, ...args): Delayed" class="md-nav__link">
+    clock.setTimeout(callback, time, ...args): Delayed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clockclear" title="clock.clear()" class="md-nav__link">
+    clock.clear()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clockstart" title="clock.start()" class="md-nav__link">
+    clock.start()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clockstop" title="clock.stop()" class="md-nav__link">
+    clock.stop()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clocktick" title="clock.tick()" class="md-nav__link">
+    clock.tick()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-properties" title="Public properties" class="md-nav__link">
+    Public properties
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clockelapsedtime" title="clock.elapsedTime" class="md-nav__link">
+    clock.elapsedTime
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clockcurrenttime" title="clock.currentTime" class="md-nav__link">
+    clock.currentTime
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clockdeltatime" title="clock.deltaTime" class="md-nav__link">
+    clock.deltaTime
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -664,9 +863,62 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommended-nodejs-packages-for-games" title="Recommended NodeJS packages for games" class="md-nav__link">
-    Recommended NodeJS packages for games
+  <a href="#delayed" title="Delayed" class="md-nav__link">
+    Delayed
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-methods_1" title="Public methods" class="md-nav__link">
+    Public methods
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delayedclear" title="delayed.clear()" class="md-nav__link">
+    delayed.clear()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delayedreset" title="delayed.reset()" class="md-nav__link">
+    delayed.reset()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-properties_1" title="Public properties" class="md-nav__link">
+    Public properties
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delayedactive-boolean" title="delayed.active: boolean" class="md-nav__link">
+    delayed.active: boolean
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -684,62 +936,64 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/colyseus/docs/edit/master/docs/getting-started.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/colyseus/docs/edit/master/docs/api-timing-events.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
-<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
-<p>Colyseus requires <a href="https://nodejs.org/">Node.js</a> v6.0.0 or higher.</p>
-<p>See some examples in action by cloning the <a href="https://github.com/gamestdio/colyseus-examples">examples</a> project and running it locally.</p>
-<div class="codehilite"><pre><span></span>git clone https://github.com/gamestdio/colyseus-examples.git
-cd colyseus-examples
-npm install
-</pre></div>
-
-
-<p>To run the http + websocket server, run <code>npm start</code>.</p>
-<h2 id="the-mindset">The Mindset<a class="headerlink" href="#the-mindset" title="Permanent link">&para;</a></h2>
-<p>The authoritative game server mindset is quite simple. The Server validates the user actions, and clients are dumb visual representations of the current game state.</p>
-<p>The server should take care of all data involved in your game, such as positioning, speeds, collisions, etc.</p>
-<p>Making multiplayer games is usually tricky because your gameplay must take the multiple delays into account - the other clients sending data to the server, and the server sending data back to all clients. It's the art of faking something that has already happened is actually happening as the current player sees and plays the game.</p>
-<p>Here's how the "multiplayer game loop" looks like on Colyseus:</p>
-<ul>
-<li>Client sends a message to the server, requesting to change its state.</li>
-<li>The input must be validated by your room handler.</li>
-<li>The game state is updated.</li>
-<li>All clients receive the latest version of the game state.</li>
-<li>The visual representation of the game state is updated.</li>
-</ul>
-<h3 id="diagram">Diagram<a class="headerlink" href="#diagram" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>              room.send({ action: &quot;left&quot; })
-
-                           |
-      +------------+       |       +-----------------------------------+
-+-----+ Client #1  +-------|       |  Room handler #1                  |
-|     +------------+       |       |                                   |
-|     +------------+       |       |  onMessage (client, data) {       |
-|-----+ Client #2  |       --------+    if (data.action === &quot;left&quot;) {  |
-|     +------------+               |      // update the room state     |
-|     +------------+               |    }                              |
-|-----+ Client #3  |               |  }                                |
-|     +------------+               +-----------------------------------+
-|                                                    |
-|        patch state broadcast (binary diff)         |
-|----------------------------------------------------+
-</pre></div>
-
-
-<h2 id="recommended-nodejs-packages-for-games">Recommended NodeJS packages for games<a class="headerlink" href="#recommended-nodejs-packages-for-games" title="Permanent link">&para;</a></h2>
-<p>These modules can be useful while developing games on both NodeJS and the Browser.</p>
-<ul>
-<li><a href="https://github.com/gamestdio/mathf">@gamestdio/mathf</a> - Mathematical functions, borrowed from Unity3D's API</li>
-<li><a href="https://github.com/gamestdio/timer">@gamestdio/timer</a> - Reliable timing events</li>
-<li><a href="https://github.com/gamestdio/keycode">@gamestdio/keycode</a> - Constants for keyboard key codes (<code>event.which</code>)</li>
-</ul>
-<p>These modules can be used only in the browser:</p>
-<ul>
-<li><a href="https://github.com/gamestdio/pixi-engine">@gamestdio/pixi-engine</a></li>
-</ul>
+                  <h1>Timing events</h1>
+                
+                <p>For <a href="https://www.w3.org/TR/2011/WD-html5-20110525/timers.html">timing events</a>,
+it's recommended to use the <a href="../api-room/#clock-clocktimer"><code>ClockTimer</code></a> methods.</p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>The built-in
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout"><code>setTimeout</code></a>
+and
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval"><code>setInterval</code></a>
+methods rely on CPU load, which may delay an unexpected amount of time to execute.</p>
+</div>
+<h2 id="clocktimer">ClockTimer<a class="headerlink" href="#clocktimer" title="Permanent link">&para;</a></h2>
+<h3 id="public-methods">Public methods<a class="headerlink" href="#public-methods" title="Permanent link">&para;</a></h3>
+<h4 id="clocksetintervalcallback-time-args-delayed"><code>clock.setInterval(callback, time, ...args): Delayed</code><a class="headerlink" href="#clocksetintervalcallback-time-args-delayed" title="Permanent link">&para;</a></h4>
+<p>The <code>setInterval()</code> method repeatedly calls a function or executes a code
+snippet, with a fixed time delay between each call. It returns
+<a href="#delayed"><code>Delayed</code></a> instance which identifies the interval, so you can
+manipulate it later.</p>
+<h4 id="clocksettimeoutcallback-time-args-delayed"><code>clock.setTimeout(callback, time, ...args): Delayed</code><a class="headerlink" href="#clocksettimeoutcallback-time-args-delayed" title="Permanent link">&para;</a></h4>
+<p>The <code>setTimeout()</code> method sets a timer which executes a function or specified
+piece of code once after the timer expires. It returns <a href="#delayed"><code>Delayed</code></a>
+instance which identifies the interval, so you can manipulate it later.</p>
+<h4 id="clockclear"><code>clock.clear()</code><a class="headerlink" href="#clockclear" title="Permanent link">&para;</a></h4>
+<p>Clear all intervals and timeouts registered with <code>clock.setInterval()</code> and <code>clock.setTimeout()</code>.</p>
+<h4 id="clockstart"><code>clock.start()</code><a class="headerlink" href="#clockstart" title="Permanent link">&para;</a></h4>
+<p>Start counting time.</p>
+<h4 id="clockstop"><code>clock.stop()</code><a class="headerlink" href="#clockstop" title="Permanent link">&para;</a></h4>
+<p>Stop counting time.</p>
+<h4 id="clocktick"><code>clock.tick()</code><a class="headerlink" href="#clocktick" title="Permanent link">&para;</a></h4>
+<p>This method is called automatically at every simulation interval step. All
+<code>Delayed</code> instances are checked during <code>tick</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>See <a href="../api-room/#setsimulationinterval-callback-milliseconds166">Room#setSimiulationInterval()</a> for more details.</p>
+</div>
+<h3 id="public-properties">Public properties<a class="headerlink" href="#public-properties" title="Permanent link">&para;</a></h3>
+<h4 id="clockelapsedtime"><code>clock.elapsedTime</code><a class="headerlink" href="#clockelapsedtime" title="Permanent link">&para;</a></h4>
+<p>Elased time in milliseconds since <a href=""><code>clock.start()</code></a> method was called. Read only.</p>
+<h4 id="clockcurrenttime"><code>clock.currentTime</code><a class="headerlink" href="#clockcurrenttime" title="Permanent link">&para;</a></h4>
+<p>Current time in milliseconds. Read only.</p>
+<h4 id="clockdeltatime"><code>clock.deltaTime</code><a class="headerlink" href="#clockdeltatime" title="Permanent link">&para;</a></h4>
+<p>The difference in time between the last and current <code>tick</code> time. Read only.</p>
+<h2 id="delayed">Delayed<a class="headerlink" href="#delayed" title="Permanent link">&para;</a></h2>
+<p>Delayed instances are created from
+<a href="#clocksetintervalcallback-time-args-delayed"><code>clock.setInterval()</code></a> or
+<a href="#clocksettimeoutcallback-time-args-delayed"><code>clock.setTimeout()</code></a> methods.</p>
+<h3 id="public-methods_1">Public methods<a class="headerlink" href="#public-methods_1" title="Permanent link">&para;</a></h3>
+<h4 id="delayedclear"><code>delayed.clear()</code><a class="headerlink" href="#delayedclear" title="Permanent link">&para;</a></h4>
+<p>Clears the timeout or interval.</p>
+<h4 id="delayedreset"><code>delayed.reset()</code><a class="headerlink" href="#delayedreset" title="Permanent link">&para;</a></h4>
+<p>Reset the elapsed time.</p>
+<h3 id="public-properties_1">Public properties<a class="headerlink" href="#public-properties_1" title="Permanent link">&para;</a></h3>
+<h4 id="delayedactive-boolean"><code>delayed.active: boolean</code><a class="headerlink" href="#delayedactive-boolean" title="Permanent link">&para;</a></h4>
+<p>Returns <code>true</code> if timer is still running.</p>
                 
                   
                 
@@ -758,7 +1012,7 @@ npm install
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../api-room/" title="Room" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -767,19 +1021,19 @@ npm install
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Introduction
+                Room
               </span>
             </div>
           </a>
         
         
-          <a href="../concept-state-synchronization/" title="State synchronization" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../api-room-state/" title="State management" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                State synchronization
+                State management
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

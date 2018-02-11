@@ -116,58 +116,8 @@
             "title": "Single process environment"
         }, 
         {
-            "location": "/api-server/", 
-            "text": "Web-Socket Server\n\n\nThe \nServer\n and \nClusterServer\n have pretty much the same API. \n\n\nThey're responsible for providing the WebSocket server to enable communication between server and client.\n\n\nServer\n\n\nRecommended for development and prototyping environments.\n\n\nregister (name: string, handler: Room, options?: any)\n\n\nRegister a new session handler.\n\n\nParameters:\n\n\n\n\nname: string\n - The public name of the room. You'll use this name when joining the room from the client-side.\n\n\nhandler: Room\n - Reference to the \nRoom\n handler class.\n\n\noptions?: any\n - Custom options for room initialization.\n\n\n\n\n// Register \nchat\n room\n\n\ngameServer\n.\nregister\n(\nchat\n,\n \nChatRoom\n);\n\n\n\n// Register \nbattle\n room\n\n\ngameServer\n.\nregister\n(\nbattle\n,\n \nBattleRoom\n);\n\n\n\n\n\n\n\n\nTip\n\n\nYou may register the same room handler multiple times with different \noptions\n. When \nRoom#onInit()\n is called, the \noptions\n will contain the merged values you specified on \nServer#register()\n + the options provided by the first client on \nclient.join()\n\n\n\n\nListening to matchmake events\n\n\nThe \nregister\n method will return the registered handler instance, which you can listen to match-making events from outside the room instance scope. Such as:\n\n\n\n\n\"create\"\n - when a room has been created\n\n\n\"dispose\"\n - when a room has been disposed\n\n\n\"join\"\n - when a client join a room\n\n\n\"leave\"\n - when a client leave a room\n\n\n\"lock\"\n - when a room has been locked\n\n\n\"unlock\"\n - when a room has been unlocked\n\n\n\n\nUsage:\n\n\ngameServer\n.\nregister\n(\nchat\n,\n \nChatRoom\n).\n\n  \non\n(\ncreate\n,\n \n(\nroom\n)\n \n=\n \nconsole\n.\nlog\n(\nroom created:\n,\n \nroom\n.\nroomId\n)).\n\n  \non\n(\ndispose\n,\n \n(\nroom\n)\n \n=\n \nconsole\n.\nlog\n(\nroom disposed:\n,\n \nroom\n.\nroomId\n)).\n\n  \non\n(\njoin\n,\n \n(\nroom\n,\n \nclient\n)\n \n=\n \nconsole\n.\nlog\n(\nclient\n.\nid\n,\n \njoined\n,\n \nroom\n.\nroomId\n)).\n\n  \non\n(\nleave\n,\n \n(\nroom\n,\n \nclient\n)\n \n=\n \nconsole\n.\nlog\n(\nclient\n.\nid\n,\n \nleft\n,\n \nroom\n.\nroomId\n));\n\n\n\n\n\n\n\n\nWarning\n\n\nIt's completely discouraged to manipulate a room's state through these events. Use the \nabstract methods\n in your room handler instead.\n\n\n\n\nattach (options: any)\n\n\nAttaches or creates the WebSocket server.\n\n\n\n\noptions.server\n: The HTTP server to attach the WebSocket server on.\n\n\noptions.ws\n: An existing WebSocket server to be re-used.\n\n\n\n\n\n                \n\n                    \n        \n\n            \n        \n\n            \nExpress\n\n        \n\n    \n        \n\n            \nhttp.createServer\n\n        \n\n    \n        \n\n            \nWebSocket.Server\n\n        \n\n    \n        \n\n    \n        \n\n            \n        \n\n            \nimport\n \n*\n \nas\n \nexpress\n \nfrom\n \nexpress\n;\n\n\nimport\n \n{\n \nServer\n \n}\n \nfrom\n \ncolyseus\n;\n\n\n\nconst\n \napp\n \n=\n \nnew\n \nexpress\n();\n\n\nconst\n \ngameServer\n \n=\n \nnew\n \nServer\n();\n\n\n\ngameServer\n.\nattach\n({\n \nserver\n:\n \napp\n \n});\n\n\n\n\n        \n\n    \n        \n\n            \nimport\n \n*\n \nas\n \nhttp\n \nfrom\n \nhttp\n;\n\n\nimport\n \n{\n \nServer\n \n}\n \nfrom\n \ncolyseus\n;\n\n\n\nconst\n \nhttpServer\n \n=\n \nhttp\n.\ncreateServer\n();\n\n\nconst\n \ngameServer\n \n=\n \nnew\n \nServer\n();\n\n\n\ngameServer\n.\nattach\n({\n \nserver\n:\n \nhttpServer\n \n});\n\n\n\n\n        \n\n    \n        \n\n            \nimport\n \n*\n \nas\n \nhttp\n \nfrom\n \nhttp\n;\n\n\nimport\n \n*\n \nas\n \nexpress\n \nfrom\n \nexpress\n;\n\n\nimport\n \n*\n \nas\n \nws\n \nfrom\n \nws\n;\n\n\nimport\n \n{\n \nServer\n \n}\n \nfrom\n \ncolyseus\n;\n\n\n\nconst\n \napp\n \n=\n \nexpress\n();\n\n\nconst\n \nserver\n \n=\n \nhttp\n.\ncreateServer\n(\napp\n);\n\n\nconst\n \nwss\n \n=\n \nnew\n \nWebSocket\n.\nServer\n({\n\n    \n// your custom WebSocket.Server setup.\n\n\n});\n\n\n\nconst\n \ngameServer\n \n=\n \nnew\n \nServer\n();\n\n\ngameServer\n.\nattach\n({\n \nws\n:\n \nwss\n \n});\n\n\n\n\n        \n\n    \n        \n\n    \n                \n\n                    \n\n\nlisten (port: number)\n\n\nBinds the WebSocket server into the specified port.\n\n\nonShutdown (callback: Function)\n\n\nRegister a callback that should be called before the process shut down. See \ngraceful shutdown\n for more details.\n\n\nClusterServer\n\n\nRecommended for production environment. \n\n\nThe \nClusterServer\n has the same functionality of \nServer\n, with some caveats. You'll need to use the \n\"cluster\"\n module by yourself and call its methods in the right node type. \n\n\nSee \nClustered environment\n for more details.\n\n\nfork (workers?: number)\n\n\nSpecify the number of session workers to spawn. By default it uses the number of available CPUs.\n\n\n\n                \n\n                    \n        \n\n            \n        \n\n            \nTypeScript\n\n        \n\n    \n        \n\n            \nJavaScript\n\n        \n\n    \n        \n\n    \n        \n\n            \n        \n\n            \nimport\n \n*\n \nas\n \ncluster\n \nfrom\n \ncluster\n;\n\n\nimport\n \n{\n \nClusterServer\n \n}\n \nfrom\n \ncolyseus\n;\n\n\n\nlet\n \ngameServer\n \n=\n \nnew\n \nClusterServer\n();\n\n\n\nif\n \n(\ncluster\n.\nisMaster\n)\n \n{\n\n    \ngameServer\n.\nlisten\n(\n8080\n);\n\n    \ngameServer\n.\nfork\n(\n4\n);\n\n\n\n}\n \nelse\n \n{\n\n    \n// ...\n\n\n}\n\n\n\n\n        \n\n    \n        \n\n            \nconst\n \ncluster\n \n=\n \nrequire\n(\ncluster\n);\n\n\nconst\n \nClusterServer\n \n=\n \nrequire\n(\ncolyseus\n).\nClusterServer\n;\n\n\n\nlet\n \ngameServer\n \n=\n \nnew\n \nClusterServer\n();\n\n\n\nif\n \n(\ncluster\n.\nisMaster\n)\n \n{\n\n    \ngameServer\n.\nlisten\n(\n8080\n);\n\n    \ngameServer\n.\nfork\n(\n4\n);\n\n\n\n}\n \nelse\n \n{\n\n    \n// ...\n\n\n}", 
-            "title": "Web-Socket Server"
-        }, 
-        {
-            "location": "/api-server/#web-socket-server", 
-            "text": "The  Server  and  ClusterServer  have pretty much the same API.   They're responsible for providing the WebSocket server to enable communication between server and client.", 
-            "title": "Web-Socket Server"
-        }, 
-        {
-            "location": "/api-server/#server", 
-            "text": "Recommended for development and prototyping environments.", 
-            "title": "Server"
-        }, 
-        {
-            "location": "/api-server/#register-name-string-handler-room-options-any", 
-            "text": "Register a new session handler.  Parameters:   name: string  - The public name of the room. You'll use this name when joining the room from the client-side.  handler: Room  - Reference to the  Room  handler class.  options?: any  - Custom options for room initialization.   // Register  chat  room  gameServer . register ( chat ,   ChatRoom );  // Register  battle  room  gameServer . register ( battle ,   BattleRoom );    Tip  You may register the same room handler multiple times with different  options . When  Room#onInit()  is called, the  options  will contain the merged values you specified on  Server#register()  + the options provided by the first client on  client.join()", 
-            "title": "register (name: string, handler: Room, options?: any)"
-        }, 
-        {
-            "location": "/api-server/#listening-to-matchmake-events", 
-            "text": "The  register  method will return the registered handler instance, which you can listen to match-making events from outside the room instance scope. Such as:   \"create\"  - when a room has been created  \"dispose\"  - when a room has been disposed  \"join\"  - when a client join a room  \"leave\"  - when a client leave a room  \"lock\"  - when a room has been locked  \"unlock\"  - when a room has been unlocked   Usage:  gameServer . register ( chat ,   ChatRoom ). \n   on ( create ,   ( room )   =   console . log ( room created: ,   room . roomId )). \n   on ( dispose ,   ( room )   =   console . log ( room disposed: ,   room . roomId )). \n   on ( join ,   ( room ,   client )   =   console . log ( client . id ,   joined ,   room . roomId )). \n   on ( leave ,   ( room ,   client )   =   console . log ( client . id ,   left ,   room . roomId ));    Warning  It's completely discouraged to manipulate a room's state through these events. Use the  abstract methods  in your room handler instead.", 
-            "title": "Listening to matchmake events"
-        }, 
-        {
-            "location": "/api-server/#attach-options-any", 
-            "text": "Attaches or creates the WebSocket server.   options.server : The HTTP server to attach the WebSocket server on.  options.ws : An existing WebSocket server to be re-used.   \n                 \n                    \n         \n            \n         \n             Express \n         \n    \n         \n             http.createServer \n         \n    \n         \n             WebSocket.Server \n         \n    \n         \n    \n         \n            \n         \n             import   *   as   express   from   express ;  import   {   Server   }   from   colyseus ;  const   app   =   new   express ();  const   gameServer   =   new   Server ();  gameServer . attach ({   server :   app   });  \n\n         \n    \n         \n             import   *   as   http   from   http ;  import   {   Server   }   from   colyseus ;  const   httpServer   =   http . createServer ();  const   gameServer   =   new   Server ();  gameServer . attach ({   server :   httpServer   });  \n\n         \n    \n         \n             import   *   as   http   from   http ;  import   *   as   express   from   express ;  import   *   as   ws   from   ws ;  import   {   Server   }   from   colyseus ;  const   app   =   express ();  const   server   =   http . createServer ( app );  const   wss   =   new   WebSocket . Server ({ \n     // your custom WebSocket.Server setup.  });  const   gameServer   =   new   Server ();  gameServer . attach ({   ws :   wss   });", 
-            "title": "attach (options: any)"
-        }, 
-        {
-            "location": "/api-server/#listen-port-number", 
-            "text": "Binds the WebSocket server into the specified port.", 
-            "title": "listen (port: number)"
-        }, 
-        {
-            "location": "/api-server/#onshutdown-callback-function", 
-            "text": "Register a callback that should be called before the process shut down. See  graceful shutdown  for more details.", 
-            "title": "onShutdown (callback: Function)"
-        }, 
-        {
-            "location": "/api-server/#clusterserver", 
-            "text": "Recommended for production environment.   The  ClusterServer  has the same functionality of  Server , with some caveats. You'll need to use the  \"cluster\"  module by yourself and call its methods in the right node type.   See  Clustered environment  for more details.", 
-            "title": "ClusterServer"
-        }, 
-        {
-            "location": "/api-server/#fork-workers-number", 
-            "text": "Specify the number of session workers to spawn. By default it uses the number of available CPUs.  \n                 \n                    \n         \n            \n         \n             TypeScript \n         \n    \n         \n             JavaScript \n         \n    \n         \n    \n         \n            \n         \n             import   *   as   cluster   from   cluster ;  import   {   ClusterServer   }   from   colyseus ;  let   gameServer   =   new   ClusterServer ();  if   ( cluster . isMaster )   { \n     gameServer . listen ( 8080 ); \n     gameServer . fork ( 4 );  }   else   { \n     // ...  }  \n\n         \n    \n         \n             const   cluster   =   require ( cluster );  const   ClusterServer   =   require ( colyseus ). ClusterServer ;  let   gameServer   =   new   ClusterServer ();  if   ( cluster . isMaster )   { \n     gameServer . listen ( 8080 ); \n     gameServer . fork ( 4 );  }   else   { \n     // ...  }", 
-            "title": "fork (workers?: number)"
-        }, 
-        {
             "location": "/api-room/", 
-            "text": "Server-side Room API\n\n\nConsidering that you already \nset up your server\n, now it's time to register session handlers, and start accepting connections from your users.\n\n\nYou'll define session handlers creating classes that extends from \nRoom\n.\n\n\nimport\n \n{\n \nRoom\n,\n \nClient\n \n}\n \nfrom\n \ncolyseus\n;\n\n\n\nexport\n \nclass\n \nMyRoom\n \nextends\n \nRoom\n \n{\n\n    \n// When room is initialized\n\n    \nonInit\n \n(\noptions\n: \nany\n)\n \n{\n \n}\n\n\n    \n// Checks if a new client is allowed to join. (default: `return true`)\n\n    \nrequestJoin\n \n(\noptions\n: \nany\n)\n \n{\n \n}\n\n\n    \n// When client successfully join the room\n\n    \nonJoin\n \n(\nclient\n: \nClient\n)\n \n{\n \n}\n\n\n    \n// When a client leaves the room\n\n    \nonLeave\n \n(\nclient\n: \nClient\n)\n \n{\n \n}\n\n\n    \n// When a client sends a message\n\n    \nonMessage\n \n(\nclient\n: \nClient\n,\n \ndata\n: \nany\n)\n \n{\n \n}\n\n\n    \n// Cleanup callback, called after there are no more clients in the room. (see `autoDispose`)\n\n    \nonDispose\n \n()\n \n{\n \n}\n\n\n}\n\n\n\n\n\n\nAbstract methods\n\n\nRoom handlers can implement all these methods.\n\n\nonInit (options)\n\n\nIs called once when room is initialized. You may specify custom initialization options when registering the room handler.\n\n\n\n\nTip\n\n\nThe \noptions\n will contain the merged values you specified on \nServer#register()\n + the options provided by the first client on \nclient.join()\n\n\n\n\nverifyClient (client, options)\n\n\nCan be used to verify authenticity of the client that's joining the room.\n\n\nIf left non-implemented it returns \ntrue\n, allowing any client to connect.\n\n\nSee \nauthentication\n section.\n\n\nrequestJoin (options)\n\n\nSynchronous function used to check if a new client is allowed to join.\n\n\nIf left non-implemented it returns \ntrue\n, allowing any client to connect.\n\n\nonJoin (client)\n\n\nIs called when client successfully join the room, after \nrequestJoin\n and \nverifyClient\n succeeded.\n\n\nonMessage (client, data)\n\n\nIs called when a client sends a message to the server. Here's where you'll process client actions to update the room's state.\n\n\nExample:\n\n\nonMessage\n \n(\nclient\n,\n \ndata\n)\n \n{\n\n    \nlet\n \nplayer\n \n=\n \nthis\n.\nplayersByClientId\n.\nget\n(\nclient\n);\n\n\n    \nif\n \n(\ndata\n.\ncommand\n \n===\n \nleft\n)\n \n{\n\n        \nplayer\n.\nx\n \n-=\n \n1\n;\n\n\n    \n}\n \nelse\n \nif\n \n(\ndata\n.\ncommand\n \n===\n \nright\n)\n \n{\n\n        \nplayer\n.\nx\n \n+=\n \n1\n;\n\n    \n}\n\n\n}\n\n\n\n\n\n\nonLeave (client)\n\n\nIs called when a client leave the room.\n\n\nYou can define this function as \nasync\n. See \ngraceful shutdown\n\n\nonDispose ()\n\n\nCleanup callback, called after there are no more clients in the room.\n\n\nYou can define this function as \nasync\n. See \ngraceful shutdown\n\n\nPublic properties\n\n\nclients: WebSocket[]\n\n\nThe array of connected clients. See \nWeb-Socket Client\n.\n\n\nmaxClients: number\n\n\nMaximum number of clients allowed to connect into the room\n\n\npatchRate: number\n\n\nFrequency to send the room state to connected clients (in milliseconds)\n\n\nSee \nstate synchronization\n.\n\n\nautoDispose: boolean\n\n\nAutomatically dispose the room when last client disconnect. (default: \ntrue\n)\n\n\nclock: ClockTimer\n\n\nA \nClockTimer\n instance.\n\n\nPublic methods\n\n\nRoom handlers have these methods available.\n\n\nsetState (object)\n\n\nSet the new room state.\n\n\n\n\nWarning\n\n\nDo not call this method for updates in the room state. The binary patch algorithm is re-set every time you call it.\n\n\n\n\n\n\nTip\n\n\nYou'll usually call this method only once (on \nRoom.onInit()\n) in your room handler.\n\n\n\n\nsetSimulationInterval (callback[, milliseconds=16.6])\n\n\n(Optional) Create the simulation interval that will change the state of the game. Default simulation interval: 16.6ms (60fps)\n\n\nsetPatchRate (milliseconds)\n\n\nSet frequency the patched state should be sent to all clients. (default: \n50\n = 20fps)\n\n\nsend (client, data)\n\n\nSend data to a particular client.\n\n\n\n                \n\n                    \n        \n\n            \n        \n\n            \nServer\n\n        \n\n    \n        \n\n            \nClient: JavaScript\n\n        \n\n    \n        \n\n            \nClient: C#\n\n        \n\n    \n        \n\n    \n        \n\n            \n        \n\n            \nthis\n.\nsend\n(\nclient\n,\n \n{\n \nmessage\n:\n \nHello world!\n \n});\n\n\n\n\n        \n\n    \n        \n\n            \nroom\n.\nonData\n.\nadd\n(\nfunction\n(\ndata\n)\n \n{\n\n    \nconsole\n.\nlog\n(\ndata\n);\n\n    \n// =\n {message: \nHello world!\n}\n\n\n});\n\n\n\n\n        \n\n    \n        \n\n            \nroom\n.\nOnData\n \n+=\n \n(\nobject\n \nsender\n,\n \nMessageEventArgs\n \ne\n)\n \n=\n \nDebug\n.\nLog\n(\ne\n.\ndata\n);\n\n\n\n\n        \n\n    \n        \n\n    \n                \n\n                    \n\n\nlock ()\n\n\nLocking the room will remove it from the pool of available rooms for new clients to connect to.\n\n\nunlock ()\n\n\nUnlocking the room returns it to the pool of available rooms for new clients to connect to.\n\n\nbroadcast ( data )\n\n\nSend raw data to all connected clients.\n\n\n\n                \n\n                    \n        \n\n            \n        \n\n            \nServer\n\n        \n\n    \n        \n\n            \nClient: JavaScript\n\n        \n\n    \n        \n\n            \nClient: C#\n\n        \n\n    \n        \n\n    \n        \n\n            \n        \n\n            \nthis\n.\nbroadcast\n({\n \nmessage\n:\n \nHello world!\n \n});\n\n\n\n\n        \n\n    \n        \n\n            \nroom\n.\nonData\n.\nadd\n(\nfunction\n(\ndata\n)\n \n{\n\n    \nconsole\n.\nlog\n(\ndata\n);\n\n    \n// =\n {message: \nHello world!\n}\n\n\n});\n\n\n\n\n        \n\n    \n        \n\n            \nroom\n.\nOnData\n \n+=\n \n(\nobject\n \nsender\n,\n \nMessageEventArgs\n \ne\n)\n \n=\n \nDebug\n.\nLog\n(\ne\n.\ndata\n);\n\n\n\n\n        \n\n    \n        \n\n    \n                \n\n                    \n\n\ndisconnect ()\n\n\nDisconnect all clients, then dispose.", 
+            "text": "Server-side Room API\n\n\nConsidering that you already \nset up your server\n, now it's time to register session handlers, and start accepting connections from your users.\n\n\nYou'll define session handlers creating classes that extends from \nRoom\n.\n\n\nimport\n \n{\n \nRoom\n,\n \nClient\n \n}\n \nfrom\n \ncolyseus\n;\n\n\n\nexport\n \nclass\n \nMyRoom\n \nextends\n \nRoom\n \n{\n\n    \n// When room is initialized\n\n    \nonInit\n \n(\noptions\n: \nany\n)\n \n{\n \n}\n\n\n    \n// Checks if a new client is allowed to join. (default: `return true`)\n\n    \nrequestJoin\n \n(\noptions\n: \nany\n)\n \n{\n \n}\n\n\n    \n// When client successfully join the room\n\n    \nonJoin\n \n(\nclient\n: \nClient\n)\n \n{\n \n}\n\n\n    \n// When a client leaves the room\n\n    \nonLeave\n \n(\nclient\n: \nClient\n)\n \n{\n \n}\n\n\n    \n// When a client sends a message\n\n    \nonMessage\n \n(\nclient\n: \nClient\n,\n \ndata\n: \nany\n)\n \n{\n \n}\n\n\n    \n// Cleanup callback, called after there are no more clients in the room. (see `autoDispose`)\n\n    \nonDispose\n \n()\n \n{\n \n}\n\n\n}\n\n\n\n\n\n\nAbstract methods\n\n\nRoom handlers can implement all these methods.\n\n\nonInit (options)\n\n\nIs called once when room is initialized. You may specify custom initialization options when registering the room handler.\n\n\n\n\nTip\n\n\nThe \noptions\n will contain the merged values you specified on \nServer#register()\n + the options provided by the first client on \nclient.join()\n\n\n\n\nverifyClient (client, options)\n\n\nCan be used to verify authenticity of the client that's joining the room.\n\n\nIf left non-implemented it returns \ntrue\n, allowing any client to connect.\n\n\nSee \nauthentication\n section.\n\n\nrequestJoin (options)\n\n\nSynchronous function used to check if a new client is allowed to join.\n\n\nIf left non-implemented it returns \ntrue\n, allowing any client to connect.\n\n\nonJoin (client)\n\n\nIs called when client successfully join the room, after \nrequestJoin\n and \nverifyClient\n succeeded.\n\n\nonMessage (client, data)\n\n\nIs called when a client sends a message to the server. Here's where you'll process client actions to update the room's state.\n\n\nExample:\n\n\nonMessage\n \n(\nclient\n,\n \ndata\n)\n \n{\n\n    \nlet\n \nplayer\n \n=\n \nthis\n.\nplayersByClientId\n.\nget\n(\nclient\n);\n\n\n    \nif\n \n(\ndata\n.\ncommand\n \n===\n \nleft\n)\n \n{\n\n        \nplayer\n.\nx\n \n-=\n \n1\n;\n\n\n    \n}\n \nelse\n \nif\n \n(\ndata\n.\ncommand\n \n===\n \nright\n)\n \n{\n\n        \nplayer\n.\nx\n \n+=\n \n1\n;\n\n    \n}\n\n\n}\n\n\n\n\n\n\nonLeave (client)\n\n\nIs called when a client leave the room.\n\n\nYou can define this function as \nasync\n. See \ngraceful shutdown\n\n\nonDispose ()\n\n\nCleanup callback, called after there are no more clients in the room.\n\n\nYou can define this function as \nasync\n. See \ngraceful shutdown\n\n\nPublic properties\n\n\nclients: WebSocket[]\n\n\nThe array of connected clients. See \nWeb-Socket Client\n.\n\n\nmaxClients: number\n\n\nMaximum number of clients allowed to connect into the room\n\n\npatchRate: number\n\n\nFrequency to send the room state to connected clients (in milliseconds)\n\n\nSee \nstate synchronization\n.\n\n\nautoDispose: boolean\n\n\nAutomatically dispose the room when last client disconnect. (default: \ntrue\n)\n\n\nclock: ClockTimer\n\n\nA \nClockTimer\n instance, used for\n\ntiming events\n.\n\n\nPublic methods\n\n\nRoom handlers have these methods available.\n\n\nsetState (object)\n\n\nSet the new room state.\n\n\n\n\nWarning\n\n\nDo not call this method for updates in the room state. The binary patch algorithm is re-set every time you call it.\n\n\n\n\n\n\nTip\n\n\nYou'll usually call this method only once (on \nRoom.onInit()\n) in your room handler.\n\n\n\n\nsetSimulationInterval (callback[, milliseconds=16.6])\n\n\n(Optional) Create the simulation interval that will change the state of the game. Default simulation interval: 16.6ms (60fps)\n\n\nsetPatchRate (milliseconds)\n\n\nSet frequency the patched state should be sent to all clients. (default: \n50\n = 20fps)\n\n\nsend (client, data)\n\n\nSend data to a particular client.\n\n\n\n                \n\n                    \n        \n\n            \n        \n\n            \nServer\n\n        \n\n    \n        \n\n            \nClient: JavaScript\n\n        \n\n    \n        \n\n            \nClient: C#\n\n        \n\n    \n        \n\n    \n        \n\n            \n        \n\n            \nthis\n.\nsend\n(\nclient\n,\n \n{\n \nmessage\n:\n \nHello world!\n \n});\n\n\n\n\n        \n\n    \n        \n\n            \nroom\n.\nonData\n.\nadd\n(\nfunction\n(\ndata\n)\n \n{\n\n    \nconsole\n.\nlog\n(\ndata\n);\n\n    \n// =\n {message: \nHello world!\n}\n\n\n});\n\n\n\n\n        \n\n    \n        \n\n            \nroom\n.\nOnData\n \n+=\n \n(\nobject\n \nsender\n,\n \nMessageEventArgs\n \ne\n)\n \n=\n \nDebug\n.\nLog\n(\ne\n.\ndata\n);\n\n\n\n\n        \n\n    \n        \n\n    \n                \n\n                    \n\n\nlock ()\n\n\nLocking the room will remove it from the pool of available rooms for new clients to connect to.\n\n\nunlock ()\n\n\nUnlocking the room returns it to the pool of available rooms for new clients to connect to.\n\n\nbroadcast ( data )\n\n\nSend raw data to all connected clients.\n\n\n\n                \n\n                    \n        \n\n            \n        \n\n            \nServer\n\n        \n\n    \n        \n\n            \nClient: JavaScript\n\n        \n\n    \n        \n\n            \nClient: C#\n\n        \n\n    \n        \n\n    \n        \n\n            \n        \n\n            \nthis\n.\nbroadcast\n({\n \nmessage\n:\n \nHello world!\n \n});\n\n\n\n\n        \n\n    \n        \n\n            \nroom\n.\nonData\n.\nadd\n(\nfunction\n(\ndata\n)\n \n{\n\n    \nconsole\n.\nlog\n(\ndata\n);\n\n    \n// =\n {message: \nHello world!\n}\n\n\n});\n\n\n\n\n        \n\n    \n        \n\n            \nroom\n.\nOnData\n \n+=\n \n(\nobject\n \nsender\n,\n \nMessageEventArgs\n \ne\n)\n \n=\n \nDebug\n.\nLog\n(\ne\n.\ndata\n);\n\n\n\n\n        \n\n    \n        \n\n    \n                \n\n                    \n\n\ndisconnect ()\n\n\nDisconnect all clients, then dispose.", 
             "title": "Room"
         }, 
         {
@@ -242,7 +192,7 @@
         }, 
         {
             "location": "/api-room/#clock-clocktimer", 
-            "text": "A  ClockTimer  instance.", 
+            "text": "A  ClockTimer  instance, used for timing events .", 
             "title": "clock: ClockTimer"
         }, 
         {
@@ -291,39 +241,99 @@
             "title": "disconnect ()"
         }, 
         {
-            "location": "/api-client/", 
-            "text": "Web-Socket Client\n\n\nThe \nclient\n instance present on:\n\n\n\n\nRoom#clients\n\n\nRoom#verifyClient()\n\n\nRoom#onJoin()\n\n\nRoom#onMessage()\n\n\nRoom#onLeave()\n\n\n\n\n\n\nNote\n\n\nThis is the raw WebSocket connection coming from the \nws\n package. There are more methods available which aren't encouraged to use along with Colyseus.\n\n\n\n\nMethods\n\n\nclose(code?: number)\n\n\nForce disconnection of the \nclient\n with the server.\n\n\n\n\nTip\n\n\nThis will trigger \nroom.onLeave\n event on the client-side.\n\n\n\n\nProperties\n\n\nid: string\n\n\nUnique id per client. When the same client connects with multiple browser tabs, the \nid\n will be the same for every connection.\n\n\nsessionId: string\n\n\nUnique id per session. Whilst you may have the same \nid\n for multiple sessions from the same client, the \nsessionId\n is always unique.", 
-            "title": "Web-Socket Client"
+            "location": "/api-timing-events/", 
+            "text": "For \ntiming events\n,\nit's recommended to use the \nClockTimer\n methods.\n\n\n\n\nImportant\n\n\nThe built-in\n\nsetTimeout\n\nand\n\nsetInterval\n\nmethods rely on CPU load, which may delay an unexpected amount of time to execute.\n\n\n\n\nClockTimer\n\n\nPublic methods\n\n\nclock.setInterval(callback, time, ...args): Delayed\n\n\nThe \nsetInterval()\n method repeatedly calls a function or executes a code\nsnippet, with a fixed time delay between each call. It returns\n\nDelayed\n instance which identifies the interval, so you can\nmanipulate it later.\n\n\nclock.setTimeout(callback, time, ...args): Delayed\n\n\nThe \nsetTimeout()\n method sets a timer which executes a function or specified\npiece of code once after the timer expires. It returns \nDelayed\n\ninstance which identifies the interval, so you can manipulate it later.\n\n\nclock.clear()\n\n\nClear all intervals and timeouts registered with \nclock.setInterval()\n and \nclock.setTimeout()\n.\n\n\nclock.start()\n\n\nStart counting time.\n\n\nclock.stop()\n\n\nStop counting time.\n\n\nclock.tick()\n\n\nThis method is called automatically at every simulation interval step. All\n\nDelayed\n instances are checked during \ntick\n.\n\n\n\n\nTip\n\n\nSee \nRoom#setSimiulationInterval()\n for more details.\n\n\n\n\nPublic properties\n\n\nclock.elapsedTime\n\n\nElased time in milliseconds since \nclock.start()\n method was called. Read only.\n\n\nclock.currentTime\n\n\nCurrent time in milliseconds. Read only.\n\n\nclock.deltaTime\n\n\nThe difference in time between the last and current \ntick\n time. Read only.\n\n\nDelayed\n\n\nDelayed instances are created from\n\nclock.setInterval()\n or\n\nclock.setTimeout()\n methods.\n\n\nPublic methods\n\n\ndelayed.clear()\n\n\nClears the timeout or interval.\n\n\ndelayed.reset()\n\n\nReset the elapsed time.\n\n\nPublic properties\n\n\ndelayed.active: boolean\n\n\nReturns \ntrue\n if timer is still running.", 
+            "title": "Timing events"
         }, 
         {
-            "location": "/api-client/#web-socket-client", 
-            "text": "The  client  instance present on:   Room#clients  Room#verifyClient()  Room#onJoin()  Room#onMessage()  Room#onLeave()    Note  This is the raw WebSocket connection coming from the  ws  package. There are more methods available which aren't encouraged to use along with Colyseus.", 
-            "title": "Web-Socket Client"
-        }, 
-        {
-            "location": "/api-client/#methods", 
+            "location": "/api-timing-events/#clocktimer", 
             "text": "", 
-            "title": "Methods"
+            "title": "ClockTimer"
         }, 
         {
-            "location": "/api-client/#closecode-number", 
-            "text": "Force disconnection of the  client  with the server.   Tip  This will trigger  room.onLeave  event on the client-side.", 
-            "title": "close(code?: number)"
-        }, 
-        {
-            "location": "/api-client/#properties", 
+            "location": "/api-timing-events/#public-methods", 
             "text": "", 
-            "title": "Properties"
+            "title": "Public methods"
         }, 
         {
-            "location": "/api-client/#id-string", 
-            "text": "Unique id per client. When the same client connects with multiple browser tabs, the  id  will be the same for every connection.", 
-            "title": "id: string"
+            "location": "/api-timing-events/#clocksetintervalcallback-time-args-delayed", 
+            "text": "The  setInterval()  method repeatedly calls a function or executes a code\nsnippet, with a fixed time delay between each call. It returns Delayed  instance which identifies the interval, so you can\nmanipulate it later.", 
+            "title": "clock.setInterval(callback, time, ...args): Delayed"
         }, 
         {
-            "location": "/api-client/#sessionid-string", 
-            "text": "Unique id per session. Whilst you may have the same  id  for multiple sessions from the same client, the  sessionId  is always unique.", 
-            "title": "sessionId: string"
+            "location": "/api-timing-events/#clocksettimeoutcallback-time-args-delayed", 
+            "text": "The  setTimeout()  method sets a timer which executes a function or specified\npiece of code once after the timer expires. It returns  Delayed \ninstance which identifies the interval, so you can manipulate it later.", 
+            "title": "clock.setTimeout(callback, time, ...args): Delayed"
+        }, 
+        {
+            "location": "/api-timing-events/#clockclear", 
+            "text": "Clear all intervals and timeouts registered with  clock.setInterval()  and  clock.setTimeout() .", 
+            "title": "clock.clear()"
+        }, 
+        {
+            "location": "/api-timing-events/#clockstart", 
+            "text": "Start counting time.", 
+            "title": "clock.start()"
+        }, 
+        {
+            "location": "/api-timing-events/#clockstop", 
+            "text": "Stop counting time.", 
+            "title": "clock.stop()"
+        }, 
+        {
+            "location": "/api-timing-events/#clocktick", 
+            "text": "This method is called automatically at every simulation interval step. All Delayed  instances are checked during  tick .   Tip  See  Room#setSimiulationInterval()  for more details.", 
+            "title": "clock.tick()"
+        }, 
+        {
+            "location": "/api-timing-events/#public-properties", 
+            "text": "", 
+            "title": "Public properties"
+        }, 
+        {
+            "location": "/api-timing-events/#clockelapsedtime", 
+            "text": "Elased time in milliseconds since  clock.start()  method was called. Read only.", 
+            "title": "clock.elapsedTime"
+        }, 
+        {
+            "location": "/api-timing-events/#clockcurrenttime", 
+            "text": "Current time in milliseconds. Read only.", 
+            "title": "clock.currentTime"
+        }, 
+        {
+            "location": "/api-timing-events/#clockdeltatime", 
+            "text": "The difference in time between the last and current  tick  time. Read only.", 
+            "title": "clock.deltaTime"
+        }, 
+        {
+            "location": "/api-timing-events/#delayed", 
+            "text": "Delayed instances are created from clock.setInterval()  or clock.setTimeout()  methods.", 
+            "title": "Delayed"
+        }, 
+        {
+            "location": "/api-timing-events/#public-methods_1", 
+            "text": "", 
+            "title": "Public methods"
+        }, 
+        {
+            "location": "/api-timing-events/#delayedclear", 
+            "text": "Clears the timeout or interval.", 
+            "title": "delayed.clear()"
+        }, 
+        {
+            "location": "/api-timing-events/#delayedreset", 
+            "text": "Reset the elapsed time.", 
+            "title": "delayed.reset()"
+        }, 
+        {
+            "location": "/api-timing-events/#public-properties_1", 
+            "text": "", 
+            "title": "Public properties"
+        }, 
+        {
+            "location": "/api-timing-events/#delayedactive-boolean", 
+            "text": "Returns  true  if timer is still running.", 
+            "title": "delayed.active: boolean"
         }, 
         {
             "location": "/api-room-state/", 
@@ -359,6 +369,91 @@
             "location": "/api-room-state/#avoid-mutating-arrays", 
             "text": "push ing new entries is OK - the clients will receive a single  \"add\"  operation.  pop ing the last entry is OK - the clients will receive a single  \"remove\"  operation.   Removing or inserting entries in-between will generate one  \"replace\"  operation for each entry that had the index changed. Be careful to handle these changes in the client-side properly.", 
             "title": "Avoid mutating arrays"
+        }, 
+        {
+            "location": "/api-server/", 
+            "text": "Web-Socket Server\n\n\nThe \nServer\n and \nClusterServer\n have pretty much the same API. \n\n\nThey're responsible for providing the WebSocket server to enable communication between server and client.\n\n\nServer\n\n\nRecommended for development and prototyping environments.\n\n\nregister (name: string, handler: Room, options?: any)\n\n\nRegister a new session handler.\n\n\nParameters:\n\n\n\n\nname: string\n - The public name of the room. You'll use this name when joining the room from the client-side.\n\n\nhandler: Room\n - Reference to the \nRoom\n handler class.\n\n\noptions?: any\n - Custom options for room initialization.\n\n\n\n\n// Register \nchat\n room\n\n\ngameServer\n.\nregister\n(\nchat\n,\n \nChatRoom\n);\n\n\n\n// Register \nbattle\n room\n\n\ngameServer\n.\nregister\n(\nbattle\n,\n \nBattleRoom\n);\n\n\n\n\n\n\n\n\nTip\n\n\nYou may register the same room handler multiple times with different \noptions\n. When \nRoom#onInit()\n is called, the \noptions\n will contain the merged values you specified on \nServer#register()\n + the options provided by the first client on \nclient.join()\n\n\n\n\nListening to matchmake events\n\n\nThe \nregister\n method will return the registered handler instance, which you can listen to match-making events from outside the room instance scope. Such as:\n\n\n\n\n\"create\"\n - when a room has been created\n\n\n\"dispose\"\n - when a room has been disposed\n\n\n\"join\"\n - when a client join a room\n\n\n\"leave\"\n - when a client leave a room\n\n\n\"lock\"\n - when a room has been locked\n\n\n\"unlock\"\n - when a room has been unlocked\n\n\n\n\nUsage:\n\n\ngameServer\n.\nregister\n(\nchat\n,\n \nChatRoom\n).\n\n  \non\n(\ncreate\n,\n \n(\nroom\n)\n \n=\n \nconsole\n.\nlog\n(\nroom created:\n,\n \nroom\n.\nroomId\n)).\n\n  \non\n(\ndispose\n,\n \n(\nroom\n)\n \n=\n \nconsole\n.\nlog\n(\nroom disposed:\n,\n \nroom\n.\nroomId\n)).\n\n  \non\n(\njoin\n,\n \n(\nroom\n,\n \nclient\n)\n \n=\n \nconsole\n.\nlog\n(\nclient\n.\nid\n,\n \njoined\n,\n \nroom\n.\nroomId\n)).\n\n  \non\n(\nleave\n,\n \n(\nroom\n,\n \nclient\n)\n \n=\n \nconsole\n.\nlog\n(\nclient\n.\nid\n,\n \nleft\n,\n \nroom\n.\nroomId\n));\n\n\n\n\n\n\n\n\nWarning\n\n\nIt's completely discouraged to manipulate a room's state through these events. Use the \nabstract methods\n in your room handler instead.\n\n\n\n\nattach (options: any)\n\n\nAttaches or creates the WebSocket server.\n\n\n\n\noptions.server\n: The HTTP server to attach the WebSocket server on.\n\n\noptions.ws\n: An existing WebSocket server to be re-used.\n\n\n\n\n\n                \n\n                    \n        \n\n            \n        \n\n            \nExpress\n\n        \n\n    \n        \n\n            \nhttp.createServer\n\n        \n\n    \n        \n\n            \nWebSocket.Server\n\n        \n\n    \n        \n\n    \n        \n\n            \n        \n\n            \nimport\n \n*\n \nas\n \nexpress\n \nfrom\n \nexpress\n;\n\n\nimport\n \n{\n \nServer\n \n}\n \nfrom\n \ncolyseus\n;\n\n\n\nconst\n \napp\n \n=\n \nnew\n \nexpress\n();\n\n\nconst\n \ngameServer\n \n=\n \nnew\n \nServer\n();\n\n\n\ngameServer\n.\nattach\n({\n \nserver\n:\n \napp\n \n});\n\n\n\n\n        \n\n    \n        \n\n            \nimport\n \n*\n \nas\n \nhttp\n \nfrom\n \nhttp\n;\n\n\nimport\n \n{\n \nServer\n \n}\n \nfrom\n \ncolyseus\n;\n\n\n\nconst\n \nhttpServer\n \n=\n \nhttp\n.\ncreateServer\n();\n\n\nconst\n \ngameServer\n \n=\n \nnew\n \nServer\n();\n\n\n\ngameServer\n.\nattach\n({\n \nserver\n:\n \nhttpServer\n \n});\n\n\n\n\n        \n\n    \n        \n\n            \nimport\n \n*\n \nas\n \nhttp\n \nfrom\n \nhttp\n;\n\n\nimport\n \n*\n \nas\n \nexpress\n \nfrom\n \nexpress\n;\n\n\nimport\n \n*\n \nas\n \nws\n \nfrom\n \nws\n;\n\n\nimport\n \n{\n \nServer\n \n}\n \nfrom\n \ncolyseus\n;\n\n\n\nconst\n \napp\n \n=\n \nexpress\n();\n\n\nconst\n \nserver\n \n=\n \nhttp\n.\ncreateServer\n(\napp\n);\n\n\nconst\n \nwss\n \n=\n \nnew\n \nWebSocket\n.\nServer\n({\n\n    \n// your custom WebSocket.Server setup.\n\n\n});\n\n\n\nconst\n \ngameServer\n \n=\n \nnew\n \nServer\n();\n\n\ngameServer\n.\nattach\n({\n \nws\n:\n \nwss\n \n});\n\n\n\n\n        \n\n    \n        \n\n    \n                \n\n                    \n\n\nlisten (port: number)\n\n\nBinds the WebSocket server into the specified port.\n\n\nonShutdown (callback: Function)\n\n\nRegister a callback that should be called before the process shut down. See \ngraceful shutdown\n for more details.\n\n\nClusterServer\n\n\nRecommended for production environment. \n\n\nThe \nClusterServer\n has the same functionality of \nServer\n, with some caveats. You'll need to use the \n\"cluster\"\n module by yourself and call its methods in the right node type. \n\n\nSee \nClustered environment\n for more details.\n\n\nfork (workers?: number)\n\n\nSpecify the number of session workers to spawn. By default it uses the number of available CPUs.\n\n\n\n                \n\n                    \n        \n\n            \n        \n\n            \nTypeScript\n\n        \n\n    \n        \n\n            \nJavaScript\n\n        \n\n    \n        \n\n    \n        \n\n            \n        \n\n            \nimport\n \n*\n \nas\n \ncluster\n \nfrom\n \ncluster\n;\n\n\nimport\n \n{\n \nClusterServer\n \n}\n \nfrom\n \ncolyseus\n;\n\n\n\nlet\n \ngameServer\n \n=\n \nnew\n \nClusterServer\n();\n\n\n\nif\n \n(\ncluster\n.\nisMaster\n)\n \n{\n\n    \ngameServer\n.\nlisten\n(\n8080\n);\n\n    \ngameServer\n.\nfork\n(\n4\n);\n\n\n\n}\n \nelse\n \n{\n\n    \n// ...\n\n\n}\n\n\n\n\n        \n\n    \n        \n\n            \nconst\n \ncluster\n \n=\n \nrequire\n(\ncluster\n);\n\n\nconst\n \nClusterServer\n \n=\n \nrequire\n(\ncolyseus\n).\nClusterServer\n;\n\n\n\nlet\n \ngameServer\n \n=\n \nnew\n \nClusterServer\n();\n\n\n\nif\n \n(\ncluster\n.\nisMaster\n)\n \n{\n\n    \ngameServer\n.\nlisten\n(\n8080\n);\n\n    \ngameServer\n.\nfork\n(\n4\n);\n\n\n\n}\n \nelse\n \n{\n\n    \n// ...\n\n\n}", 
+            "title": "Web-Socket Server"
+        }, 
+        {
+            "location": "/api-server/#web-socket-server", 
+            "text": "The  Server  and  ClusterServer  have pretty much the same API.   They're responsible for providing the WebSocket server to enable communication between server and client.", 
+            "title": "Web-Socket Server"
+        }, 
+        {
+            "location": "/api-server/#server", 
+            "text": "Recommended for development and prototyping environments.", 
+            "title": "Server"
+        }, 
+        {
+            "location": "/api-server/#register-name-string-handler-room-options-any", 
+            "text": "Register a new session handler.  Parameters:   name: string  - The public name of the room. You'll use this name when joining the room from the client-side.  handler: Room  - Reference to the  Room  handler class.  options?: any  - Custom options for room initialization.   // Register  chat  room  gameServer . register ( chat ,   ChatRoom );  // Register  battle  room  gameServer . register ( battle ,   BattleRoom );    Tip  You may register the same room handler multiple times with different  options . When  Room#onInit()  is called, the  options  will contain the merged values you specified on  Server#register()  + the options provided by the first client on  client.join()", 
+            "title": "register (name: string, handler: Room, options?: any)"
+        }, 
+        {
+            "location": "/api-server/#listening-to-matchmake-events", 
+            "text": "The  register  method will return the registered handler instance, which you can listen to match-making events from outside the room instance scope. Such as:   \"create\"  - when a room has been created  \"dispose\"  - when a room has been disposed  \"join\"  - when a client join a room  \"leave\"  - when a client leave a room  \"lock\"  - when a room has been locked  \"unlock\"  - when a room has been unlocked   Usage:  gameServer . register ( chat ,   ChatRoom ). \n   on ( create ,   ( room )   =   console . log ( room created: ,   room . roomId )). \n   on ( dispose ,   ( room )   =   console . log ( room disposed: ,   room . roomId )). \n   on ( join ,   ( room ,   client )   =   console . log ( client . id ,   joined ,   room . roomId )). \n   on ( leave ,   ( room ,   client )   =   console . log ( client . id ,   left ,   room . roomId ));    Warning  It's completely discouraged to manipulate a room's state through these events. Use the  abstract methods  in your room handler instead.", 
+            "title": "Listening to matchmake events"
+        }, 
+        {
+            "location": "/api-server/#attach-options-any", 
+            "text": "Attaches or creates the WebSocket server.   options.server : The HTTP server to attach the WebSocket server on.  options.ws : An existing WebSocket server to be re-used.   \n                 \n                    \n         \n            \n         \n             Express \n         \n    \n         \n             http.createServer \n         \n    \n         \n             WebSocket.Server \n         \n    \n         \n    \n         \n            \n         \n             import   *   as   express   from   express ;  import   {   Server   }   from   colyseus ;  const   app   =   new   express ();  const   gameServer   =   new   Server ();  gameServer . attach ({   server :   app   });  \n\n         \n    \n         \n             import   *   as   http   from   http ;  import   {   Server   }   from   colyseus ;  const   httpServer   =   http . createServer ();  const   gameServer   =   new   Server ();  gameServer . attach ({   server :   httpServer   });  \n\n         \n    \n         \n             import   *   as   http   from   http ;  import   *   as   express   from   express ;  import   *   as   ws   from   ws ;  import   {   Server   }   from   colyseus ;  const   app   =   express ();  const   server   =   http . createServer ( app );  const   wss   =   new   WebSocket . Server ({ \n     // your custom WebSocket.Server setup.  });  const   gameServer   =   new   Server ();  gameServer . attach ({   ws :   wss   });", 
+            "title": "attach (options: any)"
+        }, 
+        {
+            "location": "/api-server/#listen-port-number", 
+            "text": "Binds the WebSocket server into the specified port.", 
+            "title": "listen (port: number)"
+        }, 
+        {
+            "location": "/api-server/#onshutdown-callback-function", 
+            "text": "Register a callback that should be called before the process shut down. See  graceful shutdown  for more details.", 
+            "title": "onShutdown (callback: Function)"
+        }, 
+        {
+            "location": "/api-server/#clusterserver", 
+            "text": "Recommended for production environment.   The  ClusterServer  has the same functionality of  Server , with some caveats. You'll need to use the  \"cluster\"  module by yourself and call its methods in the right node type.   See  Clustered environment  for more details.", 
+            "title": "ClusterServer"
+        }, 
+        {
+            "location": "/api-server/#fork-workers-number", 
+            "text": "Specify the number of session workers to spawn. By default it uses the number of available CPUs.  \n                 \n                    \n         \n            \n         \n             TypeScript \n         \n    \n         \n             JavaScript \n         \n    \n         \n    \n         \n            \n         \n             import   *   as   cluster   from   cluster ;  import   {   ClusterServer   }   from   colyseus ;  let   gameServer   =   new   ClusterServer ();  if   ( cluster . isMaster )   { \n     gameServer . listen ( 8080 ); \n     gameServer . fork ( 4 );  }   else   { \n     // ...  }  \n\n         \n    \n         \n             const   cluster   =   require ( cluster );  const   ClusterServer   =   require ( colyseus ). ClusterServer ;  let   gameServer   =   new   ClusterServer ();  if   ( cluster . isMaster )   { \n     gameServer . listen ( 8080 ); \n     gameServer . fork ( 4 );  }   else   { \n     // ...  }", 
+            "title": "fork (workers?: number)"
+        }, 
+        {
+            "location": "/api-client/", 
+            "text": "Web-Socket Client\n\n\nThe \nclient\n instance present on:\n\n\n\n\nRoom#clients\n\n\nRoom#verifyClient()\n\n\nRoom#onJoin()\n\n\nRoom#onMessage()\n\n\nRoom#onLeave()\n\n\n\n\n\n\nNote\n\n\nThis is the raw WebSocket connection coming from the \nws\n package. There are more methods available which aren't encouraged to use along with Colyseus.\n\n\n\n\nMethods\n\n\nclose(code?: number)\n\n\nForce disconnection of the \nclient\n with the server.\n\n\n\n\nTip\n\n\nThis will trigger \nroom.onLeave\n event on the client-side.\n\n\n\n\nProperties\n\n\nid: string\n\n\nUnique id per client. When the same client connects with multiple browser tabs, the \nid\n will be the same for every connection.\n\n\nsessionId: string\n\n\nUnique id per session. Whilst you may have the same \nid\n for multiple sessions from the same client, the \nsessionId\n is always unique.", 
+            "title": "Web-Socket Client"
+        }, 
+        {
+            "location": "/api-client/#web-socket-client", 
+            "text": "The  client  instance present on:   Room#clients  Room#verifyClient()  Room#onJoin()  Room#onMessage()  Room#onLeave()    Note  This is the raw WebSocket connection coming from the  ws  package. There are more methods available which aren't encouraged to use along with Colyseus.", 
+            "title": "Web-Socket Client"
+        }, 
+        {
+            "location": "/api-client/#methods", 
+            "text": "", 
+            "title": "Methods"
+        }, 
+        {
+            "location": "/api-client/#closecode-number", 
+            "text": "Force disconnection of the  client  with the server.   Tip  This will trigger  room.onLeave  event on the client-side.", 
+            "title": "close(code?: number)"
+        }, 
+        {
+            "location": "/api-client/#properties", 
+            "text": "", 
+            "title": "Properties"
+        }, 
+        {
+            "location": "/api-client/#id-string", 
+            "text": "Unique id per client. When the same client connects with multiple browser tabs, the  id  will be the same for every connection.", 
+            "title": "id: string"
+        }, 
+        {
+            "location": "/api-client/#sessionid-string", 
+            "text": "Unique id per session. Whilst you may have the same  id  for multiple sessions from the same client, the  sessionId  is always unique.", 
+            "title": "sessionId: string"
         }, 
         {
             "location": "/api-authentication/", 
