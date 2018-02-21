@@ -953,6 +953,10 @@
             <a href="#tab-0-csharp" aria-controls="tab-0-csharp" role="tab" data-toggle="tab" data-lang="csharp">C#</a>
         </li>
     
+        <li class="nav-item ">
+            <a href="#tab-0-lua" aria-controls="tab-0-lua" role="tab" data-toggle="tab" data-lang="lua">lua</a>
+        </li>
+    
         </ul>
     
         <div class="tab-content">
@@ -990,10 +994,26 @@
     <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span> <span class="p">(</span><span class="n">change</span><span class="p">.</span><span class="k">value</span><span class="p">);</span>
 
   <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">change</span><span class="p">.</span><span class="n">operation</span> <span class="p">==</span> <span class="s">&quot;remove&quot;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;player has been removed from the state&quot;</span><span class="p">);</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span> <span class="p">(</span><span class="s">&quot;player has been removed from the state&quot;</span><span class="p">);</span>
     <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span> <span class="p">(</span><span class="n">change</span><span class="p">.</span><span class="n">path</span><span class="p">[</span><span class="s">&quot;id&quot;</span><span class="p">]);</span>
   <span class="p">}</span>
 <span class="p">});</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-0-lua">
+            <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">:</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;players/:id&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">change</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="p">(</span><span class="n">change</span><span class="p">.</span><span class="n">operation</span> <span class="o">==</span> <span class="s2">&quot;add&quot;</span><span class="p">)</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new player added to the state&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">change</span><span class="p">.</span><span class="n">path</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">change</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+
+  <span class="kr">elseif</span> <span class="p">(</span><span class="n">change</span><span class="p">.</span><span class="n">operation</span> <span class="o">==</span> <span class="s2">&quot;remove&quot;</span><span class="p">)</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;player has been removed from the state&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">change</span><span class="p">.</span><span class="n">path</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>
+  <span class="kr">end</span>
+<span class="kr">end</span><span class="p">)</span>
 </pre></div>
 
         </div>
@@ -1014,6 +1034,10 @@
     
         <li class="nav-item ">
             <a href="#tab-1-csharp" aria-controls="tab-1-csharp" role="tab" data-toggle="tab" data-lang="csharp">C#</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-1-lua" aria-controls="tab-1-lua" role="tab" data-toggle="tab" data-lang="lua">lua</a>
         </li>
     
         </ul>
@@ -1051,6 +1075,17 @@
 
         </div>
     
+        <div role="tabpanel" class="tab-pane " id="tab-1-lua">
+            <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">:</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;players/:id/:attribute&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">change</span><span class="p">.</span><span class="n">operation</span><span class="p">)</span> <span class="o">//</span> <span class="o">=&gt;</span> <span class="s2">&quot;add&quot;</span> <span class="o">|</span> <span class="s2">&quot;remove&quot;</span> <span class="o">|</span> <span class="s2">&quot;replace&quot;</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">change</span><span class="p">.</span><span class="n">path</span><span class="p">[</span><span class="s2">&quot;attribute&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;has been changed&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">change</span><span class="p">.</span><span class="n">path</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">change</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+<span class="kr">end</span><span class="p">)</span>
+</pre></div>
+
+        </div>
+    
         </div>
     
                 </div>
@@ -1074,6 +1109,10 @@
             <a href="#tab-2-csharp" aria-controls="tab-2-csharp" role="tab" data-toggle="tab" data-lang="csharp">C#</a>
         </li>
     
+        <li class="nav-item ">
+            <a href="#tab-2-lua" aria-controls="tab-2-lua" role="tab" data-toggle="tab" data-lang="lua">lua</a>
+        </li>
+    
         </ul>
     
         <div class="tab-content">
@@ -1086,6 +1125,12 @@
     
         <div role="tabpanel" class="tab-pane " id="tab-2-csharp">
             <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="k">new</span> <span class="p">{</span> <span class="n">move</span> <span class="p">=</span> <span class="s">&quot;left&quot;</span> <span class="p">});</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-2-lua">
+            <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">:</span><span class="n">send</span><span class="p">({</span> <span class="n">move</span> <span class="o">=</span> <span class="s2">&quot;left&quot;</span> <span class="p">})</span>
 </pre></div>
 
         </div>
@@ -1110,6 +1155,10 @@
             <a href="#tab-3-csharp" aria-controls="tab-3-csharp" role="tab" data-toggle="tab" data-lang="csharp">C#</a>
         </li>
     
+        <li class="nav-item ">
+            <a href="#tab-3-lua" aria-controls="tab-3-lua" role="tab" data-toggle="tab" data-lang="lua">lua</a>
+        </li>
+    
         </ul>
     
         <div class="tab-content">
@@ -1122,6 +1171,12 @@
     
         <div role="tabpanel" class="tab-pane " id="tab-3-csharp">
             <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">.</span><span class="n">Leave</span><span class="p">();</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-3-lua">
+            <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">:</span><span class="n">leave</span><span class="p">()</span>
 </pre></div>
 
         </div>
@@ -1173,6 +1228,10 @@ order to allow them to connect directly to this room.</p>
             <a href="#tab-4-csharp" aria-controls="tab-4-csharp" role="tab" data-toggle="tab" data-lang="csharp">C#</a>
         </li>
     
+        <li class="nav-item ">
+            <a href="#tab-4-lua" aria-controls="tab-4-lua" role="tab" data-toggle="tab" data-lang="lua">lua</a>
+        </li>
+    
         </ul>
     
         <div class="tab-content">
@@ -1201,6 +1260,14 @@ order to allow them to connect directly to this room.</p>
 
         </div>
     
+        <div role="tabpanel" class="tab-pane " id="tab-4-lua">
+            <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">:</span><span class="n">on</span><span class="p">(</span><span class="s2">&quot;update&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new state:&quot;</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+<span class="kr">end</span><span class="p">)</span>
+</pre></div>
+
+        </div>
+    
         </div>
     
                 </div>
@@ -1218,6 +1285,10 @@ order to allow them to connect directly to this room.</p>
     
         <li class="nav-item ">
             <a href="#tab-5-csharp" aria-controls="tab-5-csharp" role="tab" data-toggle="tab" data-lang="csharp">C#</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-5-lua" aria-controls="tab-5-lua" role="tab" data-toggle="tab" data-lang="lua">lua</a>
         </li>
     
         </ul>
@@ -1238,6 +1309,15 @@ order to allow them to connect directly to this room.</p>
   <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span> <span class="p">(</span><span class="s">&quot;server just sent this message:&quot;</span><span class="p">);</span>
   <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
 <span class="p">}</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-5-lua">
+            <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">:</span><span class="n">on</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;server just sent this message:&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="kr">end</span><span class="p">)</span>
 </pre></div>
 
         </div>
@@ -1267,6 +1347,10 @@ either <a href="../api-room/#send-client-data">room.send()</a> or
             <a href="#tab-6-csharp" aria-controls="tab-6-csharp" role="tab" data-toggle="tab" data-lang="csharp">C#</a>
         </li>
     
+        <li class="nav-item ">
+            <a href="#tab-6-lua" aria-controls="tab-6-lua" role="tab" data-toggle="tab" data-lang="lua">lua</a>
+        </li>
+    
         </ul>
     
         <div class="tab-content">
@@ -1283,6 +1367,14 @@ either <a href="../api-room/#send-client-data">room.send()</a> or
             <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">.</span><span class="n">OnJoin</span> <span class="p">+=</span> <span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span> <span class="p">(</span><span class="s">&quot;client joined successfully&quot;</span><span class="p">);</span>
 <span class="p">}</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-6-lua">
+            <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">:</span><span class="n">on</span><span class="p">(</span><span class="s2">&quot;join&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;client joined successfully&quot;</span><span class="p">)</span>
+<span class="kr">end</span><span class="p">)</span>
 </pre></div>
 
         </div>
@@ -1306,6 +1398,10 @@ either <a href="../api-room/#send-client-data">room.send()</a> or
             <a href="#tab-7-csharp" aria-controls="tab-7-csharp" role="tab" data-toggle="tab" data-lang="csharp">C#</a>
         </li>
     
+        <li class="nav-item ">
+            <a href="#tab-7-lua" aria-controls="tab-7-lua" role="tab" data-toggle="tab" data-lang="lua">lua</a>
+        </li>
+    
         </ul>
     
         <div class="tab-content">
@@ -1326,6 +1422,14 @@ either <a href="../api-room/#send-client-data">room.send()</a> or
 
         </div>
     
+        <div role="tabpanel" class="tab-pane " id="tab-7-lua">
+            <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">:</span><span class="n">on</span><span class="p">(</span><span class="s2">&quot;leave&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;client left the room&quot;</span><span class="p">)</span>
+<span class="kr">end</span><span class="p">)</span>
+</pre></div>
+
+        </div>
+    
         </div>
     
                 </div>
@@ -1338,18 +1442,22 @@ either <a href="../api-room/#send-client-data">room.send()</a> or
         <ul class="nav nav-tabs">
             
         <li class="nav-item active">
-            <a href="#tab-19-typescript" aria-controls="tab-19-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+            <a href="#tab-28-typescript" aria-controls="tab-28-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
         </li>
     
         <li class="nav-item ">
-            <a href="#tab-19-csharp" aria-controls="tab-19-csharp" role="tab" data-toggle="tab" data-lang="csharp">C#</a>
+            <a href="#tab-28-csharp" aria-controls="tab-28-csharp" role="tab" data-toggle="tab" data-lang="csharp">C#</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-28-lua" aria-controls="tab-28-lua" role="tab" data-toggle="tab" data-lang="lua">lua</a>
         </li>
     
         </ul>
     
         <div class="tab-content">
             
-        <div role="tabpanel" class="tab-pane active" id="tab-19-typescript">
+        <div role="tabpanel" class="tab-pane active" id="tab-28-typescript">
             <div class="codehilite"><pre><span></span><span class="nx">room</span><span class="p">.</span><span class="nx">onError</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;oops, error ocurred:&quot;</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
@@ -1358,11 +1466,20 @@ either <a href="../api-room/#send-client-data">room.send()</a> or
 
         </div>
     
-        <div role="tabpanel" class="tab-pane " id="tab-19-csharp">
+        <div role="tabpanel" class="tab-pane " id="tab-28-csharp">
             <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">.</span><span class="n">OnError</span> <span class="p">+=</span> <span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span> <span class="p">(</span><span class="s">&quot;oops, error ocurred:&quot;</span><span class="p">);</span>
   <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
 <span class="p">}</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-28-lua">
+            <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">:</span><span class="n">on</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;oops, error ocurred:&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="kr">end</span><span class="p">)</span>
 </pre></div>
 
         </div>
