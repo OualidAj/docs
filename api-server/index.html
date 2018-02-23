@@ -770,7 +770,7 @@
                 
                 
                 <h1 id="web-socket-server">Web-Socket Server<a class="headerlink" href="#web-socket-server" title="Permanent link">&para;</a></h1>
-<p>The <a href="#server"><code>Server</code></a> and <a href="#clusterserver"><code>ClusterServer</code></a> have pretty much the same API. </p>
+<p>The <a href="#server"><code>Server</code></a> and <a href="#clusterserver"><code>ClusterServer</code></a> have pretty much the same API.</p>
 <p>They're responsible for providing the WebSocket server to enable communication between server and client.</p>
 <h2 id="server">Server<a class="headerlink" href="#server" title="Permanent link">&para;</a></h2>
 <p>Recommended for development and prototyping environments.</p>
@@ -787,6 +787,9 @@
 
 <span class="c1">// Register &quot;battle&quot; room</span>
 <span class="nx">gameServer</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s2">&quot;battle&quot;</span><span class="p">,</span> <span class="nx">BattleRoom</span><span class="p">);</span>
+
+<span class="c1">// Register &quot;battle&quot; room with custom options</span>
+<span class="nx">gameServer</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s2">&quot;battle_woods&quot;</span><span class="p">,</span> <span class="nx">BattleRoom</span><span class="p">,</span> <span class="p">{</span> <span class="nx">map</span><span class="o">:</span> <span class="s2">&quot;woods&quot;</span> <span class="p">});</span>
 </pre></div>
 
 
@@ -895,8 +898,8 @@
 <h3 id="onshutdown-callback-function"><code>onShutdown (callback: Function)</code><a class="headerlink" href="#onshutdown-callback-function" title="Permanent link">&para;</a></h3>
 <p>Register a callback that should be called before the process shut down. See <a href="../api-graceful-shutdown/">graceful shutdown</a> for more details.</p>
 <h2 id="clusterserver">ClusterServer<a class="headerlink" href="#clusterserver" title="Permanent link">&para;</a></h2>
-<p>Recommended for production environment. </p>
-<p>The <code>ClusterServer</code> has the same functionality of <code>Server</code>, with some caveats. You'll need to use the <code>"cluster"</code> module by yourself and call its methods in the right node type. </p>
+<p>Recommended for production environment.</p>
+<p>The <code>ClusterServer</code> has the same functionality of <code>Server</code>, with some caveats. You'll need to use the <code>"cluster"</code> module by yourself and call its methods in the right node type.</p>
 <p>See <a href="../concept-worker-processes/#clustered-environment">Clustered environment</a> for more details.</p>
 <h3 id="fork-workers-number"><code>fork (workers?: number)</code><a class="headerlink" href="#fork-workers-number" title="Permanent link">&para;</a></h3>
 <p>Specify the number of session workers to spawn. By default it uses the number of available CPUs.</p>

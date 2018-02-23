@@ -700,7 +700,7 @@
     
                 </div>
                     </p>
-<p><strong>2.</strong> Server will loop through all spawned room instances named <code>"battle"</code> and call <a href="../api-room/#requestjoin-options"><code>requestJoin</code></a> method against that instance.</p>
+<p><strong>2.</strong> Server will loop through all spawned room instances named <code>"battle"</code> and call <a href="../api-room/#requestjoin-options-isnew"><code>requestJoin</code></a> method against that instance.</p>
 <p>
                 <div class="code-nav-container">
                     
@@ -746,8 +746,8 @@
     
                 </div>
                     </p>
-<p><strong>3.</strong> If <a href="../api-room/#requestjoin-options"><code>requestJoin</code></a> succeeds, <a href="../api-room/#onjoin-client"><code>Room#onJoin()</code></a> will be called with the <a href="../api-client"><code>client</code></a> reference and <code>options</code> given by the client.</p>
-<p><strong>4.</strong> If <a href="../api-room/#requestjoin-options"><code>requestJoin</code></a> fails on every available room instance, a new instance will be spawned for that client. In case <a href="../api-room/#requestjoin-options"><code>requestJoin</code></a> fails again, the client will receive an <code>"error"</code> event.</p>
+<p><strong>3.</strong> If <a href="../api-room/#requestjoin-options-isnew"><code>requestJoin</code></a> succeeds, <a href="../api-room/#onjoin-client"><code>Room#onJoin()</code></a> will be called with the <a href="../api-client"><code>client</code></a> reference and <code>options</code> given by the client.</p>
+<p><strong>4.</strong> If <a href="../api-room/#requestjoin-options-isnew"><code>requestJoin</code></a> fails on every available room instance, a new instance will be spawned for that client. In case <a href="../api-room/#requestjoin-options-isnew"><code>requestJoin</code></a> fails again, the client will receive an <code>"error"</code> event.</p>
 <p>
                 <div class="code-nav-container">
                     

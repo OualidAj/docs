@@ -377,8 +377,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#requestjoin-options" title="requestJoin (options)" class="md-nav__link">
-    requestJoin (options)
+  <a href="#requestjoin-options-isnew" title="requestJoin (options, isNew)" class="md-nav__link">
+    requestJoin (options, isNew)
   </a>
   
 </li>
@@ -806,8 +806,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#requestjoin-options" title="requestJoin (options)" class="md-nav__link">
-    requestJoin (options)
+  <a href="#requestjoin-options-isnew" title="requestJoin (options, isNew)" class="md-nav__link">
+    requestJoin (options, isNew)
   </a>
   
 </li>
@@ -989,7 +989,7 @@
     <span class="nx">onInit</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
     <span class="c1">// Checks if a new client is allowed to join. (default: `return true`)</span>
-    <span class="nx">requestJoin</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="nx">requestJoin</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">,</span> <span class="nx">isNew</span>: <span class="kt">boolean</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
     <span class="c1">// When client successfully join the room</span>
     <span class="nx">onJoin</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
@@ -1018,9 +1018,14 @@
 <p>Can be used to verify authenticity of the client that's joining the room.</p>
 <p>If left non-implemented it returns <code>true</code>, allowing any client to connect.</p>
 <p>See <a href="../api-authentication">authentication</a> section.</p>
-<h3 id="requestjoin-options"><code>requestJoin (options)</code><a class="headerlink" href="#requestjoin-options" title="Permanent link">&para;</a></h3>
-<p>Synchronous function used to check if a new client is allowed to join.</p>
-<p>If left non-implemented it returns <code>true</code>, allowing any client to connect.</p>
+<h3 id="requestjoin-options-isnew"><code>requestJoin (options, isNew)</code><a class="headerlink" href="#requestjoin-options-isnew" title="Permanent link">&para;</a></h3>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>options</code>: The options provided by the client (<a href="../client-overview#join-roomname-string-options-any"><code>client.join()</code></a>), merged with options provided by the server (<a href="../api-server/#register-name-string-handler-room-options-any"><code>gameServer.register()</code></a>).</li>
+<li><code>isNew</code>: will be <code>true</code> for rooms being created and <code>false</code> for existing ones.</li>
+</ul>
+<p>Synchronous function to check if a new client is allowed to join.</p>
+<p>If left non-implemented, this method returns <code>true</code>, allowing any client to connect.</p>
 <h3 id="onjoin-client"><code>onJoin (client)</code><a class="headerlink" href="#onjoin-client" title="Permanent link">&para;</a></h3>
 <p>Is called when client successfully join the room, after <code>requestJoin</code> and <code>verifyClient</code> succeeded.</p>
 <h3 id="onmessage-client-data"><code>onMessage (client, data)</code><a class="headerlink" href="#onmessage-client-data" title="Permanent link">&para;</a></h3>
