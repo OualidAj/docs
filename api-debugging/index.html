@@ -719,8 +719,9 @@
 </ul>
 <h2 id="inspector">Inspector<a class="headerlink" href="#inspector" title="Permanent link">&para;</a></h2>
 <p>To be able to use the built-in inspector from Node.js you'll need to use the
-<a href="https://github.com/gamestdio/colyseus/blob/master/usage/Server.ts"><code>Server</code></a>
-class, which doesn't use inter-process communication.</p>
+<a href="../concept-worker-processes/#single-process-environment">single-process environment</a>, by using the
+<code>Server</code> class. The <code>ClusterServer</code> class uses inter-process communication,
+which doesn't play nice with the built-in inspector.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Read more about <a href="https://nodejs.org/en/docs/inspector/">Debugging Node.js Applications</a>.</p>
