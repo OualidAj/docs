@@ -38,7 +38,7 @@
     
     
       
-        <title>Debugging - Colyseus - Multiplayer Game Server for Node.js</title>
+        <title>Debugging - Colyseus v0.9.0</title>
       
     
     
@@ -89,7 +89,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://colyseus.io/" title="Colyseus - Multiplayer Game Server for Node.js" class="md-header-nav__button md-logo">
+        <a href="https://colyseus.io/" title="Colyseus v0.9.0" class="md-header-nav__button md-logo">
           
             <img src="../images/logo-white.png" width="24" height="24">
           
@@ -103,7 +103,7 @@
           
             
               <span class="md-header-nav__topic">
-                Colyseus - Multiplayer Game Server for Node.js
+                Colyseus v0.9.0
               </span>
               <span class="md-header-nav__topic">
                 Debugging
@@ -190,7 +190,7 @@
         <img src="../images/logo-white.png" width="24" height="24">
       
     </span>
-    Colyseus - Multiplayer Game Server for Node.js
+    Colyseus v0.9.0
   </label>
   
     <div class="md-nav__source">
@@ -284,18 +284,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../concept-worker-processes/" title="Worker processes" class="md-nav__link">
-      Worker processes
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -328,8 +316,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../api-server/" title="Server" class="md-nav__link">
+      Server
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../api-room/" title="Room" class="md-nav__link">
       Room
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-client/" title="Client" class="md-nav__link">
+      Client
     </a>
   </li>
 
@@ -354,30 +366,6 @@
   <li class="md-nav__item">
     <a href="../api-room-state/" title="State management" class="md-nav__link">
       State management
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-server/" title="Web-Socket Server" class="md-nav__link">
-      Web-Socket Server
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-client/" title="Web-Socket Client" class="md-nav__link">
-      Web-Socket Client
     </a>
   </li>
 
@@ -464,8 +452,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#colyseuscluster" title="colyseus:cluster" class="md-nav__link">
-    colyseus:cluster
+  <a href="#colyseuserrors" title="colyseus:errors" class="md-nav__link">
+    colyseus:errors
   </a>
   
 </li>
@@ -574,6 +562,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../migrating/" title="Migrating" class="md-nav__link">
+      Migrating
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../faq/" title="FAQ" class="md-nav__link">
       FAQ
     </a>
@@ -587,29 +587,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
-    <label class="md-nav__link" for="nav-8">
+    <label class="md-nav__link" for="nav-9">
       More
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
+      <label class="md-nav__title" for="nav-9">
         More
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-uws-support/" title="µWS Support" class="md-nav__link">
-      µWS Support
-    </a>
-  </li>
-
         
           
           
@@ -676,8 +664,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#colyseuscluster" title="colyseus:cluster" class="md-nav__link">
-    colyseus:cluster
+  <a href="#colyseuserrors" title="colyseus:errors" class="md-nav__link">
+    colyseus:errors
   </a>
   
 </li>
@@ -718,17 +706,10 @@
 <li><a href="#debug-messages">Debug messages</a></li>
 </ul>
 <h2 id="inspector">Inspector<a class="headerlink" href="#inspector" title="Permanent link">&para;</a></h2>
-<p>To be able to use the built-in inspector from Node.js you'll need to use the
-<a href="../concept-worker-processes/#single-process-environment">single-process environment</a>, by using the
-<code>Server</code> class. The <code>ClusterServer</code> class uses inter-process communication,
-which doesn't play nice with the built-in inspector.</p>
+<p>You can use the the built-in inspector from Node.js to debug your application.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Read more about <a href="https://nodejs.org/en/docs/inspector/">Debugging Node.js Applications</a>.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For production environment, it's recommended to use <a href="../concept-worker-processes/#clustered-environment"><code>ClusterServer</code></a>.</p>
 </div>
 <h2 id="debug-messages">Debug messages<a class="headerlink" href="#debug-messages" title="Permanent link">&para;</a></h2>
 <p>The server provides some debug messages that you can enable individually per category, by setting the <code>DEBUG</code> environment variable.</p>
@@ -750,21 +731,11 @@ which doesn't play nice with the built-in inspector.</p>
 </pre></div>
 
 
-<h3 id="colyseuscluster"><code>colyseus:cluster</code><a class="headerlink" href="#colyseuscluster" title="Permanent link">&para;</a></h3>
-<p>Logs when worker processes are spawned and re-spawned.</p>
-<div class="codehilite"><pre><span></span>colyseus:cluster master spawned with pid 77216 +0ms
-colyseus:cluster matchmaking spawned with pid 77217 +8ms
-colyseus:cluster fork spawned with pid 77218 +7ms
-colyseus:cluster fork spawned with pid 77219 +3ms
-colyseus:cluster fork spawned with pid 77220 +3ms
-colyseus:cluster fork spawned with pid 77221 +17ms
-</pre></div>
-
-
+<h3 id="colyseuserrors"><code>colyseus:errors</code><a class="headerlink" href="#colyseuserrors" title="Permanent link">&para;</a></h3>
+<p>Logs whenever unexpected (or expected, internally) errors happens on the server-side.</p>
 <h3 id="colyseusmatchmaking"><code>colyseus:matchmaking</code><a class="headerlink" href="#colyseusmatchmaking" title="Permanent link">&para;</a></h3>
-<p>Logs the messages sent back and forth from master node to worker processes. You'll see them only if using <code>ClusterServer</code>.</p>
-<div class="codehilite"><pre><span></span>colyseus:matchmaking requesting CREATE_ROOM +54s
-colyseus:matchmaking spawning &#39;chat&#39; on worker 77218 +52s
+<p>Logs whenever a room is spanwed or disposed.</p>
+<div class="codehilite"><pre><span></span>colyseus:matchmaking spawning &#39;chat&#39; on worker 77218 +52s
 colyseus:matchmaking disposing &#39;chat&#39; on worker 77218 +2s
 </pre></div>
                 

@@ -38,7 +38,7 @@
     
     
       
-        <title>Authentication - Colyseus - Multiplayer Game Server for Node.js</title>
+        <title>Authentication - Colyseus v0.9.0</title>
       
     
     
@@ -89,7 +89,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://colyseus.io/" title="Colyseus - Multiplayer Game Server for Node.js" class="md-header-nav__button md-logo">
+        <a href="https://colyseus.io/" title="Colyseus v0.9.0" class="md-header-nav__button md-logo">
           
             <img src="../images/logo-white.png" width="24" height="24">
           
@@ -103,7 +103,7 @@
           
             
               <span class="md-header-nav__topic">
-                Colyseus - Multiplayer Game Server for Node.js
+                Colyseus v0.9.0
               </span>
               <span class="md-header-nav__topic">
                 Authentication
@@ -190,7 +190,7 @@
         <img src="../images/logo-white.png" width="24" height="24">
       
     </span>
-    Colyseus - Multiplayer Game Server for Node.js
+    Colyseus v0.9.0
   </label>
   
     <div class="md-nav__source">
@@ -284,18 +284,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../concept-worker-processes/" title="Worker processes" class="md-nav__link">
-      Worker processes
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -328,8 +316,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../api-server/" title="Server" class="md-nav__link">
+      Server
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../api-room/" title="Room" class="md-nav__link">
       Room
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-client/" title="Client" class="md-nav__link">
+      Client
     </a>
   </li>
 
@@ -354,30 +366,6 @@
   <li class="md-nav__item">
     <a href="../api-room-state/" title="State management" class="md-nav__link">
       State management
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-server/" title="Web-Socket Server" class="md-nav__link">
-      Web-Socket Server
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-client/" title="Web-Socket Client" class="md-nav__link">
-      Web-Socket Client
     </a>
   </li>
 
@@ -540,6 +528,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../migrating/" title="Migrating" class="md-nav__link">
+      Migrating
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../faq/" title="FAQ" class="md-nav__link">
       FAQ
     </a>
@@ -553,29 +553,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
-    <label class="md-nav__link" for="nav-8">
+    <label class="md-nav__link" for="nav-9">
       More
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
+      <label class="md-nav__title" for="nav-9">
         More
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-uws-support/" title="µWS Support" class="md-nav__link">
-      µWS Support
-    </a>
-  </li>
-
         
           
           
@@ -645,12 +633,12 @@
                 
                   <h1>Authentication</h1>
                 
-                <p>You may implement the <code>verifyClient(client, options)</code> method validate the authenticity of your clients.</p>
+                <p>You may implement the <code>onAuth(options)</code> method validate the authenticity of your clients.</p>
 <p>When requesting to join a room, that's the order of methods which will be called in your room handler:</p>
 <ol>
 <li><code>requestJoin</code> - should check if a room is available for new clients</li>
-<li><code>verifyClient (client, options)</code> - should validate the client based on the options provided (i.e. auth token)</li>
-<li><code>onJoin (client, options)</code> - should initialize the newly connected client into your room's state.</li>
+<li><code>onAuth (options)</code> - should validate the client based on the options provided (i.e. auth token)</li>
+<li><code>onJoin (client, options, auth)</code> - should initialize the new client into your room's state.</li>
 </ol>
 <p>From the client-side, you'd call the <code>join</code> method with a token from some authentication service (i. e. Facebook):</p>
 <p>
@@ -702,13 +690,16 @@
     
                 </div>
                     </p>
-<p>The <code>verifyClient</code> method in your room handler should return <code>true</code> only if the access token is valid.</p>
+<p>The <code>onAuth</code> method in your room handler should return a truthy value if the
+access token is valid.</p>
+<p>You may return custom user-related data, which will be passed on the third
+parameter of <code>onJoin</code>.</p>
 <h3 id="synchronous-usage">Synchronous usage<a class="headerlink" href="#synchronous-usage" title="Permanent link">&para;</a></h3>
 <p>You can immediatelly return a <code>boolean</code> value.</p>
 <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Room</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
 
 <span class="kr">class</span> <span class="nx">MyRoom</span> <span class="kr">extends</span> <span class="nx">Room</span> <span class="p">{</span>
-  <span class="nx">verifyClient</span> <span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span><span class="o">:</span> <span class="kr">boolean</span> <span class="p">{</span>
+  <span class="nx">onAuth</span> <span class="p">(</span><span class="nx">options</span><span class="p">)</span><span class="o">:</span> <span class="kr">boolean</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">password</span> <span class="o">===</span> <span class="s2">&quot;secret&quot;</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -720,11 +711,11 @@
 <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Room</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
 
 <span class="kr">class</span> <span class="nx">MyRoom</span> <span class="kr">extends</span> <span class="nx">Room</span> <span class="p">{</span>
-  <span class="nx">verifyClient</span> <span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span> <span class="p">{</span>
+  <span class="nx">onAuth</span> <span class="p">(</span><span class="nx">options</span><span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">validateToken</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">success</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">validateToken</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">userData</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">resolve</span><span class="p">();</span>
+          <span class="nx">resolve</span><span class="p">(</span><span class="nx">userData</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
           <span class="nx">reject</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
         <span class="p">}</span>
@@ -739,9 +730,9 @@
 <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Room</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
 
 <span class="kr">class</span> <span class="nx">MyRoom</span> <span class="kr">extends</span> <span class="nx">Room</span> <span class="p">{</span>
-  <span class="nx">async</span> <span class="nx">verifyClient</span> <span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">async</span> <span class="nx">onAuth</span> <span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">userData</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">validateToken</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">);</span>
-    <span class="k">return</span> <span class="p">(</span><span class="nx">userData</span><span class="p">)</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nx">userData</span><span class="p">)</span> <span class="o">?</span> <span class="nx">userData</span> : <span class="kt">false</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -763,7 +754,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../api-client/" title="Web-Socket Client" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../api-room-state/" title="State management" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -772,7 +763,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Web-Socket Client
+                State management
               </span>
             </div>
           </a>

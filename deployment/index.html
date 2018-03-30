@@ -38,7 +38,7 @@
     
     
       
-        <title>Deployment - Colyseus - Multiplayer Game Server for Node.js</title>
+        <title>Deployment - Colyseus v0.9.0</title>
       
     
     
@@ -89,7 +89,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://colyseus.io/" title="Colyseus - Multiplayer Game Server for Node.js" class="md-header-nav__button md-logo">
+        <a href="https://colyseus.io/" title="Colyseus v0.9.0" class="md-header-nav__button md-logo">
           
             <img src="../images/logo-white.png" width="24" height="24">
           
@@ -103,7 +103,7 @@
           
             
               <span class="md-header-nav__topic">
-                Colyseus - Multiplayer Game Server for Node.js
+                Colyseus v0.9.0
               </span>
               <span class="md-header-nav__topic">
                 Deployment
@@ -190,7 +190,7 @@
         <img src="../images/logo-white.png" width="24" height="24">
       
     </span>
-    Colyseus - Multiplayer Game Server for Node.js
+    Colyseus v0.9.0
   </label>
   
     <div class="md-nav__source">
@@ -284,18 +284,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../concept-worker-processes/" title="Worker processes" class="md-nav__link">
-      Worker processes
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -326,8 +314,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../api-server/" title="Server" class="md-nav__link">
+      Server
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../api-room/" title="Room" class="md-nav__link">
       Room
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-client/" title="Client" class="md-nav__link">
+      Client
     </a>
   </li>
 
@@ -352,30 +364,6 @@
   <li class="md-nav__item">
     <a href="../api-room-state/" title="State management" class="md-nav__link">
       State management
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-server/" title="Web-Socket Server" class="md-nav__link">
-      Web-Socket Server
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-client/" title="Web-Socket Client" class="md-nav__link">
-      Web-Socket Client
     </a>
   </li>
 
@@ -532,8 +520,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#forever" title="Forever" class="md-nav__link">
-    Forever
+  <a href="#pm2" title="PM2" class="md-nav__link">
+    PM2
   </a>
   
 </li>
@@ -572,6 +560,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../migrating/" title="Migrating" class="md-nav__link">
+      Migrating
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../faq/" title="FAQ" class="md-nav__link">
       FAQ
     </a>
@@ -585,29 +585,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
-    <label class="md-nav__link" for="nav-8">
+    <label class="md-nav__link" for="nav-9">
       More
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
+      <label class="md-nav__title" for="nav-9">
         More
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-uws-support/" title="µWS Support" class="md-nav__link">
-      µWS Support
-    </a>
-  </li>
-
         
           
           
@@ -667,8 +655,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#forever" title="Forever" class="md-nav__link">
-    Forever
+  <a href="#pm2" title="PM2" class="md-nav__link">
+    PM2
   </a>
   
 </li>
@@ -717,23 +705,21 @@
 <li><a href="#nginx-recommended">Deploying on Nginx (recommended)</a></li>
 </ul>
 <h2 id="heroku">Heroku<a class="headerlink" href="#heroku" title="Permanent link">&para;</a></h2>
-<p>You can deploy the <a href="https://github.com/gamestdio/colyseus-examples">colyseus-examples</a> project on Heroku by hitting this button: </p>
+<p>You can deploy the <a href="https://github.com/gamestdio/colyseus-examples">colyseus-examples</a> project on Heroku by hitting this button:</p>
 <p><a href="https://heroku.com/deploy?template=https://github.com/gamestdio/colyseus-examples"><img alt="Deploy" src="https://www.herokucdn.com/deploy/button.svg" /></a></p>
-<p><strong>Note:</strong> You can't use the <code>ClusterServer</code> under Heroku's free tier. Only <code>Server</code> works on free tier, which doesn't use multiple processes.</p>
 <h2 id="zeit-now">Zeit Now<a class="headerlink" href="#zeit-now" title="Permanent link">&para;</a></h2>
-<p>You can deploy the <a href="https://github.com/gamestdio/colyseus-examples">colyseus-examples</a> project on Zeit Now by hitting this button: </p>
+<p>You can deploy the <a href="https://github.com/gamestdio/colyseus-examples">colyseus-examples</a> project on Zeit Now by hitting this button:</p>
 <p><a href="https://deploy.now.sh/?repo=https://github.com/gamestdio/colyseus-examples"><img alt="Deploy to now" src="https://deploy.now.sh/static/button.svg" /></a></p>
-<p><strong>Note:</strong> You can't use the <code>ClusterServer</code> under Zeit Now's free tier. Only <code>Server</code> works on free tier, which doesn't use multiple processes.</p>
 <h2 id="nginx-recommended">Nginx (recommended)<a class="headerlink" href="#nginx-recommended" title="Permanent link">&para;</a></h2>
 <p>It's recommended to use <code>forever</code> and <code>nginx</code> in your production environment.</p>
-<h3 id="forever">Forever<a class="headerlink" href="#forever" title="Permanent link">&para;</a></h3>
-<p>Install <code>forever</code> in your environment.</p>
-<div class="codehilite"><pre><span></span>npm install -g forever
+<h3 id="pm2">PM2<a class="headerlink" href="#pm2" title="Permanent link">&para;</a></h3>
+<p>Install <code>pm2</code> in your environment.</p>
+<div class="codehilite"><pre><span></span>npm install -g pm2
 </pre></div>
 
 
 <p>Then start your game server using it:</p>
-<div class="codehilite"><pre><span></span>forever your-server.js
+<div class="codehilite"><pre><span></span>pm2 start your-server.js -i 0
 </pre></div>
 
 
@@ -811,13 +797,13 @@
           </a>
         
         
-          <a href="../faq/" title="FAQ" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../migrating/" title="Migrating" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                FAQ
+                Migrating
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

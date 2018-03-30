@@ -38,7 +38,7 @@
     
     
       
-        <title>Room - Colyseus - Multiplayer Game Server for Node.js</title>
+        <title>Room - Colyseus v0.9.0</title>
       
     
     
@@ -80,7 +80,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#client-side-room-api" tabindex="1" class="md-skip">
+      <a href="#room-api-client-side" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -89,7 +89,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://colyseus.io/" title="Colyseus - Multiplayer Game Server for Node.js" class="md-header-nav__button md-logo">
+        <a href="https://colyseus.io/" title="Colyseus v0.9.0" class="md-header-nav__button md-logo">
           
             <img src="../images/logo-white.png" width="24" height="24">
           
@@ -103,7 +103,7 @@
           
             
               <span class="md-header-nav__topic">
-                Colyseus - Multiplayer Game Server for Node.js
+                Colyseus v0.9.0
               </span>
               <span class="md-header-nav__topic">
                 Room
@@ -190,7 +190,7 @@
         <img src="../images/logo-white.png" width="24" height="24">
       
     </span>
-    Colyseus - Multiplayer Game Server for Node.js
+    Colyseus v0.9.0
   </label>
   
     <div class="md-nav__source">
@@ -284,18 +284,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../concept-worker-processes/" title="Worker processes" class="md-nav__link">
-      Worker processes
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -326,8 +314,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../api-server/" title="Server" class="md-nav__link">
+      Server
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../api-room/" title="Room" class="md-nav__link">
       Room
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-client/" title="Client" class="md-nav__link">
+      Client
     </a>
   </li>
 
@@ -352,30 +364,6 @@
   <li class="md-nav__item">
     <a href="../api-room-state/" title="State management" class="md-nav__link">
       State management
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-server/" title="Web-Socket Server" class="md-nav__link">
-      Web-Socket Server
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-client/" title="Web-Socket Client" class="md-nav__link">
-      Web-Socket Client
     </a>
   </li>
 
@@ -589,6 +577,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#state-any" title="state: any" class="md-nav__link">
+    state: any
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -603,15 +598,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#onupdate" title="onUpdate" class="md-nav__link">
-    onUpdate
+  <a href="#onstatechange" title="onStateChange" class="md-nav__link">
+    onStateChange
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ondata" title="onData" class="md-nav__link">
-    onData
+  <a href="#onmessage" title="onMessage" class="md-nav__link">
+    onMessage
   </a>
   
 </li>
@@ -686,6 +681,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../migrating/" title="Migrating" class="md-nav__link">
+      Migrating
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../faq/" title="FAQ" class="md-nav__link">
       FAQ
     </a>
@@ -699,29 +706,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
-    <label class="md-nav__link" for="nav-8">
+    <label class="md-nav__link" for="nav-9">
       More
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
+      <label class="md-nav__title" for="nav-9">
         More
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-uws-support/" title="µWS Support" class="md-nav__link">
-      µWS Support
-    </a>
-  </li>
-
         
           
           
@@ -863,6 +858,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#state-any" title="state: any" class="md-nav__link">
+    state: any
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -877,15 +879,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#onupdate" title="onUpdate" class="md-nav__link">
-    onUpdate
+  <a href="#onstatechange" title="onStateChange" class="md-nav__link">
+    onStateChange
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ondata" title="onData" class="md-nav__link">
-    onData
+  <a href="#onmessage" title="onMessage" class="md-nav__link">
+    onMessage
   </a>
   
 </li>
@@ -933,7 +935,7 @@
                   <a href="https://github.com/colyseus/docs/edit/master/docs/client-room.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="client-side-room-api">Client-side Room API<a class="headerlink" href="#client-side-room-api" title="Permanent link">&para;</a></h1>
+                <h1 id="room-api-client-side">Room API (Client-side)<a class="headerlink" href="#room-api-client-side" title="Permanent link">&para;</a></h1>
 <h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
 <h3 id="listen-path-string-callback-function"><code>listen (path: string, callback: Function)</code><a class="headerlink" href="#listen-path-string-callback-function" title="Permanent link">&para;</a></h3>
 <p>Listen to room state changes from the room handler.</p>
@@ -1212,8 +1214,12 @@ order to allow them to connect directly to this room.</p>
 <p>This property matches the <a href="../api-client/#sessionid-string"><code>client.sessionId</code></a> from the server-side.</p>
 <h3 id="name-string"><code>name: string</code><a class="headerlink" href="#name-string" title="Permanent link">&para;</a></h3>
 <p>Name of the room handler. Ex: <code>"battle"</code>.</p>
+<h3 id="state-any"><code>state: any</code><a class="headerlink" href="#state-any" title="Permanent link">&para;</a></h3>
+<p>The current room's state. This variable is always synched with the latest
+<code>state</code> from the server-side. To listen for updates on the whole state, see
+<a href="#onstatechange"><code>onStateChange</code></a> event.</p>
 <h2 id="events">Events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h2>
-<h3 id="onupdate">onUpdate<a class="headerlink" href="#onupdate" title="Permanent link">&para;</a></h3>
+<h3 id="onstatechange">onStateChange<a class="headerlink" href="#onstatechange" title="Permanent link">&para;</a></h3>
 <p>This event is triggered when the server updates its state.</p>
 <p>
                 <div class="code-nav-container">
@@ -1237,11 +1243,11 @@ order to allow them to connect directly to this room.</p>
         <div class="tab-content">
             
         <div role="tabpanel" class="tab-pane active" id="tab-4-typescript">
-            <div class="codehilite"><pre><span></span><span class="nx">room</span><span class="p">.</span><span class="nx">onUpdate</span><span class="p">.</span><span class="nx">addOnce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+            <div class="codehilite"><pre><span></span><span class="nx">room</span><span class="p">.</span><span class="nx">onStateChange</span><span class="p">.</span><span class="nx">addOnce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;this is the first room state!&quot;</span><span class="p">,</span> <span class="nx">state</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="nx">room</span><span class="p">.</span><span class="nx">onUpdate</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">room</span><span class="p">.</span><span class="nx">onStateChange</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;the room state has been updated:&quot;</span><span class="p">,</span> <span class="nx">state</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
@@ -1249,7 +1255,7 @@ order to allow them to connect directly to this room.</p>
         </div>
     
         <div role="tabpanel" class="tab-pane " id="tab-4-csharp">
-            <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">.</span><span class="n">OnUpdate</span> <span class="p">+=</span> <span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RoomUpdateEventArgs</span> <span class="n">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">.</span><span class="n">OnStateChange</span> <span class="p">+=</span> <span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RoomUpdateEventArgs</span> <span class="n">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">isFirstState</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span> <span class="p">(</span><span class="s">&quot;this is the first room state!&quot;</span><span class="p">);</span>
   <span class="p">}</span>
@@ -1261,7 +1267,7 @@ order to allow them to connect directly to this room.</p>
         </div>
     
         <div role="tabpanel" class="tab-pane " id="tab-4-lua">
-            <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">:</span><span class="n">on</span><span class="p">(</span><span class="s2">&quot;update&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+            <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">:</span><span class="n">on</span><span class="p">(</span><span class="s2">&quot;statechange&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new state:&quot;</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
 <span class="kr">end</span><span class="p">)</span>
 </pre></div>
@@ -1272,8 +1278,8 @@ order to allow them to connect directly to this room.</p>
     
                 </div>
                     </p>
-<h3 id="ondata">onData<a class="headerlink" href="#ondata" title="Permanent link">&para;</a></h3>
-<p>This event is triggered when the server sends data directly to the client.</p>
+<h3 id="onmessage">onMessage<a class="headerlink" href="#onmessage" title="Permanent link">&para;</a></h3>
+<p>This event is triggered when the server sends a message directly to the client.</p>
 <p>
                 <div class="code-nav-container">
                     
@@ -1296,27 +1302,27 @@ order to allow them to connect directly to this room.</p>
         <div class="tab-content">
             
         <div role="tabpanel" class="tab-pane active" id="tab-5-typescript">
-            <div class="codehilite"><pre><span></span><span class="nx">room</span><span class="p">.</span><span class="nx">onData</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+            <div class="codehilite"><pre><span></span><span class="nx">room</span><span class="p">.</span><span class="nx">onMessage</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;server just sent this message:&quot;</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 
         </div>
     
         <div role="tabpanel" class="tab-pane " id="tab-5-csharp">
-            <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">.</span><span class="n">OnData</span> <span class="p">+=</span> <span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">MessageEventArgs</span> <span class="n">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">.</span><span class="n">OnMessage</span> <span class="p">+=</span> <span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">MessageEventArgs</span> <span class="n">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span> <span class="p">(</span><span class="s">&quot;server just sent this message:&quot;</span><span class="p">);</span>
-  <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+  <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">message</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
         </div>
     
         <div role="tabpanel" class="tab-pane " id="tab-5-lua">
-            <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">:</span><span class="n">on</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <div class="codehilite"><pre><span></span><span class="n">room</span><span class="p">:</span><span class="n">on</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;server just sent this message:&quot;</span><span class="p">)</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 <span class="kr">end</span><span class="p">)</span>
 </pre></div>
 
@@ -1328,9 +1334,9 @@ order to allow them to connect directly to this room.</p>
                     </p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>To send data from the server directly to the clients you'll need to use
-either <a href="../api-room/#send-client-data">room.send()</a> or
-<a href="../api-room/#broadcast-data">room.broadcast()</a></p>
+<p>To send a message from the server directly to the clients you'll need to use
+either <a href="../api-room/#send-client-message">room.send()</a> or
+<a href="../api-room/#broadcast-message">room.broadcast()</a></p>
 </div>
 <h3 id="onjoin">onJoin<a class="headerlink" href="#onjoin" title="Permanent link">&para;</a></h3>
 <p>This event is triggered when the client successfuly joins the room.</p>

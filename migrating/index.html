@@ -13,7 +13,7 @@
         <meta name="description" content="Documentation for Colyseus Multiplayer Game Server for Node.js">
       
       
-        <link rel="canonical" href="https://colyseus.io/api-uws-support/">
+        <link rel="canonical" href="https://colyseus.io/migrating/">
       
       
         <meta name="author" content="gamestd.io">
@@ -38,7 +38,7 @@
     
     
       
-        <title>µWS Support - Colyseus - Multiplayer Game Server for Node.js</title>
+        <title>Migrating - Colyseus v0.9.0</title>
       
     
     
@@ -80,7 +80,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#ws-support" tabindex="1" class="md-skip">
+      <a href="#migrating-between-versions-of-colyseus" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -89,7 +89,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://colyseus.io/" title="Colyseus - Multiplayer Game Server for Node.js" class="md-header-nav__button md-logo">
+        <a href="https://colyseus.io/" title="Colyseus v0.9.0" class="md-header-nav__button md-logo">
           
             <img src="../images/logo-white.png" width="24" height="24">
           
@@ -103,10 +103,10 @@
           
             
               <span class="md-header-nav__topic">
-                Colyseus - Multiplayer Game Server for Node.js
+                Colyseus v0.9.0
               </span>
               <span class="md-header-nav__topic">
-                µWS Support
+                Migrating
               </span>
             
           
@@ -190,7 +190,7 @@
         <img src="../images/logo-white.png" width="24" height="24">
       
     </span>
-    Colyseus - Multiplayer Game Server for Node.js
+    Colyseus v0.9.0
   </label>
   
     <div class="md-nav__source">
@@ -284,18 +284,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../concept-worker-processes/" title="Worker processes" class="md-nav__link">
-      Worker processes
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -326,8 +314,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../api-server/" title="Server" class="md-nav__link">
+      Server
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../api-room/" title="Room" class="md-nav__link">
       Room
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-client/" title="Client" class="md-nav__link">
+      Client
     </a>
   </li>
 
@@ -352,30 +364,6 @@
   <li class="md-nav__item">
     <a href="../api-room-state/" title="State management" class="md-nav__link">
       State management
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-server/" title="Web-Socket Server" class="md-nav__link">
-      Web-Socket Server
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-client/" title="Web-Socket Client" class="md-nav__link">
-      Web-Socket Client
     </a>
   </li>
 
@@ -497,6 +485,149 @@
       
       
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Migrating
+      </label>
+    
+    <a href="./" title="Migrating" class="md-nav__link md-nav__link--active">
+      Migrating
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-to-09x-from-06x-or-08x" title="Migrating to 0.9.x (from 0.6.x or 0.8.x)" class="md-nav__link">
+    Migrating to 0.9.x (from 0.6.x or 0.8.x)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server-side" title="Server-side" class="md-nav__link">
+    Server-side
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-side" title="Client-side" class="md-nav__link">
+    Client-side
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-to-05x-from-04x" title="Migrating to 0.5.x (from 0.4.x)" class="md-nav__link">
+    Migrating to 0.5.x (from 0.4.x)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-serverlisten-to-bind-http-port" title="Use Server#listen to bind http port." class="md-nav__link">
+    Use Server#listen to bind http port.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructor-signature-changed-use-oninit-instead" title="constructor signature changed. use onInit instead." class="md-nav__link">
+    constructor signature changed. use onInit instead.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requestjoin-can-return-type-can-be-either-boolean-or-number-01" title="requestJoin - can return type can be either boolean or number (0..1)" class="md-nav__link">
+    requestJoin - can return type can be either boolean or number (0..1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-patchrate-property-instead-of-setpatchrate-method" title="use patchRate property instead of setPatchRate() method." class="md-nav__link">
+    use patchRate property instead of setPatchRate() method.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clientid-clientsessionid" title="client.id / client.sessionId" class="md-nav__link">
+    client.id / client.sessionId
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-roommaxclients-property" title="new room.maxClients property." class="md-nav__link">
+    new room.maxClients property.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-to-04x-from-03x" title="Migrating to 0.4.x (from 0.3.x)" class="md-nav__link">
+    Migrating to 0.4.x (from 0.3.x)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor-patch-rate" title="constructor / patch-rate" class="md-nav__link">
+    constructor / patch-rate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
 
   <li class="md-nav__item">
     <a href="../faq/" title="FAQ" class="md-nav__link">
@@ -509,43 +640,20 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
-    <label class="md-nav__link" for="nav-8">
+    <label class="md-nav__link" for="nav-9">
       More
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
+      <label class="md-nav__title" for="nav-9">
         More
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-    <a href="./" title="µWS Support" class="md-nav__link md-nav__link--active">
-      µWS Support
-    </a>
-    
-  </li>
-
         
           
           
@@ -581,6 +689,115 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-to-09x-from-06x-or-08x" title="Migrating to 0.9.x (from 0.6.x or 0.8.x)" class="md-nav__link">
+    Migrating to 0.9.x (from 0.6.x or 0.8.x)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server-side" title="Server-side" class="md-nav__link">
+    Server-side
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-side" title="Client-side" class="md-nav__link">
+    Client-side
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-to-05x-from-04x" title="Migrating to 0.5.x (from 0.4.x)" class="md-nav__link">
+    Migrating to 0.5.x (from 0.4.x)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-serverlisten-to-bind-http-port" title="Use Server#listen to bind http port." class="md-nav__link">
+    Use Server#listen to bind http port.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructor-signature-changed-use-oninit-instead" title="constructor signature changed. use onInit instead." class="md-nav__link">
+    constructor signature changed. use onInit instead.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requestjoin-can-return-type-can-be-either-boolean-or-number-01" title="requestJoin - can return type can be either boolean or number (0..1)" class="md-nav__link">
+    requestJoin - can return type can be either boolean or number (0..1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-patchrate-property-instead-of-setpatchrate-method" title="use patchRate property instead of setPatchRate() method." class="md-nav__link">
+    use patchRate property instead of setPatchRate() method.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clientid-clientsessionid" title="client.id / client.sessionId" class="md-nav__link">
+    client.id / client.sessionId
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-roommaxclients-property" title="new room.maxClients property." class="md-nav__link">
+    new room.maxClients property.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-to-04x-from-03x" title="Migrating to 0.4.x (from 0.3.x)" class="md-nav__link">
+    Migrating to 0.4.x (from 0.3.x)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor-patch-rate" title="constructor / patch-rate" class="md-nav__link">
+    constructor / patch-rate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -591,17 +808,138 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/colyseus/docs/edit/master/docs/api-uws-support.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/colyseus/docs/edit/master/docs/migrating.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="ws-support">µWS Support<a class="headerlink" href="#ws-support" title="Permanent link">&para;</a></h1>
-<p>By default, Colyseus uses the standard <a href="https://www.npmjs.com/package/ws"><code>ws</code></a> package for the WebSocket server.</p>
-<p>You can enable <a href="https://github.com/uNetworking/uWebSockets"><code>uws</code></a> in your server by installing it as a dependency in your project.</p>
-<div class="codehilite"><pre><span></span>npm install uws
+                <h1 id="migrating-between-versions-of-colyseus">Migrating between versions of Colyseus<a class="headerlink" href="#migrating-between-versions-of-colyseus" title="Permanent link">&para;</a></h1>
+<p>This document presents all breaking changes on the framework, and what you need
+to do to keep your server working on the latest version.</p>
+<h2 id="migrating-to-09x-from-06x-or-08x">Migrating to 0.9.x (from 0.6.x or 0.8.x)<a class="headerlink" href="#migrating-to-09x-from-06x-or-08x" title="Permanent link">&para;</a></h2>
+<h3 id="server-side">Server-side<a class="headerlink" href="#server-side" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>ClusterServer</code> has been deprecated. Use <a href="../api-server"><code>Server</code></a> instead.</li>
+<li><code>Room#verifyClient(client, options)</code> has been renamed to <a href="../api-room#onauth-options"><code>Room#onAuth(options)</code></a></li>
+<li>Integration with <a href="https://www.npmjs.com/package/uws"><code>uws</code></a> module has changed. See <a href="../api-server/#optionsengine">how to integrate here</a>.</li>
+</ul>
+<h3 id="client-side">Client-side<a class="headerlink" href="#client-side" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>room.onData</code> has been renamed to <a href="../api-room#onmessage"><code>room.onMessage</code></a>.</li>
+<li><code>room.onUpdate</code> has been renamed to <a href="../api-room#onstatechange"><code>room.onStateChange</code></a></li>
+</ul>
+<h2 id="migrating-to-05x-from-04x">Migrating to 0.5.x (from 0.4.x)<a class="headerlink" href="#migrating-to-05x-from-04x" title="Permanent link">&para;</a></h2>
+<h4 id="use-serverlisten-to-bind-http-port">Use <code>Server#listen</code> to bind http port.<a class="headerlink" href="#use-serverlisten-to-bind-http-port" title="Permanent link">&para;</a></h4>
+<p>The <code>Server</code> is now using the <code>ClusterServer</code> under the hood, which will spawn
+workers automatically. If you're using the <code>Server</code> instead of <code>ClusterServer</code>
+directly, you should call its <code>listen</code> method.</p>
+<p>OLD</p>
+<div class="codehilite"><pre><span></span>import { createServer } from &#39;http&#39;;
+import { Server } from &#39;colyseus&#39;;
+const httpServer = createServer(app);
+const gameServer = new Server({ server: httpServer });
+httpServer.listen(2657);
 </pre></div>
 
 
-<p>It's that simple! Colyseus will automatically detect the dependency available in your <code>node_modules</code> and use it instead of the default.</p>
+<p>NEW</p>
+<div class="codehilite"><pre><span></span>import { createServer } from &#39;http&#39;;
+import { Server } from &#39;colyseus&#39;;
+const httpServer = createServer(app);
+const gameServer = new Server({ server: httpServer });
+gameServer.listen(2657); // calling &#39;listen&#39; from gameServer instead of httpServer
+</pre></div>
+
+
+<h4 id="constructor-signature-changed-use-oninit-instead"><code>constructor</code> signature changed. use <code>onInit</code> instead.<a class="headerlink" href="#constructor-signature-changed-use-oninit-instead" title="Permanent link">&para;</a></h4>
+<p>OLD</p>
+<div class="codehilite"><pre><span></span>constructor (options) {
+  super(options);
+  // ... initialize the room
+}
+</pre></div>
+
+
+<p>NEW</p>
+<div class="codehilite"><pre><span></span>constructor () {
+  // room has been constructed. no options available yet!
+}
+
+onInit (options) {
+  // ... initialize the room
+}
+</pre></div>
+
+
+<h4 id="requestjoin-can-return-type-can-be-either-boolean-or-number-01"><code>requestJoin</code> - can return type can be either <code>boolean</code> or <code>number</code> (<code>0..1</code>)<a class="headerlink" href="#requestjoin-can-return-type-can-be-either-boolean-or-number-01" title="Permanent link">&para;</a></h4>
+<p>OLD</p>
+<div class="codehilite"><pre><span></span>requestJoin (options) {
+  // accept connections if this room is not full.
+  return this.clients.length &lt; 10;
+}
+</pre></div>
+
+
+<p>NEW</p>
+<div class="codehilite"><pre><span></span>requestJoin (options) {
+  // give priority to connect on rooms with fewer clients.
+  return 1 - (this.clients.length) / 10;
+}
+</pre></div>
+
+
+<h4 id="use-patchrate-property-instead-of-setpatchrate-method">use <code>patchRate</code> property instead of <code>setPatchRate()</code> method.<a class="headerlink" href="#use-patchrate-property-instead-of-setpatchrate-method" title="Permanent link">&para;</a></h4>
+<p>OLD</p>
+<div class="codehilite"><pre><span></span>constructor (options) {
+  this.setPatchRate(1000 / 50);
+}
+</pre></div>
+
+
+<p>NEW</p>
+<div class="codehilite"><pre><span></span>class MyRoom extends Room {
+  patchRate = 1000 / 50;
+}
+</pre></div>
+
+
+<h4 id="clientid-clientsessionid"><code>client.id</code> / <code>client.sessionId</code><a class="headerlink" href="#clientid-clientsessionid" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>client.sessionId</code> - is a unique identifier of a user connected in a room.</li>
+<li><code>client.id</code> - is a unique identifier of a user. if the user connects to the same room twice, you can identify he has two sessions by checking for <code>client.id</code>. If you don't bother having the same user connected multiple times in a room, always use <code>client.sessionId</code> to identify it.</li>
+</ul>
+<h4 id="new-roommaxclients-property">new <code>room.maxClients</code> property.<a class="headerlink" href="#new-roommaxclients-property" title="Permanent link">&para;</a></h4>
+<p>OLD - if you're just checking for <code>client.length</code> on <code>requestJoin</code>, you probably can switch to <code>maxClients</code> instead.</p>
+<div class="codehilite"><pre><span></span>requestJoin (options) {
+  return this.clients.length &lt; 10;
+}
+</pre></div>
+
+
+<p>NEW</p>
+<div class="codehilite"><pre><span></span>class MyRoom extends Room {
+  maxClients = 10;
+}
+</pre></div>
+
+
+<h2 id="migrating-to-04x-from-03x">Migrating to 0.4.x (from 0.3.x)<a class="headerlink" href="#migrating-to-04x-from-03x" title="Permanent link">&para;</a></h2>
+<h4 id="constructor-patch-rate">constructor / patch-rate<a class="headerlink" href="#constructor-patch-rate" title="Permanent link">&para;</a></h4>
+<p>OLD constructor / patch-rate</p>
+<div class="codehilite"><pre><span></span>class MyRoom extends Room {
+  constructor ( options ) {
+    super( options, PATH_RATE )
+  }
+}
+</pre></div>
+
+
+<p>NEW constructor / patch-rate</p>
+<div class="codehilite"><pre><span></span>class MyRoom extends Room {
+  constructor ( options ) {
+    super( options )
+    this.setPatchRate( PATCH_RATE )
+  }
+}
+</pre></div>
                 
                   
                 
@@ -620,7 +958,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../faq/" title="FAQ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../deployment/" title="Deployment" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -629,19 +967,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                FAQ
+                Deployment
               </span>
             </div>
           </a>
         
         
-          <a href="../roadmap/" title="Roadmap" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../faq/" title="FAQ" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Roadmap
+                FAQ
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

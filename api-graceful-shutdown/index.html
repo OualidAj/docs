@@ -38,7 +38,7 @@
     
     
       
-        <title>Graceful shutdown - Colyseus - Multiplayer Game Server for Node.js</title>
+        <title>Graceful shutdown - Colyseus v0.9.0</title>
       
     
     
@@ -89,7 +89,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://colyseus.io/" title="Colyseus - Multiplayer Game Server for Node.js" class="md-header-nav__button md-logo">
+        <a href="https://colyseus.io/" title="Colyseus v0.9.0" class="md-header-nav__button md-logo">
           
             <img src="../images/logo-white.png" width="24" height="24">
           
@@ -103,7 +103,7 @@
           
             
               <span class="md-header-nav__topic">
-                Colyseus - Multiplayer Game Server for Node.js
+                Colyseus v0.9.0
               </span>
               <span class="md-header-nav__topic">
                 Graceful shutdown
@@ -190,7 +190,7 @@
         <img src="../images/logo-white.png" width="24" height="24">
       
     </span>
-    Colyseus - Multiplayer Game Server for Node.js
+    Colyseus v0.9.0
   </label>
   
     <div class="md-nav__source">
@@ -284,18 +284,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../concept-worker-processes/" title="Worker processes" class="md-nav__link">
-      Worker processes
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -328,8 +316,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../api-server/" title="Server" class="md-nav__link">
+      Server
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../api-room/" title="Room" class="md-nav__link">
       Room
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-client/" title="Client" class="md-nav__link">
+      Client
     </a>
   </li>
 
@@ -354,30 +366,6 @@
   <li class="md-nav__item">
     <a href="../api-room-state/" title="State management" class="md-nav__link">
       State management
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-server/" title="Web-Socket Server" class="md-nav__link">
-      Web-Socket Server
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-client/" title="Web-Socket Client" class="md-nav__link">
-      Web-Socket Client
     </a>
   </li>
 
@@ -551,6 +539,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../migrating/" title="Migrating" class="md-nav__link">
+      Migrating
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../faq/" title="FAQ" class="md-nav__link">
       FAQ
     </a>
@@ -564,29 +564,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
-    <label class="md-nav__link" for="nav-8">
+    <label class="md-nav__link" for="nav-9">
       More
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
+      <label class="md-nav__title" for="nav-9">
         More
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-uws-support/" title="µWS Support" class="md-nav__link">
-      µWS Support
-    </a>
-  </li>
-
         
           
           
@@ -668,7 +656,7 @@
 <ul>
 <li>Disconnect all connected clients asynchronously (<code>Room#onLeave</code>)</li>
 <li>Dispose all spawned rooms asynchronously (<code>Room#onDispose</code>)</li>
-<li>Perform optional asynchronous callback before shutting down the process (<code>Server#onShutdown</code> / <code>ClusterServer#onShutdown</code>)</li>
+<li>Perform optional asynchronous callback before shutting down the process <code>Server#onShutdown</code></li>
 </ul>
 <p>If you're performing async tasks on <code>onLeave</code> / <code>onDispose</code>, you should return a <code>Promise</code>, and resolve it when the task is ready. The same applies to <code>onShutdown(callback)</code>.</p>
 <h2 id="returning-a-promise">Returning a <code>Promise</code><a class="headerlink" href="#returning-a-promise" title="Permanent link">&para;</a></h2>
@@ -721,25 +709,7 @@
 
 <h2 id="process-shutdown-callback">Process shutdown callback<a class="headerlink" href="#process-shutdown-callback" title="Permanent link">&para;</a></h2>
 <p>You can also listen for process shutdown by setting a <code>onShutdown</code> callback.</p>
-<p>
-                <div class="code-nav-container">
-                    
-        <ul class="nav nav-tabs">
-            
-        <li class="nav-item active">
-            <a href="#tab-4-typescript" aria-controls="tab-4-typescript" role="tab" data-toggle="tab" data-lang="typescript">Server</a>
-        </li>
-    
-        <li class="nav-item ">
-            <a href="#tab-4-typescript" aria-controls="tab-4-typescript" role="tab" data-toggle="tab" data-lang="typescript">Cluster Server</a>
-        </li>
-    
-        </ul>
-    
-        <div class="tab-content">
-            
-        <div role="tabpanel" class="tab-pane active" id="tab-4-typescript">
-            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
 
 <span class="kd">let</span> <span class="nx">server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">();</span>
 
@@ -747,33 +717,6 @@
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;master process is being shut down!&quot;</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
-
-        </div>
-    
-        <div role="tabpanel" class="tab-pane " id="tab-4-typescript">
-            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cluster</span> <span class="nx">from</span> <span class="s2">&quot;cluster&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">ClusterServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
-
-<span class="kd">let</span> <span class="nx">server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClusterServer</span><span class="p">();</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="nx">cluster</span><span class="p">.</span><span class="nx">isMaster</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">server</span><span class="p">.</span><span class="nx">onShutdown</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;master process is being shut down!&quot;</span><span class="p">);</span>
-    <span class="p">});</span>
-
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="nx">server</span><span class="p">.</span><span class="nx">onShutdown</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;worker process is being shut down!&quot;</span><span class="p">);</span>
-    <span class="p">});</span>
-<span class="p">}</span>
-</pre></div>
-
-        </div>
-    
-        </div>
-    
-                </div>
-                    </p>
                 
                   
                 

@@ -38,7 +38,7 @@
     
     
       
-        <title>Web-Socket Server - Colyseus - Multiplayer Game Server for Node.js</title>
+        <title>Server - Colyseus v0.9.0</title>
       
     
     
@@ -89,7 +89,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://colyseus.io/" title="Colyseus - Multiplayer Game Server for Node.js" class="md-header-nav__button md-logo">
+        <a href="https://colyseus.io/" title="Colyseus v0.9.0" class="md-header-nav__button md-logo">
           
             <img src="../images/logo-white.png" width="24" height="24">
           
@@ -103,10 +103,10 @@
           
             
               <span class="md-header-nav__topic">
-                Colyseus - Multiplayer Game Server for Node.js
+                Colyseus v0.9.0
               </span>
               <span class="md-header-nav__topic">
-                Web-Socket Server
+                Server
               </span>
             
           
@@ -190,7 +190,7 @@
         <img src="../images/logo-white.png" width="24" height="24">
       
     </span>
-    Colyseus - Multiplayer Game Server for Node.js
+    Colyseus v0.9.0
   </label>
   
     <div class="md-nav__source">
@@ -284,18 +284,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../concept-worker-processes/" title="Worker processes" class="md-nav__link">
-      Worker processes
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -326,42 +314,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../api-room/" title="Room" class="md-nav__link">
-      Room
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-timing-events/" title="Timing events" class="md-nav__link">
-      Timing events
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-room-state/" title="State management" class="md-nav__link">
-      State management
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -373,11 +325,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Web-Socket Server
+        Server
       </label>
     
-    <a href="./" title="Web-Socket Server" class="md-nav__link md-nav__link--active">
-      Web-Socket Server
+    <a href="./" title="Server" class="md-nav__link md-nav__link--active">
+      Server
     </a>
     
       
@@ -397,6 +349,47 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor-options" title="constructor (options)" class="md-nav__link">
+    constructor (options)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optionsserver" title="options.server" class="md-nav__link">
+    options.server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionsengine" title="options.engine" class="md-nav__link">
+    options.engine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionsverifyclient" title="options.verifyClient" class="md-nav__link">
+    options.verifyClient
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionspresence" title="options.presence" class="md-nav__link">
+    options.presence
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#register-name-string-handler-room-options-any" title="register (name: string, handler: Room, options?: any)" class="md-nav__link">
@@ -444,26 +437,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#clusterserver" title="ClusterServer" class="md-nav__link">
-    ClusterServer
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fork-workers-number" title="fork (workers?: number)" class="md-nav__link">
-    fork (workers?: number)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
       
       
     </ul>
@@ -479,8 +452,44 @@
 
 
   <li class="md-nav__item">
-    <a href="../api-client/" title="Web-Socket Client" class="md-nav__link">
-      Web-Socket Client
+    <a href="../api-room/" title="Room" class="md-nav__link">
+      Room
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-client/" title="Client" class="md-nav__link">
+      Client
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-timing-events/" title="Timing events" class="md-nav__link">
+      Timing events
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-room-state/" title="State management" class="md-nav__link">
+      State management
     </a>
   </li>
 
@@ -604,6 +613,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../migrating/" title="Migrating" class="md-nav__link">
+      Migrating
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../faq/" title="FAQ" class="md-nav__link">
       FAQ
     </a>
@@ -617,29 +638,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
-    <label class="md-nav__link" for="nav-8">
+    <label class="md-nav__link" for="nav-9">
       More
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
+      <label class="md-nav__title" for="nav-9">
         More
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api-uws-support/" title="µWS Support" class="md-nav__link">
-      µWS Support
-    </a>
-  </li>
-
         
           
           
@@ -687,6 +696,47 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#constructor-options" title="constructor (options)" class="md-nav__link">
+    constructor (options)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optionsserver" title="options.server" class="md-nav__link">
+    options.server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionsengine" title="options.engine" class="md-nav__link">
+    options.engine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionsverifyclient" title="options.verifyClient" class="md-nav__link">
+    options.verifyClient
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionspresence" title="options.presence" class="md-nav__link">
+    options.presence
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#register-name-string-handler-room-options-any" title="register (name: string, handler: Room, options?: any)" class="md-nav__link">
     register (name: string, handler: Room, options?: any)
   </a>
@@ -732,26 +782,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#clusterserver" title="ClusterServer" class="md-nav__link">
-    ClusterServer
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fork-workers-number" title="fork (workers?: number)" class="md-nav__link">
-    fork (workers?: number)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
       
       
     </ul>
@@ -770,10 +800,267 @@
                 
                 
                 <h1 id="web-socket-server">Web-Socket Server<a class="headerlink" href="#web-socket-server" title="Permanent link">&para;</a></h1>
-<p>The <a href="#server"><code>Server</code></a> and <a href="#clusterserver"><code>ClusterServer</code></a> have pretty much the same API.</p>
-<p>They're responsible for providing the WebSocket server to enable communication between server and client.</p>
 <h2 id="server">Server<a class="headerlink" href="#server" title="Permanent link">&para;</a></h2>
-<p>Recommended for development and prototyping environments.</p>
+<p>The <a href="#server"><code>Server</code></a> is responsible for providing the WebSocket server to enable communication between server and client.</p>
+<h3 id="constructor-options"><code>constructor (options)</code><a class="headerlink" href="#constructor-options" title="Permanent link">&para;</a></h3>
+<h4 id="optionsserver"><code>options.server</code><a class="headerlink" href="#optionsserver" title="Permanent link">&para;</a></h4>
+<p>The HTTP server to bind the WebSocket Server into. You may use <a href="https://www.npmjs.com/package/express"><code>express</code></a> for your server too.</p>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item active">
+            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript (express)</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript (express)</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-0-typescript">
+            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">({</span>
+  <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">()</span>
+<span class="p">});</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-0-typescript">
+            <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">colyseus</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;colyseus&quot;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">Server</span><span class="p">({</span>
+  <span class="nx">server</span>: <span class="kt">http.createServer</span><span class="p">()</span>
+<span class="p">});</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-0-typescript">
+            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">express</span> <span class="nx">from</span> <span class="s2">&quot;express&quot;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">({</span>
+  <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span>
+<span class="p">});</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-0-typescript">
+            <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">colyseus</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;colyseus&quot;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;express&quot;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">Server</span><span class="p">({</span>
+  <span class="nx">server</span>: <span class="kt">http.createServer</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span>
+<span class="p">});</span>
+</pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<h4 id="optionsengine"><code>options.engine</code><a class="headerlink" href="#optionsengine" title="Permanent link">&para;</a></h4>
+<p>You may provide a different WebSocket engine. By default, it uses
+<a href="https://www.npmjs.com/package/ws"><code>ws</code></a>. You may use
+<a href="https://www.npmjs.com/package/uws"><code>uws</code></a> by passing it as a reference.</p>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item active">
+            <a href="#tab-1-typescript" aria-controls="tab-1-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-1-javascript" aria-controls="tab-1-javascript" role="tab" data-toggle="tab" data-lang="javascript">JavaScript</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-1-typescript">
+            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">WebSocket</span> <span class="nx">from</span> <span class="s2">&quot;uws&quot;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">({</span>
+  <span class="nx">engine</span>: <span class="kt">WebSocket.Server</span><span class="p">,</span>
+  <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">()</span>
+<span class="p">});</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-1-javascript">
+            <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">colyseus</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;colyseus&quot;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;uws&quot;</span><span class="p">)</span>
+
+<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">Server</span><span class="p">({</span>
+  <span class="nx">engine</span><span class="o">:</span> <span class="nx">WebSocket</span><span class="p">.</span><span class="nx">Server</span><span class="p">,</span>
+  <span class="nx">server</span><span class="o">:</span> <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">()</span>
+<span class="p">});</span>
+</pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<h4 id="optionsverifyclient"><code>options.verifyClient</code><a class="headerlink" href="#optionsverifyclient" title="Permanent link">&para;</a></h4>
+<p>This method happens before WebSocket handshake. If <code>verifyClient</code> is not set
+then the handshake is automatically accepted.</p>
+<ul>
+<li>
+<p><code>info</code> (Object)</p>
+<ul>
+<li><code>origin</code> (String) The value in the Origin header indicated by the client.</li>
+<li><code>req</code> (http.IncomingMessage) The client HTTP GET request.</li>
+<li><code>secure</code> (Boolean) <code>true</code> if <code>req.connection.authorized</code> or <code>req.connection.encrypted</code> is set.</li>
+</ul>
+</li>
+<li>
+<p><code>next</code> (Function) A callback that must be called by the user upon inspection of the <code>info</code> fields. Arguments in this callback are:</p>
+<ul>
+<li><code>result</code> (Boolean) Whether or not to accept the handshake.</li>
+<li><code>code</code> (Number) When <code>result</code> is <code>false</code> this field determines the HTTP error status code to be sent to the client.</li>
+<li><code>name</code> (String) When <code>result</code> is <code>false</code> this field determines the HTTP reason phrase.</li>
+</ul>
+</li>
+</ul>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item active">
+            <a href="#tab-2-typescript" aria-controls="tab-2-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-2-typescript" aria-controls="tab-2-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-2-typescript">
+            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">({</span>
+  <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">(),</span>
+  <span class="nx">verifyClient</span>: <span class="kt">function</span> <span class="p">(</span><span class="nx">info</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// validate &#39;info&#39;</span>
+    <span class="c1">//</span>
+    <span class="c1">// - next(false) will reject the websocket handshake</span>
+    <span class="c1">// - next(true) will accept the websocket handshake</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-2-typescript">
+            <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">colyseus</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;colyseus&quot;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">Server</span><span class="p">({</span>
+  <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">(),</span>
+  <span class="nx">verifyClient</span>: <span class="kt">function</span> <span class="p">(</span><span class="nx">info</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// validate &#39;info&#39;</span>
+    <span class="c1">//</span>
+    <span class="c1">// - next(false) will reject the websocket handshake</span>
+    <span class="c1">// - next(true) will accept the websocket handshake</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<h4 id="optionspresence"><code>options.presence</code><a class="headerlink" href="#optionspresence" title="Permanent link">&para;</a></h4>
+<p>When scaling Colyseus through multiple processes / machines, you need to provide a presence server.</p>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item active">
+            <a href="#tab-3-typescript" aria-controls="tab-3-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-3-typescript" aria-controls="tab-3-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-3-typescript">
+            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span><span class="p">,</span> <span class="nx">RedisPresence</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">({</span>
+  <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">(),</span>
+  <span class="nx">presence</span>: <span class="kt">new</span> <span class="nx">RedisPresence</span><span class="p">()</span>
+<span class="p">});</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-3-typescript">
+            <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">colyseus</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;colyseus&quot;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">Server</span><span class="p">({</span>
+  <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">(),</span>
+  <span class="nx">presence</span>: <span class="kt">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">RedisPresence</span><span class="p">()</span>
+<span class="p">});</span>
+</pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<p>The currently avaialble Presence servers are currently:</p>
+<ul>
+<li><code>RedisPresence</code> (scales on a single server and multiple servers)</li>
+<li><code>MemsharedPresence</code> (scales on a single server)</li>
+</ul>
 <h3 id="register-name-string-handler-room-options-any"><code>register (name: string, handler: Room, options?: any)</code><a class="headerlink" href="#register-name-string-handler-room-options-any" title="Permanent link">&para;</a></h3>
 <p>Register a new session handler.</p>
 <p><strong>Parameters:</strong></p>
@@ -832,22 +1119,22 @@
         <ul class="nav nav-tabs">
             
         <li class="nav-item active">
-            <a href="#tab-0-javascript" aria-controls="tab-0-javascript" role="tab" data-toggle="tab" data-lang="javascript">Express</a>
+            <a href="#tab-4-javascript" aria-controls="tab-4-javascript" role="tab" data-toggle="tab" data-lang="javascript">Express</a>
         </li>
     
         <li class="nav-item ">
-            <a href="#tab-0-javascript" aria-controls="tab-0-javascript" role="tab" data-toggle="tab" data-lang="javascript">http.createServer</a>
+            <a href="#tab-4-javascript" aria-controls="tab-4-javascript" role="tab" data-toggle="tab" data-lang="javascript">http.createServer</a>
         </li>
     
         <li class="nav-item ">
-            <a href="#tab-0-javascript" aria-controls="tab-0-javascript" role="tab" data-toggle="tab" data-lang="javascript">WebSocket.Server</a>
+            <a href="#tab-4-javascript" aria-controls="tab-4-javascript" role="tab" data-toggle="tab" data-lang="javascript">WebSocket.Server</a>
         </li>
     
         </ul>
     
         <div class="tab-content">
             
-        <div role="tabpanel" class="tab-pane active" id="tab-0-javascript">
+        <div role="tabpanel" class="tab-pane active" id="tab-4-javascript">
             <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">express</span> <span class="nx">from</span> <span class="s2">&quot;express&quot;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
 
@@ -859,7 +1146,7 @@
 
         </div>
     
-        <div role="tabpanel" class="tab-pane " id="tab-0-javascript">
+        <div role="tabpanel" class="tab-pane " id="tab-4-javascript">
             <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">http</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
 
@@ -871,7 +1158,7 @@
 
         </div>
     
-        <div role="tabpanel" class="tab-pane " id="tab-0-javascript">
+        <div role="tabpanel" class="tab-pane " id="tab-4-javascript">
             <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">http</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">express</span> <span class="nx">from</span> <span class="s2">&quot;express&quot;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">ws</span> <span class="nx">from</span> <span class="s2">&quot;ws&quot;</span><span class="p">;</span>
@@ -897,67 +1184,6 @@
 <p>Binds the WebSocket server into the specified port.</p>
 <h3 id="onshutdown-callback-function"><code>onShutdown (callback: Function)</code><a class="headerlink" href="#onshutdown-callback-function" title="Permanent link">&para;</a></h3>
 <p>Register a callback that should be called before the process shut down. See <a href="../api-graceful-shutdown/">graceful shutdown</a> for more details.</p>
-<h2 id="clusterserver">ClusterServer<a class="headerlink" href="#clusterserver" title="Permanent link">&para;</a></h2>
-<p>Recommended for production environment.</p>
-<p>The <code>ClusterServer</code> has the same functionality of <code>Server</code>, with some caveats. You'll need to use the <code>"cluster"</code> module by yourself and call its methods in the right node type.</p>
-<p>See <a href="../concept-worker-processes/#clustered-environment">Clustered environment</a> for more details.</p>
-<h3 id="fork-workers-number"><code>fork (workers?: number)</code><a class="headerlink" href="#fork-workers-number" title="Permanent link">&para;</a></h3>
-<p>Specify the number of session workers to spawn. By default it uses the number of available CPUs.</p>
-<p>
-                <div class="code-nav-container">
-                    
-        <ul class="nav nav-tabs">
-            
-        <li class="nav-item active">
-            <a href="#tab-7-typescript" aria-controls="tab-7-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
-        </li>
-    
-        <li class="nav-item ">
-            <a href="#tab-7-javascript" aria-controls="tab-7-javascript" role="tab" data-toggle="tab" data-lang="javascript">JavaScript</a>
-        </li>
-    
-        </ul>
-    
-        <div class="tab-content">
-            
-        <div role="tabpanel" class="tab-pane active" id="tab-7-typescript">
-            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cluster</span> <span class="nx">from</span> <span class="s2">&quot;cluster&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">ClusterServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
-
-<span class="kd">let</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClusterServer</span><span class="p">();</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="nx">cluster</span><span class="p">.</span><span class="nx">isMaster</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">gameServer</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
-    <span class="nx">gameServer</span><span class="p">.</span><span class="nx">fork</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
-
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="c1">// ...</span>
-<span class="p">}</span>
-</pre></div>
-
-        </div>
-    
-        <div role="tabpanel" class="tab-pane " id="tab-7-javascript">
-            <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">cluster</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;cluster&quot;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">ClusterServer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;colyseus&quot;</span><span class="p">).</span><span class="nx">ClusterServer</span><span class="p">;</span>
-
-<span class="kd">let</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClusterServer</span><span class="p">();</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="nx">cluster</span><span class="p">.</span><span class="nx">isMaster</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">gameServer</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
-    <span class="nx">gameServer</span><span class="p">.</span><span class="nx">fork</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
-
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="c1">// ...</span>
-<span class="p">}</span>
-</pre></div>
-
-        </div>
-    
-        </div>
-    
-                </div>
-                    </p>
                 
                   
                 
@@ -976,7 +1202,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../api-room-state/" title="State management" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../concept-matchmaking/" title="Matchmaking" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -985,19 +1211,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                State management
+                Matchmaking
               </span>
             </div>
           </a>
         
         
-          <a href="../api-client/" title="Web-Socket Client" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../api-room/" title="Room" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Web-Socket Client
+                Room
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
