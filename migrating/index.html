@@ -38,7 +38,7 @@
     
     
       
-        <title>Migrating - Colyseus v0.9.0</title>
+        <title>Migrating - Colyseus v0.9.x</title>
       
     
     
@@ -89,7 +89,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://colyseus.io/" title="Colyseus v0.9.0" class="md-header-nav__button md-logo">
+        <a href="https://colyseus.io/" title="Colyseus v0.9.x" class="md-header-nav__button md-logo">
           
             <img src="../images/logo-white.png" width="24" height="24">
           
@@ -103,7 +103,7 @@
           
             
               <span class="md-header-nav__topic">
-                Colyseus v0.9.0
+                Colyseus v0.9.x
               </span>
               <span class="md-header-nav__topic">
                 Migrating
@@ -190,7 +190,7 @@
         <img src="../images/logo-white.png" width="24" height="24">
       
     </span>
-    Colyseus v0.9.0
+    Colyseus v0.9.x
   </label>
   
     <div class="md-nav__source">
@@ -533,6 +533,26 @@
     Client-side
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#colyseusjs" title="colyseus.js" class="md-nav__link">
+    colyseus.js
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#colyseus-unity3d" title="colyseus-unity3d" class="md-nav__link">
+    colyseus-unity3d
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -712,6 +732,26 @@
     Client-side
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#colyseusjs" title="colyseus.js" class="md-nav__link">
+    colyseus.js
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#colyseus-unity3d" title="colyseus-unity3d" class="md-nav__link">
+    colyseus-unity3d
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -822,9 +862,16 @@ to do to keep your server working on the latest version.</p>
 <li>Integration with <a href="https://www.npmjs.com/package/uws"><code>uws</code></a> module has changed. See <a href="../api-server/#optionsengine">how to integrate here</a>.</li>
 </ul>
 <h3 id="client-side">Client-side<a class="headerlink" href="#client-side" title="Permanent link">&para;</a></h3>
+<h4 id="colyseusjs">colyseus.js<a class="headerlink" href="#colyseusjs" title="Permanent link">&para;</a></h4>
 <ul>
 <li><code>room.onData</code> has been renamed to <a href="../client-room#onmessage"><code>room.onMessage</code></a>.</li>
 <li><code>room.onUpdate</code> has been renamed to <a href="../client-room#onstatechange"><code>room.onStateChange</code></a></li>
+<li><code>room.data</code> has been renamed to <a href="../client-room/#state-any"><code>room.state</code></a></li>
+</ul>
+<h4 id="colyseus-unity3d">colyseus-unity3d<a class="headerlink" href="#colyseus-unity3d" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>room.OnData</code> has been renamed to <a href="../client-room#onmessage"><code>room.OnMessage</code></a>.</li>
+<li><code>room.OnUpdate</code> has been renamed to <a href="../client-room#onstatechange"><code>room.OnStateChange</code></a></li>
 <li><code>room.data</code> has been renamed to <a href="../client-room/#state-any"><code>room.state</code></a></li>
 </ul>
 <h2 id="migrating-to-05x-from-04x">Migrating to 0.5.x (from 0.4.x)<a class="headerlink" href="#migrating-to-05x-from-04x" title="Permanent link">&para;</a></h2>
