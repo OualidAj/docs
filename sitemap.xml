@@ -4,7 +4,7 @@
     
     <url>
      <loc>https://colyseus.io//</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>https://colyseus.io//getting-started/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -21,13 +21,13 @@
         
     <url>
      <loc>https://colyseus.io//concept-state-synchronization/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://colyseus.io//concept-matchmaking/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -37,49 +37,49 @@
         
     <url>
      <loc>https://colyseus.io//api-server/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://colyseus.io//api-room/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://colyseus.io//api-client/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://colyseus.io//api-timing-events/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://colyseus.io//api-room-state/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://colyseus.io//api-authentication/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://colyseus.io//api-graceful-shutdown/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://colyseus.io//api-debugging/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -89,19 +89,19 @@
         
     <url>
      <loc>https://colyseus.io//client-overview/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://colyseus.io//client-room/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://colyseus.io//client-state-synchronization/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -110,7 +110,7 @@
     
     <url>
      <loc>https://colyseus.io//deployment/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -118,7 +118,7 @@
     
     <url>
      <loc>https://colyseus.io//migrating/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -126,7 +126,7 @@
     
     <url>
      <loc>https://colyseus.io//faq/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -135,7 +135,7 @@
         
     <url>
      <loc>https://colyseus.io//roadmap/</loc>
-     <lastmod>2018-04-12</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
