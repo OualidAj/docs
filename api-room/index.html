@@ -398,8 +398,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#onleave-client" title="onLeave (client)" class="md-nav__link">
-    onLeave (client)
+  <a href="#onleave-client-consented" title="onLeave (client, consented)" class="md-nav__link">
+    onLeave (client, consented)
   </a>
   
 </li>
@@ -836,8 +836,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#onleave-client" title="onLeave (client)" class="md-nav__link">
-    onLeave (client)
+  <a href="#onleave-client-consented" title="onLeave (client, consented)" class="md-nav__link">
+    onLeave (client, consented)
   </a>
   
 </li>
@@ -1028,7 +1028,7 @@
     <span class="nx">onJoin</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
     <span class="c1">// When a client leaves the room</span>
-    <span class="nx">onLeave</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="nx">onLeave</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">consented</span>: <span class="kt">boolean</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
     <span class="c1">// When a client sends a message</span>
     <span class="nx">onMessage</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">message</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
@@ -1083,8 +1083,8 @@
 </pre></div>
 
 
-<h3 id="onleave-client"><code>onLeave (client)</code><a class="headerlink" href="#onleave-client" title="Permanent link">&para;</a></h3>
-<p>Is called when a client leave the room.</p>
+<h3 id="onleave-client-consented"><code>onLeave (client, consented)</code><a class="headerlink" href="#onleave-client-consented" title="Permanent link">&para;</a></h3>
+<p>Is called when a client leave the room. If the disconnection was <a href="../client-room/#leave">initiated by the client</a>, the <code>consented</code> parameter will be <code>true</code>, otherwise, it will be <code>false</code>.</p>
 <p>You can define this function as <code>async</code>. See <a href="../api-graceful-shutdown">graceful shutdown</a></p>
 <h3 id="ondispose"><code>onDispose ()</code><a class="headerlink" href="#ondispose" title="Permanent link">&para;</a></h3>
 <p>Cleanup callback, called after there are no more clients in the room.</p>
