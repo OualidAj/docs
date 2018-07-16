@@ -508,6 +508,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#setseatreservationtime-seconds" title="setSeatReservationTime (seconds)" class="md-nav__link">
+    setSeatReservationTime (seconds)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#send-client-message" title="send (client, message)" class="md-nav__link">
     send (client, message)
   </a>
@@ -946,6 +953,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#setseatreservationtime-seconds" title="setSeatReservationTime (seconds)" class="md-nav__link">
+    setSeatReservationTime (seconds)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#send-client-message" title="send (client, message)" class="md-nav__link">
     send (client, message)
   </a>
@@ -1130,6 +1144,8 @@ disconnects from it.</p>
 <h3 id="setmetadata-metadata"><code>setMetadata (metadata)</code><a class="headerlink" href="#setmetadata-metadata" title="Permanent link">&para;</a></h3>
 <p>Set metadata for the room instance. This metadata is public when requesting the
 room list through <a href="../client-overview/#getavailablerooms-roomname"><code>client.getAvailableRooms()</code></a> method.</p>
+<h3 id="setseatreservationtime-seconds"><code>setSeatReservationTime (seconds)</code><a class="headerlink" href="#setseatreservationtime-seconds" title="Permanent link">&para;</a></h3>
+<p>(Default=3) Set the number of seconds a room can wait for a client to effectively join the room. You should consider how long your <a href="#onauth-options"><code>onAuth()</code></a> will have to wait for setting a different seat reservation time. The default value is usually good enough.</p>
 <h3 id="send-client-message"><code>send (client, message)</code><a class="headerlink" href="#send-client-message" title="Permanent link">&para;</a></h3>
 <p>Send a message to a particular client.</p>
 <div class="codehilite"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="p">{</span> <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Hello world!&quot;</span> <span class="p">});</span>
