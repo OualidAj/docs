@@ -1041,9 +1041,14 @@ won't be listed.</p>
         </div>
     
         <div role="tabpanel" class="tab-pane " id="tab-3-csharp">
-            <div class="codehilite"><pre><span></span><span class="n">client</span><span class="p">.</span><span class="n">GetAvailableRooms</span><span class="p">(</span><span class="s">&quot;battle&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">rooms</span><span class="p">:</span> <span class="n">RoomsAvailable</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span> <span class="n">ErrorEventArgs</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="n">rooms</span><span class="p">.</span>
-<span class="p">});</span>
+            <div class="codehilite"><pre><span></span><span class="n">client</span><span class="p">.</span><span class="n">GetAvailableRooms</span><span class="p">(</span><span class="s">&quot;battle&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">RoomAvailable</span><span class="p">[]</span> <span class="n">rooms</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">rooms</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">rooms</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">roomId</span><span class="p">);</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">rooms</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">clients</span><span class="p">);</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">rooms</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">maxClients</span><span class="p">);</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">rooms</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">metadata</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">);</span>
 </pre></div>
 
         </div>
@@ -1063,7 +1068,7 @@ won't be listed.</p>
         </div>
     
         <div role="tabpanel" class="tab-pane " id="tab-3-haxe">
-            <div class="codehilite"><pre><span></span><span class="n">client</span><span class="p">.</span><span class="n">getAvailableRooms</span><span class="p">(</span><span class="s2">&quot;state_handler&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="n">rooms</span><span class="p">,</span> <span class="p">?</span><span class="n">err</span><span class="p">)</span> <span class="p">{</span>
+            <div class="codehilite"><pre><span></span><span class="n">client</span><span class="p">.</span><span class="n">getAvailableRooms</span><span class="p">(</span><span class="s2">&quot;battle&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="n">rooms</span><span class="p">,</span> <span class="p">?</span><span class="n">err</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="n">trace</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
   <span class="k">for</span> <span class="p">(</span><span class="n">room</span> <span class="k">in</span> <span class="n">rooms</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">trace</span><span class="p">(</span><span class="n">room</span><span class="p">.</span><span class="n">roomId</span><span class="p">);</span>
