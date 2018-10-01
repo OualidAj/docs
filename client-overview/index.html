@@ -890,6 +890,7 @@
                     </p>
 <h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
 <h3 id="join-roomname-string-options-any"><code>join (roomName: string, options: any)</code><a class="headerlink" href="#join-roomname-string-options-any" title="Permanent link">&para;</a></h3>
+<p>Joins <code>roomName</code>. <code>roomName</code> can be either a room name or a roomId (gotten from <code>getAvailableRooms()</code>).</p>
 <p>
                 <div class="code-nav-container">
                     
@@ -916,25 +917,29 @@
         <div class="tab-content">
             
         <div role="tabpanel" class="tab-pane active" id="tab-1-typescript">
-            <div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">room</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;battle&quot;</span><span class="p">);</span>
+            <div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">room</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;battle&quot;</span><span class="p">);</span>     <span class="c1">// a general battle room</span>
+<span class="kd">let</span> <span class="nx">room</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;KRYAKzRo2&quot;</span><span class="p">);</span>  <span class="c1">// a specific battle between one user and another</span>
 </pre></div>
 
         </div>
     
         <div role="tabpanel" class="tab-pane " id="tab-1-csharp">
-            <div class="codehilite"><pre><span></span><span class="n">Room</span> <span class="n">room</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;battle&quot;</span><span class="p">);</span>
+            <div class="codehilite"><pre><span></span><span class="n">Room</span> <span class="n">room</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;battle&quot;</span><span class="p">);</span>    <span class="c1">// a general battle room</span>
+<span class="n">Room</span> <span class="n">room</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;KRYAKzRo2&quot;</span><span class="p">);</span> <span class="c1">// a specific battle between one user and another</span>
 </pre></div>
 
         </div>
     
         <div role="tabpanel" class="tab-pane " id="tab-1-lua">
-            <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">room</span> <span class="o">=</span> <span class="n">client</span><span class="p">:</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;battle&quot;</span><span class="p">)</span>
+            <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">room</span> <span class="o">=</span> <span class="n">client</span><span class="p">:</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;battle&quot;</span><span class="p">)</span>    <span class="o">//</span> <span class="n">a</span> <span class="n">general</span> <span class="n">battle</span> <span class="n">room</span>
+<span class="kd">local</span> <span class="n">room</span> <span class="o">=</span> <span class="n">client</span><span class="p">:</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;KRYAKzRo2&quot;</span><span class="p">)</span> <span class="o">//</span> <span class="n">a</span> <span class="n">specific</span> <span class="n">battle</span> <span class="n">between</span> <span class="n">one</span> <span class="n">user</span> <span class="ow">and</span> <span class="n">another</span>
 </pre></div>
 
         </div>
     
         <div role="tabpanel" class="tab-pane " id="tab-1-haxe">
-            <div class="codehilite"><pre><span></span><span class="kd">var</span> room <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;battle&quot;</span><span class="p">);</span>
+            <div class="codehilite"><pre><span></span><span class="kd">var</span> room <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;battle&quot;</span><span class="p">);</span>     <span class="c1">// a general battle room</span>
+<span class="kd">var</span> room <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;KRYAKzRo2&quot;</span><span class="p">);</span>  <span class="c1">// a specific battle between one user and another</span>
 </pre></div>
 
         </div>
