@@ -586,7 +586,7 @@
 <ul>
 <li>Colyseus uses <a href="https://msgpack.org/">MessagePack</a> to encode the room state in a binary format.</li>
 <li>Upon first connection, the client receives the latest full binary room state.</li>
-<li>The binary patch is evaluated through <a href="http://fossil-scm.org/xfer/doc/trunk/www/delta_format.wiki">Fossil's Delta algorithm</a> at every <a href="http://localhost:8000/api-room/#setpatchrate-milliseconds">patch interval</a>.</li>
+<li>The binary patch is evaluated through <a href="http://fossil-scm.org/xfer/doc/trunk/www/delta_format.wiki">Fossil's Delta algorithm</a> at every <a href="../api-room/#setpatchrate-milliseconds">patch interval</a>.</li>
 <li>The patched room state is sent to all connected clients.</li>
 </ul>
                 
