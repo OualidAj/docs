@@ -512,6 +512,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../api-presence/" title="Presence" class="md-nav__link">
+      Presence
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../api-graceful-shutdown/" title="Graceful shutdown" class="md-nav__link">
       Graceful shutdown
     </a>
@@ -1010,7 +1022,7 @@ then the handshake is automatically accepted.</p>
                 </div>
                     </p>
 <h4 id="optionspresence"><code>options.presence</code><a class="headerlink" href="#optionspresence" title="Permanent link">&para;</a></h4>
-<p>When scaling Colyseus through multiple processes / machines, you need to provide a presence server.</p>
+<p>When scaling Colyseus through multiple processes / machines, you need to provide a presence server. Read more about <a href="../api-presence"><code>Presence</code></a>.</p>
 <p>
                 <div class="code-nav-container">
                     
@@ -1045,7 +1057,7 @@ then the handshake is automatically accepted.</p>
 <span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">Server</span><span class="p">({</span>
-  <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">(),</span>
+  <span class="nx">server</span>: <span class="kt">http.createServer</span><span class="p">(),</span>
   <span class="nx">presence</span>: <span class="kt">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">RedisPresence</span><span class="p">()</span>
 <span class="p">});</span>
 </pre></div>
