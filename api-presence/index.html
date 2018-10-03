@@ -1072,7 +1072,7 @@
                     </p>
 <h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
 <p>The <code>Presence</code> API is highly based on Redis's API, which is a key-value database.</p>
-<p>Every <a href="../api-room"><code>Room</code></a> instance has a <a href="../api-room/#presence-presence"><code>presence</code></a> property, which implements this API.</p>
+<p>Every <a href="../api-room"><code>Room</code></a> instance has a <a href="../api-room/#presence-presence"><code>presence</code></a> property, which implements the following methods:</p>
 <h3 id="subscribetopic-string-callback-function"><code>subscribe(topic: string, callback: Function)</code><a class="headerlink" href="#subscribetopic-string-callback-function" title="Permanent link">&para;</a></h3>
 <p>Subscribes to the given <code>topic</code>. The <code>callback</code> will be triggered whenever a message is <a href="#publishtopic-string-data-any">published</a> on <code>topic</code>.</p>
 <h3 id="unsubscribetopic-string"><code>unsubscribe(topic: string)</code><a class="headerlink" href="#unsubscribetopic-string" title="Permanent link">&para;</a></h3>
