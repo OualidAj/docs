@@ -297,7 +297,7 @@
         }, 
         {
             "location": "/api-client/", 
-            "text": "Web-Socket Client\n\n\nThe \nclient\n instance present on:\n\n\n\n\nRoom#clients\n\n\nRoom#onJoin()\n\n\nRoom#onMessage()\n\n\nRoom#onLeave()\n\n\n\n\n\n\nNote\n\n\nThis is the raw WebSocket connection coming from the \nws\n package. There are more methods available which aren't encouraged to use along with Colyseus.\n\n\n\n\nProperties\n\n\nid: string\n\n\nUnique id per client. When the same client connects with multiple browser tabs, the \nid\n will be the same for every connection.\n\n\nsessionId: string\n\n\nUnique id per session. Whilst you may have the same \nid\n for multiple sessions from the same client, the \nsessionId\n is always unique.\n\n\nMethods\n\n\nclose(code?: number)\n\n\nForce disconnection of the \nclient\n with the server.\n\n\n\n\nTip\n\n\nThis will trigger \nroom.onLeave\n event on the client-side.", 
+            "text": "Web-Socket Client\n\n\nThe \nclient\n instance present on:\n\n\n\n\nRoom#clients\n\n\nRoom#onJoin()\n\n\nRoom#onMessage()\n\n\nRoom#onLeave()\n\n\n\n\n\n\nNote\n\n\nThis is the raw WebSocket connection coming from the \nws\n package. There are more methods available which aren't encouraged to use along with Colyseus.\n\n\n\n\nProperties\n\n\nid: string\n\n\nUnique id per client. When the same client connects with multiple browser tabs, the \nid\n will be the same for every connection.\n\n\nsessionId: string\n\n\nUnique id per session. Whilst you may have the same \nid\n for multiple sessions from the same client, the \nsessionId\n is always unique.\n\n\n\n\nNote\n\n\nIn the client-side, you can find the \nsessionId\n in the \nroom\n instance\n.\n\n\n\n\nMethods\n\n\nclose(code?: number)\n\n\nForce disconnection of the \nclient\n with the server.\n\n\n\n\nTip\n\n\nThis will trigger \nroom.onLeave\n event on the client-side.", 
             "title": "Client"
         }, 
         {
@@ -317,7 +317,7 @@
         }, 
         {
             "location": "/api-client/#sessionid-string", 
-            "text": "Unique id per session. Whilst you may have the same  id  for multiple sessions from the same client, the  sessionId  is always unique.", 
+            "text": "Unique id per session. Whilst you may have the same  id  for multiple sessions from the same client, the  sessionId  is always unique.   Note  In the client-side, you can find the  sessionId  in the  room  instance .", 
             "title": "sessionId: string"
         }, 
         {
