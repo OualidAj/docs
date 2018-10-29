@@ -386,6 +386,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#optionsgracefullyshutdown" title="options.gracefullyShutdown" class="md-nav__link">
+    options.gracefullyShutdown
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -428,6 +435,13 @@
           <li class="md-nav__item">
   <a href="#onshutdown-callback-function" title="onShutdown (callback: Function)" class="md-nav__link">
     onShutdown (callback: Function)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gracefullyshutdown-exit-boolean" title="gracefullyShutdown (exit: boolean)" class="md-nav__link">
+    gracefullyShutdown (exit: boolean)
   </a>
   
 </li>
@@ -743,6 +757,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#optionsgracefullyshutdown" title="options.gracefullyShutdown" class="md-nav__link">
+    options.gracefullyShutdown
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -785,6 +806,13 @@
           <li class="md-nav__item">
   <a href="#onshutdown-callback-function" title="onShutdown (callback: Function)" class="md-nav__link">
     onShutdown (callback: Function)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gracefullyshutdown-exit-boolean" title="gracefullyShutdown (exit: boolean)" class="md-nav__link">
+    gracefullyShutdown (exit: boolean)
   </a>
   
 </li>
@@ -1073,6 +1101,10 @@ then the handshake is automatically accepted.</p>
 <li><code>RedisPresence</code> (scales on a single server and multiple servers)</li>
 <li><code>MemsharedPresence</code> (scales on a single server)</li>
 </ul>
+<h4 id="optionsgracefullyshutdown"><code>options.gracefullyShutdown</code><a class="headerlink" href="#optionsgracefullyshutdown" title="Permanent link">&para;</a></h4>
+<p>Register shutdown routine automatically. Default is <code>true</code>. If disabled, you
+should call <a href="#gracefullyshutdown-exit-boolean"><code>gracefullyShutdown()</code></a> method
+manually in your shutdown process.</p>
 <h3 id="register-name-string-handler-room-options-any"><code>register (name: string, handler: Room, options?: any)</code><a class="headerlink" href="#register-name-string-handler-room-options-any" title="Permanent link">&para;</a></h3>
 <p>Register a new session handler.</p>
 <p><strong>Parameters:</strong></p>
@@ -1107,11 +1139,13 @@ then the handshake is automatically accepted.</p>
 <li><code>"unlock"</code> - when a room has been unlocked</li>
 </ul>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><span class="nx">gameServer</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s2">&quot;chat&quot;</span><span class="p">,</span> <span class="nx">ChatRoom</span><span class="p">).</span>
-  <span class="nx">on</span><span class="p">(</span><span class="s2">&quot;create&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">room</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;room created:&quot;</span><span class="p">,</span> <span class="nx">room</span><span class="p">.</span><span class="nx">roomId</span><span class="p">)).</span>
-  <span class="nx">on</span><span class="p">(</span><span class="s2">&quot;dispose&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">room</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;room disposed:&quot;</span><span class="p">,</span> <span class="nx">room</span><span class="p">.</span><span class="nx">roomId</span><span class="p">)).</span>
-  <span class="nx">on</span><span class="p">(</span><span class="s2">&quot;join&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">room</span><span class="p">,</span> <span class="nx">client</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">client</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s2">&quot;joined&quot;</span><span class="p">,</span> <span class="nx">room</span><span class="p">.</span><span class="nx">roomId</span><span class="p">)).</span>
-  <span class="nx">on</span><span class="p">(</span><span class="s2">&quot;leave&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">room</span><span class="p">,</span> <span class="nx">client</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">client</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="nx">room</span><span class="p">.</span><span class="nx">roomId</span><span class="p">));</span>
+<div class="codehilite"><pre><span></span><span class="nx">gameServer</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s2">&quot;chat&quot;</span><span class="p">,</span> <span class="nx">ChatRoom</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">handler</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">handler</span><span class="p">.</span>
+    <span class="nx">on</span><span class="p">(</span><span class="s2">&quot;create&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">room</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;room created:&quot;</span><span class="p">,</span> <span class="nx">room</span><span class="p">.</span><span class="nx">roomId</span><span class="p">)).</span>
+    <span class="nx">on</span><span class="p">(</span><span class="s2">&quot;dispose&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">room</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;room disposed:&quot;</span><span class="p">,</span> <span class="nx">room</span><span class="p">.</span><span class="nx">roomId</span><span class="p">)).</span>
+    <span class="nx">on</span><span class="p">(</span><span class="s2">&quot;join&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">room</span><span class="p">,</span> <span class="nx">client</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">client</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s2">&quot;joined&quot;</span><span class="p">,</span> <span class="nx">room</span><span class="p">.</span><span class="nx">roomId</span><span class="p">)).</span>
+    <span class="nx">on</span><span class="p">(</span><span class="s2">&quot;leave&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">room</span><span class="p">,</span> <span class="nx">client</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">client</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="nx">room</span><span class="p">.</span><span class="nx">roomId</span><span class="p">));</span>
+<span class="p">})</span>
 </pre></div>
 
 
@@ -1196,6 +1230,9 @@ then the handshake is automatically accepted.</p>
 <p>Binds the WebSocket server into the specified port.</p>
 <h3 id="onshutdown-callback-function"><code>onShutdown (callback: Function)</code><a class="headerlink" href="#onshutdown-callback-function" title="Permanent link">&para;</a></h3>
 <p>Register a callback that should be called before the process shut down. See <a href="../api-graceful-shutdown/">graceful shutdown</a> for more details.</p>
+<h3 id="gracefullyshutdown-exit-boolean"><code>gracefullyShutdown (exit: boolean)</code><a class="headerlink" href="#gracefullyshutdown-exit-boolean" title="Permanent link">&para;</a></h3>
+<p>Shutdown all rooms and clean-up its cached data. Returns a promise that fulfils
+whenever the clean-up has been complete.</p>
                 
                   
                 
