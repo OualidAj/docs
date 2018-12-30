@@ -974,16 +974,6 @@
             "location": "/faq/#do-i-need-client-prediction-in-my-game-does-colyseus-help-me-with-this", 
             "text": "Colyseus does not provide any client-prediction solution out of the box. Games such as  wilds.io  and  crashracing.com  do not use any form of client-prediction.  lerp ing user coordinates usually gives reasonable results.", 
             "title": "Do I need client-prediction in my game? Does Colyseus help me with this?"
-        }, 
-        {
-            "location": "/roadmap/", 
-            "text": "Overview:\n\n\n\n\nSupport vertical scalability (\n#43\n)\n - \u2714\n\n\nStandardize how to authenticate users in a secure way. (\n#49\n, suggested by \n@darkyen\n)\n - \u2714\n\n\nPM2 support (\n#56\n)\n - \u2714\n\n\nSupport horizontal scalability. (\n#57\n)\n - \u2714\n\n\nSupport for splitting and filtering views (\n#59\n, suggested by \n@darkyen\n and the whole \ngitter channel\n!)\n\n\nSupport serialization methods other than Fossil's Delta algorithm. (\n#58\n, suggested by \n@derwish-pro\n)\n\n\nSupport transport layers other than WebSocket. (\n#48\n, suggested by \n@darkyen\n)\n\n\n\n\nIn order to achieve these goals, it would be great to split Colyseus's internal parts as composable modules. Specially match-making, which is the most complex feature to deal with by having multiple servers/processes running.", 
-            "title": "Roadmap"
-        }, 
-        {
-            "location": "/roadmap/#overview", 
-            "text": "Support vertical scalability ( #43 )  - \u2714  Standardize how to authenticate users in a secure way. ( #49 , suggested by  @darkyen )  - \u2714  PM2 support ( #56 )  - \u2714  Support horizontal scalability. ( #57 )  - \u2714  Support for splitting and filtering views ( #59 , suggested by  @darkyen  and the whole  gitter channel !)  Support serialization methods other than Fossil's Delta algorithm. ( #58 , suggested by  @derwish-pro )  Support transport layers other than WebSocket. ( #48 , suggested by  @darkyen )   In order to achieve these goals, it would be great to split Colyseus's internal parts as composable modules. Specially match-making, which is the most complex feature to deal with by having multiple servers/processes running.", 
-            "title": "Overview:"
         }
     ]
 }
