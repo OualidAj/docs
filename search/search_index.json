@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Colyseus is a Authoritative Multiplayer Game Server for Node.js. It allows you to focus on your gameplay instead of bothering about networking.\n\n\nThe mission of this framework is to be the easiest solution for creating your\nown multiplayer games in JavaScript.\n\n\nThis framework is fairly new and is being evolved constantly. You're encouraged to take a look on \nsome games being developed with it\n and make your own!\n\n\nWhat Colyseus provides to you:\n\n\n\n\nWebSocket-based communication\n\n\nSimple API in the server-side and client-side.\n\n\nAutomatic state synchronization between server and client.\n\n\nMatchmaking clients into game sessions\n\n\nScale vertically or horizontally\n\n\n\n\nWhat Colyseus won't provide:\n\n\n\n\nGame Engine: Colyseus is agnostic of the engine you're using. Need Physics? Add your own logic / package.\n\n\nDatabase: It's up to you to configure and select which database you'd like to use.\n\n\n\n\nWhat people are saying about it?\n\n\n\n\n@bmovement\n\n\n\"Thanks again for this framework... it allowed someone like me who just wants the server to be a black box to focus on my game instead of getting bogged down learning a whole new skill set!\"\n\n\n\n\n\n\n@sagestudios\n\n\nLoved the framework. Exactly what we are looking for in terms of features.\n\n\n\n\nExternal links\n\n\n\n\n\ud83c\udf10 \n Website\n\n\n\ud83d\udcac \n Forum\n\n\n\ud83d\udcb0 \n Support the project", 
+            "text": "Colyseus is a Authoritative Multiplayer Game Server for Node.js. It allows you to focus on your gameplay instead of bothering about networking.\n\n\nThe mission of this framework is to be the easiest solution for creating your\nown multiplayer games in JavaScript.\n\n\nThis framework is fairly new and is being evolved constantly. You're encouraged to take a look on \nsome games being developed with it\n and make your own!\n\n\nWhat Colyseus provides to you:\n\n\n\n\nWebSocket-based communication\n\n\nSimple API in the server-side and client-side.\n\n\nAutomatic state synchronization between server and client.\n\n\nMatchmaking clients into game sessions\n\n\nScale vertically or horizontally\n\n\n\n\nWhat Colyseus won't provide:\n\n\n\n\nGame Engine: Colyseus is agnostic of the engine you're using. Need Physics? Add your own logic / package.\n\n\nDatabase: It's up to you to configure and select which database you'd like to use.\n\n\n\n\nWhat people are saying about it?\n\n\n\n\n@bmovement\n\n\n\"Thanks again for this framework... it allowed someone like me who just wants the server to be a black box to focus on my game instead of getting bogged down learning a whole new skill set!\"\n\n\n\n\n\n\n@sagestudios\n\n\nLoved the framework. Exactly what we are looking for in terms of features.\n\n\n\n\nExternal links\n\n\n\n\n\ud83d\udcac \n Chat / Discord\n\n\n\ud83d\udcac \n Forum\n\n\n\ud83d\udcb0 \n Support the project\n\n\n\ud83c\udf10 \n Website", 
             "title": "Introduction"
         }, 
         {
@@ -22,7 +22,7 @@
         }, 
         {
             "location": "/#external-links", 
-            "text": "\ud83c\udf10   Website  \ud83d\udcac   Forum  \ud83d\udcb0   Support the project", 
+            "text": "\ud83d\udcac   Chat / Discord  \ud83d\udcac   Forum  \ud83d\udcb0   Support the project  \ud83c\udf10   Website", 
             "title": "External links"
         }, 
         {
