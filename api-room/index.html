@@ -1161,7 +1161,7 @@ room list through <a href="../client-overview/#getavailablerooms-roomname"><code
 <h3 id="disconnect"><code>disconnect ()</code><a class="headerlink" href="#disconnect" title="Permanent link">&para;</a></h3>
 <p>Disconnect all clients, then dispose.</p>
 <h3 id="allowreconnection-client-seconds"><code>allowReconnection (client, seconds)</code><a class="headerlink" href="#allowreconnection-client-seconds" title="Permanent link">&para;</a></h3>
-<p>Allow the specified client to <a href="../client-overview/#rejoin-roomnameorid-string-sessionid-string"><code>rejoin</code></a> into the room. Must be unsed inside <a href="#onleave-client"><code>onLeave()</code></a> method.</p>
+<p>Allow the specified client to <a href="../client-overview/#rejoin-roomnameorid-string-sessionid-string"><code>rejoin</code></a> into the room. Must be used inside <a href="#onleave-client"><code>onLeave()</code></a> method.</p>
 <div class="codehilite"><pre><span></span><span class="nx">async</span> <span class="nx">onLeave</span> <span class="p">(</span><span class="nx">client</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// flag client as inactive for other users</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">inactivateClient</span><span class="p">(</span><span class="nx">client</span><span class="p">);</span>
