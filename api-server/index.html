@@ -366,13 +366,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#optionsengine" title="options.engine" class="md-nav__link">
-    options.engine
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#optionsverifyclient" title="options.verifyClient" class="md-nav__link">
     options.verifyClient
   </a>
@@ -701,13 +694,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#optionsengine" title="options.engine" class="md-nav__link">
-    options.engine
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#optionsverifyclient" title="options.verifyClient" class="md-nav__link">
     options.verifyClient
   </a>
@@ -815,19 +801,19 @@
         <ul class="nav nav-tabs">
             
         <li class="nav-item active">
-            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
-        </li>
-    
-        <li class="nav-item ">
             <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
         </li>
     
         <li class="nav-item ">
-            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript (express)</a>
+            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
         </li>
     
         <li class="nav-item ">
             <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript (express)</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript (express)</a>
         </li>
     
         </ul>
@@ -835,17 +821,6 @@
         <div class="tab-content">
             
         <div role="tabpanel" class="tab-pane active" id="tab-0-typescript">
-            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">({</span>
-  <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">()</span>
-<span class="p">});</span>
-</pre></div>
-
-        </div>
-    
-        <div role="tabpanel" class="tab-pane " id="tab-0-typescript">
             <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">colyseus</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;colyseus&quot;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>
 
@@ -859,11 +834,9 @@
         <div role="tabpanel" class="tab-pane " id="tab-0-typescript">
             <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">express</span> <span class="nx">from</span> <span class="s2">&quot;express&quot;</span><span class="p">;</span>
 
-<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
 <span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">({</span>
-  <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span>
+  <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">()</span>
 <span class="p">});</span>
 </pre></div>
 
@@ -882,52 +855,14 @@
 
         </div>
     
-        </div>
-    
-                </div>
-                    </p>
-<h4 id="optionsengine"><code>options.engine</code><a class="headerlink" href="#optionsengine" title="Permanent link">&para;</a></h4>
-<p>You may provide a different WebSocket engine. By default, it uses
-<a href="https://www.npmjs.com/package/ws"><code>ws</code></a>. You may use
-<a href="https://www.npmjs.com/package/uws"><code>uws</code></a> by passing it as a reference.</p>
-<p>
-                <div class="code-nav-container">
-                    
-        <ul class="nav nav-tabs">
-            
-        <li class="nav-item active">
-            <a href="#tab-1-typescript" aria-controls="tab-1-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
-        </li>
-    
-        <li class="nav-item ">
-            <a href="#tab-1-javascript" aria-controls="tab-1-javascript" role="tab" data-toggle="tab" data-lang="javascript">JavaScript</a>
-        </li>
-    
-        </ul>
-    
-        <div class="tab-content">
-            
-        <div role="tabpanel" class="tab-pane active" id="tab-1-typescript">
+        <div role="tabpanel" class="tab-pane " id="tab-0-typescript">
             <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">WebSocket</span> <span class="nx">from</span> <span class="s2">&quot;uws&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">express</span> <span class="nx">from</span> <span class="s2">&quot;express&quot;</span><span class="p">;</span>
 
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
 <span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">({</span>
-  <span class="nx">engine</span>: <span class="kt">WebSocket.Server</span><span class="p">,</span>
-  <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">()</span>
-<span class="p">});</span>
-</pre></div>
-
-        </div>
-    
-        <div role="tabpanel" class="tab-pane " id="tab-1-javascript">
-            <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">colyseus</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;colyseus&quot;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;uws&quot;</span><span class="p">)</span>
-
-<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">Server</span><span class="p">({</span>
-  <span class="nx">engine</span><span class="o">:</span> <span class="nx">WebSocket</span><span class="p">.</span><span class="nx">Server</span><span class="p">,</span>
-  <span class="nx">server</span><span class="o">:</span> <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">()</span>
+  <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span>
 <span class="p">});</span>
 </pre></div>
 
@@ -964,22 +899,22 @@ then the handshake is automatically accepted.</p>
         <ul class="nav nav-tabs">
             
         <li class="nav-item active">
-            <a href="#tab-2-typescript" aria-controls="tab-2-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+            <a href="#tab-1-typescript" aria-controls="tab-1-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
         </li>
     
         <li class="nav-item ">
-            <a href="#tab-2-typescript" aria-controls="tab-2-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
+            <a href="#tab-1-typescript" aria-controls="tab-1-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
         </li>
     
         </ul>
     
         <div class="tab-content">
             
-        <div role="tabpanel" class="tab-pane active" id="tab-2-typescript">
-            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
+        <div role="tabpanel" class="tab-pane active" id="tab-1-typescript">
+            <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">colyseus</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;colyseus&quot;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">({</span>
+<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">Server</span><span class="p">({</span>
   <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">(),</span>
   <span class="nx">verifyClient</span>: <span class="kt">function</span> <span class="p">(</span><span class="nx">info</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// validate &#39;info&#39;</span>
@@ -992,11 +927,11 @@ then the handshake is automatically accepted.</p>
 
         </div>
     
-        <div role="tabpanel" class="tab-pane " id="tab-2-typescript">
-            <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">colyseus</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;colyseus&quot;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>
+        <div role="tabpanel" class="tab-pane " id="tab-1-typescript">
+            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
 
-<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">Server</span><span class="p">({</span>
+<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">({</span>
   <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">(),</span>
   <span class="nx">verifyClient</span>: <span class="kt">function</span> <span class="p">(</span><span class="nx">info</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// validate &#39;info&#39;</span>
@@ -1021,36 +956,36 @@ then the handshake is automatically accepted.</p>
         <ul class="nav nav-tabs">
             
         <li class="nav-item active">
-            <a href="#tab-3-typescript" aria-controls="tab-3-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+            <a href="#tab-2-typescript" aria-controls="tab-2-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
         </li>
     
         <li class="nav-item ">
-            <a href="#tab-3-typescript" aria-controls="tab-3-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
+            <a href="#tab-2-typescript" aria-controls="tab-2-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
         </li>
     
         </ul>
     
         <div class="tab-content">
             
-        <div role="tabpanel" class="tab-pane active" id="tab-3-typescript">
-            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span><span class="p">,</span> <span class="nx">RedisPresence</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">({</span>
-  <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">(),</span>
-  <span class="nx">presence</span>: <span class="kt">new</span> <span class="nx">RedisPresence</span><span class="p">()</span>
-<span class="p">});</span>
-</pre></div>
-
-        </div>
-    
-        <div role="tabpanel" class="tab-pane " id="tab-3-typescript">
+        <div role="tabpanel" class="tab-pane active" id="tab-2-typescript">
             <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">colyseus</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;colyseus&quot;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">Server</span><span class="p">({</span>
   <span class="nx">server</span>: <span class="kt">http.createServer</span><span class="p">(),</span>
   <span class="nx">presence</span>: <span class="kt">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">RedisPresence</span><span class="p">()</span>
+<span class="p">});</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-2-typescript">
+            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span><span class="p">,</span> <span class="nx">RedisPresence</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">({</span>
+  <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">(),</span>
+  <span class="nx">presence</span>: <span class="kt">new</span> <span class="nx">RedisPresence</span><span class="p">()</span>
 <span class="p">});</span>
 </pre></div>
 
@@ -1129,22 +1064,22 @@ manually in your shutdown process.</p>
         <ul class="nav nav-tabs">
             
         <li class="nav-item active">
-            <a href="#tab-4-javascript" aria-controls="tab-4-javascript" role="tab" data-toggle="tab" data-lang="javascript">Express</a>
+            <a href="#tab-3-javascript" aria-controls="tab-3-javascript" role="tab" data-toggle="tab" data-lang="javascript">Express</a>
         </li>
     
         <li class="nav-item ">
-            <a href="#tab-4-javascript" aria-controls="tab-4-javascript" role="tab" data-toggle="tab" data-lang="javascript">http.createServer</a>
+            <a href="#tab-3-javascript" aria-controls="tab-3-javascript" role="tab" data-toggle="tab" data-lang="javascript">http.createServer</a>
         </li>
     
         <li class="nav-item ">
-            <a href="#tab-4-javascript" aria-controls="tab-4-javascript" role="tab" data-toggle="tab" data-lang="javascript">WebSocket.Server</a>
+            <a href="#tab-3-javascript" aria-controls="tab-3-javascript" role="tab" data-toggle="tab" data-lang="javascript">WebSocket.Server</a>
         </li>
     
         </ul>
     
         <div class="tab-content">
             
-        <div role="tabpanel" class="tab-pane active" id="tab-4-javascript">
+        <div role="tabpanel" class="tab-pane active" id="tab-3-javascript">
             <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">express</span> <span class="nx">from</span> <span class="s2">&quot;express&quot;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
 
@@ -1156,7 +1091,7 @@ manually in your shutdown process.</p>
 
         </div>
     
-        <div role="tabpanel" class="tab-pane " id="tab-4-javascript">
+        <div role="tabpanel" class="tab-pane " id="tab-3-javascript">
             <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">http</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
 
@@ -1168,7 +1103,7 @@ manually in your shutdown process.</p>
 
         </div>
     
-        <div role="tabpanel" class="tab-pane " id="tab-4-javascript">
+        <div role="tabpanel" class="tab-pane " id="tab-3-javascript">
             <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">http</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">express</span> <span class="nx">from</span> <span class="s2">&quot;express&quot;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">ws</span> <span class="nx">from</span> <span class="s2">&quot;ws&quot;</span><span class="p">;</span>

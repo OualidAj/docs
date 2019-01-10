@@ -924,7 +924,7 @@
         <ul class="nav nav-tabs">
             
         <li class="nav-item active">
-            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
         </li>
     
         <li class="nav-item ">
@@ -944,10 +944,7 @@
         <div class="tab-content">
             
         <div role="tabpanel" class="tab-pane active" id="tab-0-typescript">
-            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">DataChange</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus.js&quot;</span><span class="p">;</span>
-<span class="c1">// ...</span>
-
-<span class="nx">room</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="s2">&quot;players/:id&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">change</span>: <span class="kt">DataChange</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <div class="codehilite"><pre><span></span><span class="nx">room</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="s2">&quot;players/:id&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">change</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">change</span><span class="p">.</span><span class="nx">operation</span> <span class="o">===</span> <span class="s2">&quot;add&quot;</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;new player added to the state&quot;</span><span class="p">);</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;player id:&quot;</span><span class="p">,</span> <span class="nx">change</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
@@ -1027,7 +1024,7 @@
         <ul class="nav nav-tabs">
             
         <li class="nav-item active">
-            <a href="#tab-1-typescript" aria-controls="tab-1-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+            <a href="#tab-1-typescript" aria-controls="tab-1-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
         </li>
     
         <li class="nav-item ">
@@ -1047,10 +1044,7 @@
         <div class="tab-content">
             
         <div role="tabpanel" class="tab-pane active" id="tab-1-typescript">
-            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">DataChange</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus.js&quot;</span><span class="p">;</span>
-<span class="c1">// ...</span>
-
-<span class="nx">room</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="s2">&quot;players/:id/:attribute&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">change</span>: <span class="kt">DataChange</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <div class="codehilite"><pre><span></span><span class="nx">room</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="s2">&quot;players/:id/:attribute&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">change</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">change</span><span class="p">.</span><span class="nx">operation</span><span class="p">);</span> <span class="c1">// =&gt; &quot;add&quot; | &quot;remove&quot; | &quot;replace&quot;</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">change</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">attribute</span><span class="p">,</span> <span class="s2">&quot;has been changed&quot;</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">change</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
@@ -1115,7 +1109,7 @@
         <ul class="nav nav-tabs">
             
         <li class="nav-item active">
-            <a href="#tab-2-typescript" aria-controls="tab-2-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+            <a href="#tab-2-typescript" aria-controls="tab-2-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
         </li>
     
         <li class="nav-item ">
@@ -1171,7 +1165,7 @@
         <ul class="nav nav-tabs">
             
         <li class="nav-item active">
-            <a href="#tab-3-typescript" aria-controls="tab-3-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+            <a href="#tab-3-typescript" aria-controls="tab-3-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
         </li>
     
         <li class="nav-item ">
@@ -1258,7 +1252,7 @@ order to allow them to connect directly to this room.</p>
         <ul class="nav nav-tabs">
             
         <li class="nav-item active">
-            <a href="#tab-4-typescript" aria-controls="tab-4-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+            <a href="#tab-4-typescript" aria-controls="tab-4-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
         </li>
     
         <li class="nav-item ">
@@ -1329,7 +1323,7 @@ order to allow them to connect directly to this room.</p>
         <ul class="nav nav-tabs">
             
         <li class="nav-item active">
-            <a href="#tab-5-typescript" aria-controls="tab-5-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+            <a href="#tab-5-typescript" aria-controls="tab-5-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
         </li>
     
         <li class="nav-item ">
@@ -1402,7 +1396,7 @@ either <a href="../api-room/#send-client-message">room.send()</a> or
         <ul class="nav nav-tabs">
             
         <li class="nav-item active">
-            <a href="#tab-6-typescript" aria-controls="tab-6-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+            <a href="#tab-6-typescript" aria-controls="tab-6-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
         </li>
     
         <li class="nav-item ">
@@ -1465,7 +1459,7 @@ either <a href="../api-room/#send-client-message">room.send()</a> or
         <ul class="nav nav-tabs">
             
         <li class="nav-item active">
-            <a href="#tab-7-typescript" aria-controls="tab-7-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+            <a href="#tab-7-typescript" aria-controls="tab-7-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
         </li>
     
         <li class="nav-item ">
@@ -1528,7 +1522,7 @@ either <a href="../api-room/#send-client-message">room.send()</a> or
         <ul class="nav nav-tabs">
             
         <li class="nav-item active">
-            <a href="#tab-37-typescript" aria-controls="tab-37-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+            <a href="#tab-37-typescript" aria-controls="tab-37-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
         </li>
     
         <li class="nav-item ">

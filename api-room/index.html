@@ -1016,33 +1016,85 @@
                 <h1 id="room-api-server-side">Room API (Server-side)<a class="headerlink" href="#room-api-server-side" title="Permanent link">&para;</a></h1>
 <p>Considering that you already <a href="../api-server">set up your server</a>, now it's time to register session handlers, and start accepting connections from your users.</p>
 <p>You'll define session handlers creating classes that extends from <code>Room</code>.</p>
-<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Room</span><span class="p">,</span> <span class="nx">Client</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item active">
+            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
+        </li>
+    
+        <li class="nav-item ">
+            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-0-typescript">
+            <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">colyseus</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;colyseus&#39;</span><span class="p">);</span>
 
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyRoom</span> <span class="kr">extends</span> <span class="nx">Room</span> <span class="p">{</span>
-    <span class="c1">// Authorize client based on provided options before WebSocket handshake is complete</span>
-    <span class="nx">onAuth</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
-
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyRoom</span> <span class="kr">extends</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">Room</span> <span class="p">{</span>
     <span class="c1">// When room is initialized</span>
-    <span class="nx">onInit</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="nx">onInit</span> <span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
     <span class="c1">// Checks if a new client is allowed to join. (default: `return true`)</span>
-    <span class="nx">requestJoin</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">,</span> <span class="nx">isNew</span>: <span class="kt">boolean</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="nx">requestJoin</span> <span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">isNew</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+    <span class="c1">// Authorize client based on provided options before WebSocket handshake is complete</span>
+    <span class="nx">onAuth</span> <span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
     <span class="c1">// When client successfully join the room</span>
-    <span class="nx">onJoin</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
-
-    <span class="c1">// When a client leaves the room</span>
-    <span class="nx">onLeave</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">consented</span>: <span class="kt">boolean</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="nx">onJoin</span> <span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="nx">auth</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
     <span class="c1">// When a client sends a message</span>
-    <span class="nx">onMessage</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">message</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="nx">onMessage</span> <span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+    <span class="c1">// When a client leaves the room</span>
+    <span class="nx">onLeave</span> <span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">consented</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
     <span class="c1">// Cleanup callback, called after there are no more clients in the room. (see `autoDispose`)</span>
     <span class="nx">onDispose</span> <span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-0-typescript">
+            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Room</span><span class="p">,</span> <span class="nx">Client</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
 
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyRoom</span> <span class="kr">extends</span> <span class="nx">Room</span> <span class="p">{</span>
+    <span class="c1">// When room is initialized</span>
+    <span class="nx">onInit</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+    <span class="c1">// Checks if a new client is allowed to join. (default: `return true`)</span>
+    <span class="nx">requestJoin</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">,</span> <span class="nx">isNew</span>: <span class="kt">boolean</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+    <span class="c1">// Authorize client based on provided options before WebSocket handshake is complete</span>
+    <span class="nx">onAuth</span> <span class="p">(</span><span class="nx">options</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+    <span class="c1">// When client successfully join the room</span>
+    <span class="nx">onJoin</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">options</span>: <span class="kt">any</span><span class="p">,</span> <span class="nx">auth</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+    <span class="c1">// When a client sends a message</span>
+    <span class="nx">onMessage</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">message</span>: <span class="kt">any</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+    <span class="c1">// When a client leaves the room</span>
+    <span class="nx">onLeave</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">consented</span>: <span class="kt">boolean</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+    <span class="c1">// Cleanup callback, called after there are no more clients in the room. (see `autoDispose`)</span>
+    <span class="nx">onDispose</span> <span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
 <h2 id="abstract-methods">Abstract methods<a class="headerlink" href="#abstract-methods" title="Permanent link">&para;</a></h2>
 <p>Room handlers can implement all these methods.</p>
 <h3 id="oninit-options"><code>onInit (options)</code><a class="headerlink" href="#oninit-options" title="Permanent link">&para;</a></h3>

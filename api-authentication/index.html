@@ -609,14 +609,14 @@
                 
                   <h1>Authentication</h1>
                 
-                <p>You may implement the <code>onAuth(options)</code> method validate the authenticity of your clients.</p>
-<p>When requesting to join a room, that's the order of methods which will be called in your room handler:</p>
+                <p>You may implement the <code>onAuth (options)</code> method to validate the authenticity of your clients.</p>
+<p>When requesting to join a room, this is the order of methods which will be called in your room handler:</p>
 <ol>
-<li><code>requestJoin</code> - should check if a room is available for new clients</li>
+<li><code>requestJoin (options)</code> - should check if a room is available for new clients</li>
 <li><code>onAuth (options)</code> - should validate the client based on the options provided (i.e. auth token)</li>
 <li><code>onJoin (client, options, auth)</code> - should initialize the new client into your room's state.</li>
 </ol>
-<p>From the client-side, you'd call the <code>join</code> method with a token from some authentication service (i. e. Facebook):</p>
+<p>From the client-side, you'd call the <code>join</code> method with a token from some authentication service of your choice (i. e. Facebook):</p>
 <p>
                 <div class="code-nav-container">
                     
@@ -634,30 +634,34 @@
             <a href="#tab-0-lua" aria-controls="tab-0-lua" role="tab" data-toggle="tab" data-lang="lua">Lua</a>
         </li>
     
+        <li class="nav-item ">
+            <a href="#tab-0-lua" aria-controls="tab-0-lua" role="tab" data-toggle="tab" data-lang="lua">Haxe</a>
+        </li>
+    
         </ul>
     
         <div class="tab-content">
             
         <div role="tabpanel" class="tab-pane active" id="tab-0-javascript">
-            <div class="codehilite"><pre><span></span><span class="nx">client</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">accessToken</span><span class="o">:</span> <span class="nx">yourFacebookAccessToken</span>
-<span class="p">});</span>
+            <div class="codehilite"><pre><span></span><span class="nx">client</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">accessToken</span><span class="o">:</span> <span class="nx">yourFacebookAccessToken</span> <span class="p">});</span>
 </pre></div>
 
         </div>
     
         <div role="tabpanel" class="tab-pane " id="tab-0-csharp">
-            <div class="codehilite"><pre><span></span><span class="n">client</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;world&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="p">{</span>
-  <span class="n">accessToken</span> <span class="p">=</span> <span class="n">yourFacebookAccessToken</span>
-<span class="p">});</span>
+            <div class="codehilite"><pre><span></span><span class="n">client</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;world&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="p">{</span> <span class="n">accessToken</span> <span class="p">=</span> <span class="n">yourFacebookAccessToken</span> <span class="p">});</span>
 </pre></div>
 
         </div>
     
         <div role="tabpanel" class="tab-pane " id="tab-0-lua">
-            <div class="codehilite"><pre><span></span><span class="n">client</span><span class="p">:</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">,</span> <span class="p">{</span>
-  <span class="n">accessToken</span> <span class="o">=</span> <span class="n">yourFacebookAccessToken</span>
-<span class="p">})</span>
+            <div class="codehilite"><pre><span></span><span class="n">client</span><span class="p">:</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="n">accessToken</span> <span class="o">=</span> <span class="n">yourFacebookAccessToken</span> <span class="p">})</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-0-lua">
+            <div class="codehilite"><pre><span></span><span class="n">client</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="n">accessToken</span><span class="p">:</span> <span class="n">yourFacebookAccessToken</span> <span class="p">})</span>
 </pre></div>
 
         </div>
@@ -668,7 +672,7 @@
                     </p>
 <p>The <code>onAuth</code> method in your room handler should return a truthy value if the
 access token is valid.</p>
-<p>You may return custom user-related data, which will be passed on the third
+<p>You may also return custom user-related data, which will be passed on the third
 parameter of <code>onJoin</code>.</p>
 <h3 id="synchronous-usage">Synchronous usage<a class="headerlink" href="#synchronous-usage" title="Permanent link">&para;</a></h3>
 <p>You can immediatelly return a <code>boolean</code> value.</p>

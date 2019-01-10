@@ -913,11 +913,11 @@
         <ul class="nav nav-tabs">
             
         <li class="nav-item active">
-            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
         </li>
     
         <li class="nav-item ">
-            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
+            <a href="#tab-0-typescript" aria-controls="tab-0-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
         </li>
     
         </ul>
@@ -925,13 +925,13 @@
         <div class="tab-content">
             
         <div role="tabpanel" class="tab-pane active" id="tab-0-typescript">
-            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span><span class="p">,</span> <span class="nx">RedisPresence</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
+            <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">colyseus</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;colyseus&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
 
 <span class="c1">// This happens on the slave processes.</span>
-<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">({</span>
-    <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">(),</span>
-    <span class="nx">presence</span>: <span class="kt">new</span> <span class="nx">RedisPresence</span><span class="p">()</span>
+<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">Server</span><span class="p">({</span>
+    <span class="nx">server</span>: <span class="kt">http.createServer</span><span class="p">(),</span>
+    <span class="nx">presence</span>: <span class="kt">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">RedisPresence</span><span class="p">()</span>
 <span class="p">});</span>
 
 <span class="nx">gameServer</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">2657</span><span class="p">);</span>
@@ -940,13 +940,13 @@
         </div>
     
         <div role="tabpanel" class="tab-pane " id="tab-0-typescript">
-            <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">colyseus</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;colyseus&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
+            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span><span class="p">,</span> <span class="nx">RedisPresence</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
 
 <span class="c1">// This happens on the slave processes.</span>
-<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">Server</span><span class="p">({</span>
-    <span class="nx">server</span>: <span class="kt">http.createServer</span><span class="p">(),</span>
-    <span class="nx">presence</span>: <span class="kt">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">RedisPresence</span><span class="p">()</span>
+<span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">({</span>
+    <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">(),</span>
+    <span class="nx">presence</span>: <span class="kt">new</span> <span class="nx">RedisPresence</span><span class="p">()</span>
 <span class="p">});</span>
 
 <span class="nx">gameServer</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">2657</span><span class="p">);</span>
@@ -967,11 +967,11 @@
         <ul class="nav nav-tabs">
             
         <li class="nav-item active">
-            <a href="#tab-1-typescript" aria-controls="tab-1-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
+            <a href="#tab-1-typescript" aria-controls="tab-1-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
         </li>
     
         <li class="nav-item ">
-            <a href="#tab-1-typescript" aria-controls="tab-1-typescript" role="tab" data-toggle="tab" data-lang="typescript">JavaScript</a>
+            <a href="#tab-1-typescript" aria-controls="tab-1-typescript" role="tab" data-toggle="tab" data-lang="typescript">TypeScript</a>
         </li>
     
         </ul>
@@ -979,32 +979,6 @@
         <div class="tab-content">
             
         <div role="tabpanel" class="tab-pane active" id="tab-1-typescript">
-            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cluster</span> <span class="nx">from</span> <span class="s2">&quot;cluster&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">os</span> <span class="nx">from</span> <span class="s2">&quot;os&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span><span class="p">,</span> <span class="nx">MemsharedPresence</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="nx">cluster</span><span class="p">.</span><span class="nx">isMaster</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// This only happens on the master server</span>
-    <span class="kr">const</span> <span class="nx">cpus</span> <span class="o">=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">cpus</span><span class="p">().</span><span class="nx">length</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">cpus</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">cluster</span><span class="p">.</span><span class="nx">fork</span><span class="p">();</span>
-    <span class="p">}</span>
-
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="c1">// This happens on the slave processes.</span>
-    <span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">({</span>
-        <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">(),</span>
-        <span class="nx">presence</span>: <span class="kt">new</span> <span class="nx">MemsharedPresence</span><span class="p">()</span>
-    <span class="p">});</span>
-
-    <span class="nx">gameServer</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">2657</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-
-        </div>
-    
-        <div role="tabpanel" class="tab-pane " id="tab-1-typescript">
             <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">cluster</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;cluster&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">os</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;os&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">colyseus</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;colyseus&#39;</span><span class="p">);</span>
@@ -1022,6 +996,32 @@
     <span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">Server</span><span class="p">({</span>
         <span class="nx">server</span>: <span class="kt">http.createServer</span><span class="p">(),</span>
         <span class="nx">presence</span>: <span class="kt">new</span> <span class="nx">colyseus</span><span class="p">.</span><span class="nx">MemsharedPresence</span><span class="p">()</span>
+    <span class="p">});</span>
+
+    <span class="nx">gameServer</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">2657</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-1-typescript">
+            <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cluster</span> <span class="nx">from</span> <span class="s2">&quot;cluster&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">os</span> <span class="nx">from</span> <span class="s2">&quot;os&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Server</span><span class="p">,</span> <span class="nx">MemsharedPresence</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;colyseus&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">createServer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;http&quot;</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">cluster</span><span class="p">.</span><span class="nx">isMaster</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// This only happens on the master server</span>
+    <span class="kr">const</span> <span class="nx">cpus</span> <span class="o">=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">cpus</span><span class="p">().</span><span class="nx">length</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">cpus</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">cluster</span><span class="p">.</span><span class="nx">fork</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// This happens on the slave processes.</span>
+    <span class="kr">const</span> <span class="nx">gameServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">({</span>
+        <span class="nx">server</span>: <span class="kt">createServer</span><span class="p">(),</span>
+        <span class="nx">presence</span>: <span class="kt">new</span> <span class="nx">MemsharedPresence</span><span class="p">()</span>
     <span class="p">});</span>
 
     <span class="nx">gameServer</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">2657</span><span class="p">);</span>
